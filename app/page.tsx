@@ -5,7 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Tag from "@/components/Tag";
 import ContactCTA from "@/components/ContactCTA";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
-import { projects } from "@/lib/projects";
+import { getProjects } from "@/lib/content";
 import styles from "./page.module.css";
 
 const PLAYGROUND_CATEGORIES = [
@@ -31,6 +31,8 @@ const FIELD_NOTE_CATEGORIES = [
 ];
 
 export default function Home() {
+  const projects = getProjects();
+
   return (
     <main className="wrap page">
       <Hero />
@@ -44,8 +46,7 @@ export default function Home() {
             ))}
           </ProjectGrid>
           <p className={styles.sectionNote}>
-            Full case studies — problem, research, process, outcome — arrive
-            with the project system.
+            Each case study covers problem, research, process, and outcome.
           </p>
           <a href="/work" className="text-link">
             All work

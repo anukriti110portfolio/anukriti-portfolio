@@ -1,0 +1,39 @@
+.prose {
+  max-width: var(--content-reading);
+}
+
+.prose > * + * {
+  margin-top: var(--space-sm);
+}
+
+.prose h2 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: var(--border-thin) solid var(--line);
+}
+
+.prose h3 {
+  font-size: var(--text-lg);
+  margin-top: var(--space-md);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.prose img,
+.prose video {
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

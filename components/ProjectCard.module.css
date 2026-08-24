@@ -1,3 +1,10 @@
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
 .card {
   display: flex;
   flex-direction: column;
