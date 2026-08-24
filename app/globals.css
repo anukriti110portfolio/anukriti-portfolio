@@ -111,6 +111,32 @@ figcaption {
   max-width: calc(var(--content-reading) + (2 * var(--gutter)));
 }
 
+.page {
+  padding-block: var(--space-lg) var(--space-2xl);
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-2xs);
+  left: var(--space-2xs);
+  z-index: 100;
+  padding: var(--space-2xs) var(--space-sm);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--space-md)));
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+  outline-color: var(--foreground);
+}
+
 .dropcap::first-letter {
   float: left;
   font-family: var(--font-display);

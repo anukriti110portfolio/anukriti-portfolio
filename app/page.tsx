@@ -24,7 +24,7 @@ const SPACING_TOKENS = [
 
 export default function Home() {
   return (
-    <main className={`wrap ${styles.page}`}>
+    <main className="wrap page">
       <header className={styles.intro}>
         <p className={styles.kicker}>Phases 03–04 · Token &amp; layout specimen</p>
         <h1 className={styles.title}>

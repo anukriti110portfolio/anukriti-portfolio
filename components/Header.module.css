@@ -1,0 +1,123 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--background);
+  border-bottom: var(--border-thin) solid var(--line);
+  transition: background-color var(--dur-base) var(--ease-in-out);
+}
+
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-block: var(--space-xs);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 550;
+  font-size: var(--text-lg);
+  letter-spacing: var(--tracking-tight);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.initials {
+  display: none;
+}
+
+.menuButton {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  padding: var(--space-2xs) var(--space-sm);
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.menuButton:hover {
+  border-color: var(--foreground);
+}
+
+.nav {
+  display: none;
+}
+
+.nav.open {
+  display: block;
+  position: absolute;
+  inset-inline: calc(-1 * var(--gutter));
+  top: 100%;
+  background: var(--background);
+  border-bottom: var(--border-rule) solid var(--foreground);
+  padding: var(--space-sm) var(--gutter) var(--space-md);
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--muted);
+  text-decoration: none;
+  padding-block: var(--space-2xs);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--foreground);
+}
+
+.link[aria-current="page"] {
+  color: var(--accent);
+}
+
+@media (min-width: 48rem) {
+  .menuButton {
+    display: none;
+  }
+
+  .nav,
+  .nav.open {
+    display: block;
+    position: static;
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+
+  .nav ul {
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+
+  .link {
+    padding-block: var(--space-3xs);
+  }
+}
+
+@media (max-width: 26rem) {
+  .fullName {
+    display: none;
+  }
+
+  .initials {
+    display: inline;
+  }
+}

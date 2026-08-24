@@ -1,0 +1,40 @@
+.footer {
+  border-top: var(--border-heavy) solid var(--foreground);
+  background: var(--surface);
+  transition: background-color var(--dur-base) var(--ease-in-out);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: var(--space-lg);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 550;
+  font-size: var(--text-lg);
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.colophon {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--muted);
+  max-width: none;
+  text-align: right;
+}
+
+@media (max-width: 48rem) {
+  .colophon {
+    text-align: left;
+  }
+}

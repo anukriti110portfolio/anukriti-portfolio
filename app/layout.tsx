@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono, Tiro_Devanagari_Hindi } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -38,7 +40,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme="editorial"
       className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} ${tiroHindi.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <a href="#content" className="skip-link">
+          Skip to content
+        </a>
+        <Header />
+        <div id="content">{children}</div>
+        <Footer />
+      </body>
     </html>
   );
 }
