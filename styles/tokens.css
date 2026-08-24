@@ -1,0 +1,95 @@
+:root {
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-plex-mono), "Courier New", monospace;
+  --font-hindi: var(--font-tiro), serif;
+
+  --text-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
+  --text-sm: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.13rem);
+  --text-lg: clamp(1.17rem, 1.08rem + 0.45vw, 1.45rem);
+  --text-xl: clamp(1.45rem, 1.25rem + 1vw, 2rem);
+  --text-2xl: clamp(1.9rem, 1.5rem + 2vw, 3rem);
+  --text-hero: clamp(2.6rem, 1.9rem + 4vw, 5.75rem);
+
+  --leading-tight: 1.04;
+  --leading-snug: 1.3;
+  --leading-body: 1.65;
+
+  --tracking-tight: -0.015em;
+  --tracking-caps: 0.12em;
+
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1.25rem;
+  --space-md: 2rem;
+  --space-lg: 3.25rem;
+  --space-xl: 5rem;
+  --space-2xl: 8rem;
+
+  --content-max: 76rem;
+  --content-reading: 42rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  --radius-sm: 2px;
+  --radius-lg: 6px;
+  --border-thin: 1px;
+  --border-rule: 2px;
+  --border-heavy: 4px;
+
+  --dur-fast: 140ms;
+  --dur-base: 260ms;
+  --dur-slow: 480ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+:root,
+[data-theme="editorial"] {
+  color-scheme: light;
+  --background: #faf7f1;
+  --surface: #f1ece1;
+  --foreground: #211c16;
+  --muted: #6e655a;
+  --accent: #bc3f1e;
+  --accent-contrast: #faf7f1;
+  --line: #d8d1c2;
+  --shadow-print: 0.35rem 0.35rem 0 0 rgba(33, 28, 22, 0.12);
+}
+
+[data-theme="retro"] {
+  color-scheme: light;
+  --background: #f5ecdc;
+  --surface: #ede1cb;
+  --foreground: #29201a;
+  --muted: #7c6f5e;
+  --accent: #c75b12;
+  --accent-contrast: #fdf8ee;
+  --line: #d6c6ab;
+  --shadow-print: 0.35rem 0.35rem 0 0 #dcc9a6;
+}
+
+[data-theme="minimal"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --surface: #f6f6f4;
+  --foreground: #111111;
+  --muted: #6f6f6f;
+  --accent: #111111;
+  --accent-contrast: #ffffff;
+  --line: #e3e3e0;
+  --shadow-print: none;
+}
+
+[data-theme="indian-print"] {
+  color-scheme: dark;
+  --background: #14213a;
+  --surface: #1b2b49;
+  --foreground: #f4efe4;
+  --muted: #9ba3b7;
+  --accent: #ff6b3d;
+  --accent-contrast: #14213a;
+  --line: #2e3d5c;
+  --shadow-print: 0.35rem 0.35rem 0 0 rgba(4, 10, 22, 0.45);
+}

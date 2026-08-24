@@ -1,69 +1,103 @@
-import Image from "next/image";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import styles from "./page.module.css";
+
+const COLOUR_TOKENS = [
+  { name: "--background", note: "paper" },
+  { name: "--surface", note: "cards" },
+  { name: "--foreground", note: "ink" },
+  { name: "--muted", note: "secondary text" },
+  { name: "--accent", note: "vermilion" },
+  { name: "--line", note: "rules & borders" },
+];
+
+const SPACING_TOKENS = [
+  "--space-3xs",
+  "--space-2xs",
+  "--space-xs",
+  "--space-sm",
+  "--space-md",
+  "--space-lg",
+  "--space-xl",
+  "--space-2xl",
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
+    <main className={styles.specimen}>
+      <header className={styles.header}>
+        <p className={styles.kicker}>Phase 03 · Token specimen</p>
+        <h1 className={styles.title}>
+          Anukriti Tripathi
+          <span className={styles.hindi} lang="hi">
+            {" "}
+            अनुकृति
+          </span>
+        </h1>
+        <p className={styles.lede}>
+          Temporary specimen page. It exists only to prove the design tokens
+          work — the real homepage arrives in Phase 06.
+        </p>
+        <ThemeSwitcher />
+      </header>
+
+      <section aria-labelledby="type-scale" className={styles.section}>
+        <h2 id="type-scale" className={styles.sectionTitle}>
+          Type scale
+        </h2>
+        <p className={styles.sampleHero}>Display / Hero</p>
+        <p className={styles.sample2xl}>Heading level two</p>
+        <p className={styles.sampleLg}>Section heading</p>
+        <p className={styles.sampleBase}>
+          Body text at base size, set for comfortable reading measure across a
+          forty-two character column.
+        </p>
+        <p className={styles.sampleMono}>MONO LABEL · 001 · IBM PLEX MONO</p>
+      </section>
+
+      <section aria-labelledby="colours" className={styles.section}>
+        <h2 id="colours" className={styles.sectionTitle}>
+          Colour tokens
+        </h2>
+        <ul className={styles.swatches}>
+          {COLOUR_TOKENS.map((token) => (
+            <li key={token.name} className={styles.swatchItem}>
+              <span
+                className={styles.swatch}
+                style={{ background: `var(${token.name})` }}
+              />
+              <span className={styles.swatchName}>{token.name}</span>
+              <span className={styles.swatchNote}>{token.note}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section aria-labelledby="spacing" className={styles.section}>
+        <h2 id="spacing" className={styles.sectionTitle}>
+          Spacing scale
+        </h2>
+        <ul className={styles.spacingList}>
+          {SPACING_TOKENS.map((token) => (
+            <li key={token} className={styles.spacingRow}>
+              <span className={styles.spacingName}>{token}</span>
+              <span className={styles.spacingBar} style={{ width: `var(${token})` }} />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section aria-labelledby="print-detail" className={styles.section}>
+        <h2 id="print-detail" className={styles.sectionTitle}>
+          Print detail
+        </h2>
+        <div className={styles.printCard}>
+          <p className={styles.printCardLabel}>Hard offset shadow</p>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            A print-inspired alternative to blurry drop shadows. Radius stays
+            small; rules stay crisp.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
