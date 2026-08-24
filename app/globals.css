@@ -148,6 +148,28 @@ figcaption {
   color: var(--accent);
 }
 
+.text-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.text-link::after {
+  content: "\2192";
+  display: inline-block;
+  margin-left: var(--space-2xs);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.text-link:hover::after,
+.text-link:focus-visible::after {
+  transform: translateX(0.25rem);
+}
+
 button {
   font: inherit;
   color: inherit;

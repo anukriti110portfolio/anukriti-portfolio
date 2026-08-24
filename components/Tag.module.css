@@ -1,0 +1,11 @@
+.span {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--muted);
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.3em 0.7em;
+}
