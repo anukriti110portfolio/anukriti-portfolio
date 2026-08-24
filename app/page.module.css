@@ -1,19 +1,15 @@
-.specimen {
-  max-width: var(--content-max);
-  margin-inline: auto;
-  padding: var(--space-lg) var(--gutter) var(--space-2xl);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
+.page {
+  padding-block: var(--space-lg) var(--space-2xl);
 }
 
-.header {
+.intro {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-md);
-  padding-top: var(--space-lg);
-  border-bottom: var(--border-rule) solid var(--foreground);
+  padding-bottom: var(--space-lg);
+  border-bottom: var(--border-heavy) solid var(--foreground);
+  margin-bottom: var(--space-xl);
 }
 
 .kicker {
@@ -42,56 +38,33 @@
   max-width: var(--content-reading);
 }
 
-.section {
+.section + .section {
+  margin-top: var(--space-2xl);
+}
+
+.typeDemo {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.sectionTitle {
-  font-size: var(--text-sm);
-  font-family: var(--font-mono);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
-  color: var(--muted);
-  padding-bottom: var(--space-2xs);
-  border-bottom: var(--border-thin) solid var(--line);
-}
-
-.sampleHero {
-  font-family: var(--font-display);
-  font-size: var(--text-hero);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
-}
-
-.sample2xl {
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  line-height: var(--leading-snug);
-}
-
-.sampleLg {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  line-height: var(--leading-snug);
-}
-
-.sampleBase {
-  font-size: var(--text-base);
+  gap: var(--space-md);
   max-width: var(--content-reading);
 }
 
-.sampleMono {
+.figurePlaceholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  border: var(--border-thin) dashed var(--line);
+  border-radius: var(--radius-sm);
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-caps);
+  font-size: var(--text-sm);
   color: var(--muted);
+  letter-spacing: var(--tracking-caps);
 }
 
 .swatches {
   list-style: none;
+  padding-left: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
   gap: var(--space-sm);
@@ -121,6 +94,7 @@
 
 .spacingList {
   list-style: none;
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   gap: var(--space-2xs);
@@ -152,15 +126,4 @@
   border: var(--border-thin) solid var(--line);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-print);
-  transition: box-shadow var(--dur-base) var(--ease-in-out),
-    background-color var(--dur-base) var(--ease-in-out);
-}
-
-.printCardLabel {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
-  color: var(--accent);
-  margin-bottom: var(--space-2xs);
 }

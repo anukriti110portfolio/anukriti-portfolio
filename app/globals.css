@@ -38,6 +38,24 @@ h6 {
   text-wrap: balance;
 }
 
+h1 {
+  font-size: var(--text-2xl);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--text-base);
+}
+
 p {
   max-width: var(--content-reading);
   text-wrap: pretty;
@@ -52,6 +70,56 @@ video {
 
 a {
   color: inherit;
+}
+
+ul,
+ol {
+  padding-left: 1.25em;
+}
+
+li + li {
+  margin-top: var(--space-3xs);
+}
+
+hr {
+  border: none;
+  border-top: var(--border-thin) solid var(--line);
+}
+
+blockquote {
+  border-left: var(--border-heavy) solid var(--accent);
+  padding-left: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}
+
+figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin-top: var(--space-2xs);
+}
+
+.wrap {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.wrap--reading {
+  max-width: calc(var(--content-reading) + (2 * var(--gutter)));
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-weight: 550;
+  font-size: 3.1em;
+  line-height: 0.82;
+  padding-right: 0.09em;
+  padding-top: 0.06em;
+  color: var(--accent);
 }
 
 button {

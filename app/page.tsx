@@ -1,4 +1,5 @@
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import SectionHeader from "@/components/SectionHeader";
 import styles from "./page.module.css";
 
 const COLOUR_TOKENS = [
@@ -23,9 +24,9 @@ const SPACING_TOKENS = [
 
 export default function Home() {
   return (
-    <main className={styles.specimen}>
-      <header className={styles.header}>
-        <p className={styles.kicker}>Phase 03 · Token specimen</p>
+    <main className={`wrap ${styles.page}`}>
+      <header className={styles.intro}>
+        <p className={styles.kicker}>Phases 03–04 · Token &amp; layout specimen</p>
         <h1 className={styles.title}>
           Anukriti Tripathi
           <span className={styles.hindi} lang="hi">
@@ -34,30 +35,41 @@ export default function Home() {
           </span>
         </h1>
         <p className={styles.lede}>
-          Temporary specimen page. It exists only to prove the design tokens
-          work — the real homepage arrives in Phase 06.
+          Temporary specimen page. It exists to prove the design tokens and
+          layout system work — the real homepage arrives in Phase 06.
         </p>
         <ThemeSwitcher />
       </header>
 
-      <section aria-labelledby="type-scale" className={styles.section}>
-        <h2 id="type-scale" className={styles.sectionTitle}>
-          Type scale
-        </h2>
-        <p className={styles.sampleHero}>Display / Hero</p>
-        <p className={styles.sample2xl}>Heading level two</p>
-        <p className={styles.sampleLg}>Section heading</p>
-        <p className={styles.sampleBase}>
-          Body text at base size, set for comfortable reading measure across a
-          forty-two character column.
-        </p>
-        <p className={styles.sampleMono}>MONO LABEL · 001 · IBM PLEX MONO</p>
+      <section aria-labelledby="editorial-type" className={styles.section}>
+        <SectionHeader
+          id="editorial-type"
+          kicker="01 · Typography"
+          title="Editorial defaults"
+        />
+        <div className={styles.typeDemo}>
+          <p className="dropcap">
+            Body text is set for a comfortable reading measure of roughly
+            sixty-five characters. The first letter of an opening paragraph can
+            be dropped into the column, the way newspapers and old Indian print
+            journals set their features. Everything you see here comes from the
+            shared base styles, not from this page.
+          </p>
+          <blockquote>
+            A pull-quote borrows the display serif and leans on a heavy accent
+            rule, like a magazine spread.
+          </blockquote>
+          <figure>
+            <div className={styles.figurePlaceholder} aria-hidden="true">
+              FIG.
+            </div>
+            <figcaption>FIG. 01 — Caption style for images and video</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section aria-labelledby="colours" className={styles.section}>
-        <h2 id="colours" className={styles.sectionTitle}>
-          Colour tokens
-        </h2>
+        <SectionHeader id="colours" kicker="02 · Colour" title="Colour tokens" />
         <ul className={styles.swatches}>
           {COLOUR_TOKENS.map((token) => (
             <li key={token.name} className={styles.swatchItem}>
@@ -73,23 +85,26 @@ export default function Home() {
       </section>
 
       <section aria-labelledby="spacing" className={styles.section}>
-        <h2 id="spacing" className={styles.sectionTitle}>
-          Spacing scale
-        </h2>
+        <SectionHeader id="spacing" kicker="03 · Rhythm" title="Spacing scale" />
         <ul className={styles.spacingList}>
           {SPACING_TOKENS.map((token) => (
             <li key={token} className={styles.spacingRow}>
               <span className={styles.spacingName}>{token}</span>
-              <span className={styles.spacingBar} style={{ width: `var(${token})` }} />
+              <span
+                className={styles.spacingBar}
+                style={{ width: `var(${token})` }}
+              />
             </li>
           ))}
         </ul>
       </section>
 
       <section aria-labelledby="print-detail" className={styles.section}>
-        <h2 id="print-detail" className={styles.sectionTitle}>
-          Print detail
-        </h2>
+        <SectionHeader
+          id="print-detail"
+          kicker="04 · Detail"
+          title="Print detail"
+        />
         <div className={styles.printCard}>
           <p className={styles.printCardLabel}>Hard offset shadow</p>
           <p>
