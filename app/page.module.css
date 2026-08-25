@@ -15,6 +15,16 @@
   max-width: none;
 }
 
+.noteLink {
+  color: var(--foreground);
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+.noteLink:hover {
+  color: var(--accent);
+}
+
 .spread {
   margin-top: var(--space-2xl);
   display: grid;

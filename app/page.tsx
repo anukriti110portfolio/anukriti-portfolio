@@ -5,7 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Tag from "@/components/Tag";
 import ContactCTA from "@/components/ContactCTA";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
-import { getProjects } from "@/lib/content";
+import { getNotes, getProjects } from "@/lib/content";
 import styles from "./page.module.css";
 
 const PLAYGROUND_CATEGORIES = [
@@ -32,6 +32,7 @@ const FIELD_NOTE_CATEGORIES = [
 
 export default function Home() {
   const projects = getProjects();
+  const latestNote = getNotes()[0];
 
   return (
     <main className="wrap page">
@@ -88,6 +89,14 @@ export default function Home() {
             Short observations from the field — design, human behaviour,
             research, and visual culture, written as I learn.
           </p>
+          {latestNote ? (
+            <p className={styles.sectionNote}>
+              Latest:{" "}
+              <a href={`/field-notes/${latestNote.slug}`} className={styles.noteLink}>
+                {latestNote.frontmatter.title}
+              </a>
+            </p>
+          ) : null}
           <ul className={styles.chipRow} aria-label="Field note categories">
             {FIELD_NOTE_CATEGORIES.map((category) => (
               <li key={category}>

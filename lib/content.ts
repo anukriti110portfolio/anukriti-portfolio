@@ -83,6 +83,37 @@ export function getPlaygroundItem(
   return getPlaygroundItems().find((file) => file.slug === slug);
 }
 
+export type NoteFrontmatter = {
+  title: string;
+  date?: string;
+  category?: string;
+  tags?: string[];
+  cover?: string;
+  description?: string;
+};
+
+export function getNotes(): ContentFile<NoteFrontmatter>[] {
+  return readCollection<NoteFrontmatter>("blog").sort((a, b) => {
+    const dateA = a.frontmatter.date ?? "0000-00-00";
+    const dateB = b.frontmatter.date ?? "0000-00-00";
+    return dateB.localeCompare(dateA);
+  });
+}
+
+export function getNote(
+  slug: string
+): ContentFile<NoteFrontmatter> | undefined {
+  return getNotes().find((file) => file.slug === slug);
+}
+
+export function getReadingTime(body: string): number {
+  const words = body
+    .replace(/[#>*`\-\[\]()!]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
 const MONTHS = [
   "Jan",
   "Feb",
@@ -99,9 +130,9 @@ const MONTHS = [
 ];
 
 export function formatDate(isoDate: string): string {
-  const [year, month] = isoDate.split("-");
+  const [year, month, day] = isoDate.split("-");
   const monthName = MONTHS[Number(month) - 1] ?? "";
-  return `${monthName} ${year}`;
+  return [day, monthName, year].filter(Boolean).join(" ");
 }
 
 export type ProjectNeighbors = {

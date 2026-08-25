@@ -1,0 +1,32 @@
+---
+title: A designer learning to build her own portfolio
+date: "2026-08-25"
+category: Learning
+tags:
+  - Frontend
+  - Process
+description: Notes from building this website in public — tokens, themes, MDX, and the bugs in between.
+---
+
+This website is my first serious frontend build. Rather than hiding the
+process, I am documenting it.
+
+## What surprised me
+
+Design tokens changed how I think about visual design. Defining `--accent`
+once and never typing a hex value again felt like setting up a print colour
+system before laying out a magazine.
+
+The content system was the second surprise: writing a case study into a text
+file — no component edits, no code — made publishing feel like filling a
+form.
+
+## What broke
+
+A YAML parser read `[CONTENT NEEDED]` as an array and crashed the whole
+build. One pair of quotation marks fixed it. Lesson: every format has
+grammar, even the "simple" ones.
+
+## What is next
+
+More experiments in the playground, more notes here as I go.

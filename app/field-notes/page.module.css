@@ -1,0 +1,4 @@
+.intro {
+  max-width: var(--content-reading);
+  margin-bottom: var(--space-lg);
+}
