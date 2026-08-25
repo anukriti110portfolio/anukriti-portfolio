@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#EAE4D8"/>
+  <rect x="20" y="20" width="760" height="960" fill="none" stroke="#B9AE9C" stroke-width="2"/>
+  <rect x="32" y="32" width="736" height="936" fill="none" stroke="#B9AE9C" stroke-width="1" stroke-dasharray="6 6"/>
+  <text x="400" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="120" fill="#DCD4C4">PORTRAIT</text>
+  <text x="400" y="540" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" letter-spacing="4" fill="#98907F">PLACEHOLDER</text>
+  <text x="400" y="580" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" letter-spacing="2" fill="#B0A793">REPLACE /images/about/portrait.svg</text>
+</svg>

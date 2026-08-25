@@ -1,0 +1,206 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.portrait {
+  aspect-ratio: 4 / 5;
+  position: relative;
+  background: var(--surface);
+  border: var(--border-thin) solid var(--line);
+  overflow: hidden;
+}
+
+.portrait img {
+  object-fit: cover;
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--muted);
+  max-width: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.intro {
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  max-width: none;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sectionTitle {
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--muted);
+  padding-bottom: var(--space-2xs);
+  border-bottom: var(--border-thin) solid var(--line);
+  max-width: none;
+}
+
+.principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: principle;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.principle {
+  counter-increment: principle;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-sm);
+  align-items: baseline;
+  border-top: var(--border-thin) solid var(--line);
+  padding-top: var(--space-sm);
+}
+
+.principle::before {
+  content: "0" counter(principle);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  color: var(--accent);
+}
+
+.principleText strong {
+  display: block;
+  font-weight: 550;
+  margin-bottom: var(--space-3xs);
+}
+
+.principleText p {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  max-width: 34rem;
+}
+
+.slotBox {
+  border: var(--border-thin) dashed var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  padding: var(--space-md);
+}
+
+.slotLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--muted);
+  max-width: none;
+  margin-bottom: var(--space-2xs);
+}
+
+.learningList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.learningList li::before {
+  content: "→ ";
+  color: var(--accent);
+}
+
+.tagGroups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.tagGroupLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--foreground);
+  max-width: none;
+  margin-bottom: var(--space-2xs);
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.experimentsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--border-rule) solid var(--foreground);
+}
+
+.experimentRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding-block: var(--space-xs);
+  border-bottom: var(--border-thin) solid var(--line);
+}
+
+.experimentTitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.experimentLink:hover .experimentTitle,
+.experimentLink:focus-visible .experimentTitle {
+  color: var(--accent);
+}
+
+@media (min-width: 56rem) {
+.pageTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--accent);
+  max-width: none;
+  margin-bottom: var(--space-md);
+}
+
+.grid {
+    grid-template-columns: minmax(16rem, 22rem) 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .portrait {
+    position: sticky;
+    top: calc(var(--space-lg) + 4rem);
+  }
+}
