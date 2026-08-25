@@ -9,9 +9,19 @@ type ButtonProps = {
 
 export default function Button({ href, variant = "solid", children }: ButtonProps) {
   const variantClass = variant === "solid" ? styles.solid : styles.outline;
+  const className = `${styles.base} ${variantClass}`;
+  const isExternal = href.startsWith("http");
+
+  if (isExternal) {
+    return (
+      <a href={href} className={className} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <Link href={href} className={`${styles.base} ${variantClass}`}>
+    <Link href={href} className={className}>
       {children}
     </Link>
   );

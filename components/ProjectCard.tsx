@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ContentFile, ProjectFrontmatter } from "@/lib/content";
 import styles from "./ProjectCard.module.css";
 
@@ -15,8 +16,19 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     <li>
       <Link href={`/work/${project.slug}`} className={styles.link}>
         <article className={styles.card}>
-          <div className={styles.cover} aria-hidden="true">
-            <span className={styles.plate}>PLATE {plateNumber}</span>
+          <div className={styles.cover}>
+            {fm.cover ? (
+              <Image
+                src={fm.cover}
+                alt=""
+                fill
+                sizes="(max-width: 48rem) 100vw, (max-width: 76rem) 50vw, 33vw"
+              />
+            ) : (
+              <span className={styles.plate} aria-hidden="true">
+                PLATE {plateNumber}
+              </span>
+            )}
           </div>
           <h3 className={styles.title}>{fm.title}</h3>
           <p className={styles.meta}>
@@ -24,7 +36,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               "Case study in progress"}
           </p>
         </article>
-    </Link>
+      </Link>
     </li>
   );
 }

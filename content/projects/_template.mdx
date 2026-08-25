@@ -9,6 +9,10 @@ tools:
   - Pen and paper
 duration: 6 weeks
 order: 99
+cover: "/images/projects/your-slug/cover.jpg"
+video: "https://youtube.com/your-process-video"
+prototypeUrl: "https://figma.com/proto/your-file"
+prototypeLabel: View interactive prototype
 ---
 
 Copy this whole file into a new file named after your project slug (for example
@@ -17,6 +21,27 @@ Copy this whole file into a new file named after your project slug (for example
 Frontmatter fields at the top are all optional except `title`. The `order`
 number controls position in grids (lower = earlier). Delete any section below
 you do not need.
+
+### Placing images
+
+Single figure (the quoted text becomes the caption):
+
+```md
+![Describe what the image shows](/images/projects/your-slug/detail-01.jpg "Caption text here")
+```
+
+Multi-image gallery:
+
+```jsx
+<Gallery
+  images={[
+    { src: "/images/projects/your-slug/a.jpg", alt: "Description", caption: "Optional caption" },
+    { src: "/images/projects/your-slug/b.jpg", alt: "Description", caption: "Optional caption" },
+  ]}
+/>
+```
+
+Put the actual image files inside `public/images/projects/your-slug/`.
 
 ## Problem
 

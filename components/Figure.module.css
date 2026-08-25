@@ -1,0 +1,11 @@
+.figure {
+  margin-top: var(--space-md);
+}
+
+.figure img {
+  width: 100%;
+  height: auto;
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}

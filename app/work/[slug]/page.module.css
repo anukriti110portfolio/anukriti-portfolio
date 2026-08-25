@@ -68,11 +68,17 @@
 .cover {
   width: 100%;
   aspect-ratio: 21 / 9;
+  position: relative;
   display: grid;
   place-items: center;
   background: var(--surface);
   border: var(--border-thin) dashed var(--line);
   margin-bottom: var(--space-xl);
+  overflow: hidden;
+}
+
+.cover img {
+  object-fit: cover;
 }
 
 .plate {
@@ -80,6 +86,54 @@
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-caps);
   color: var(--muted);
+}
+
+.mediaLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.neighborNav {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-md);
+  border-top: var(--border-rule) solid var(--foreground);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.neighbor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  text-decoration: none;
+  max-width: 45%;
+}
+
+.neighborNext {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.neighborLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--muted);
+}
+
+.neighborTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+}
+
+.neighbor:hover .neighborTitle {
+  color: var(--accent);
 }
 
 .footerNav {

@@ -13,6 +13,10 @@ export type ProjectFrontmatter = {
   tools?: string[];
   duration?: string;
   order?: number;
+  cover?: string;
+  video?: string;
+  prototypeUrl?: string;
+  prototypeLabel?: string;
 };
 
 export type ContentFile<TFrontmatter> = {
@@ -49,4 +53,20 @@ export function getProject(
   slug: string
 ): ContentFile<ProjectFrontmatter> | undefined {
   return getProjects().find((file) => file.slug === slug);
+}
+
+export type ProjectNeighbors = {
+  prev: ContentFile<ProjectFrontmatter> | undefined;
+  next: ContentFile<ProjectFrontmatter> | undefined;
+};
+
+export function getProjectNeighbors(slug: string): ProjectNeighbors {
+  const projects = getProjects();
+  const index = projects.findIndex((file) => file.slug === slug);
+  if (index === -1) return { prev: undefined, next: undefined };
+
+  return {
+    prev: projects[index - 1],
+    next: projects[index + 1],
+  };
 }

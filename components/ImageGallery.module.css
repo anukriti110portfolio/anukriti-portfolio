@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+  gap: var(--space-sm);
+}
+
+.grid figure {
+  margin-top: 0;
+}
+
+.grid img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
