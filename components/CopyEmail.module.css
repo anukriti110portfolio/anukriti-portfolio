@@ -1,0 +1,25 @@
+.button {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  padding: var(--space-2xs) var(--space-sm);
+  border: var(--border-rule) solid var(--foreground);
+  border-radius: var(--radius-sm);
+  min-width: 7rem;
+  transition: background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.button:hover {
+  box-shadow: 0.2rem 0.2rem 0 0 var(--foreground);
+  transform: translate(-2px, -2px);
+}
+
+.copied {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}

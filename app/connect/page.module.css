@@ -1,0 +1,124 @@
+.pageTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--accent);
+  max-width: none;
+}
+
+.title {
+  font-size: var(--text-hero);
+  font-weight: 560;
+  margin-top: var(--space-sm);
+  max-width: none;
+}
+
+.lede {
+  color: var(--muted);
+  max-width: var(--content-reading);
+  margin-top: var(--space-md);
+}
+
+.emailPlate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  border-block: var(--border-heavy) solid var(--foreground);
+  padding-block: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.emailGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  flex-grow: 1;
+}
+
+.emailLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--muted);
+  max-width: none;
+}
+
+.emailLink {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.35rem, 1rem + 2.4vw, 2.6rem);
+  line-height: var(--leading-snug);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.emailLink:hover,
+.emailLink:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.directory {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--border-rule) solid var(--foreground);
+  margin-top: var(--space-xl);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding-block: var(--space-sm);
+  border-bottom: var(--border-thin) solid var(--line);
+}
+
+.rowLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--muted);
+  min-width: 8rem;
+  max-width: none;
+}
+
+.rowValue {
+  font-size: var(--text-base);
+  max-width: none;
+}
+
+.rowLink {
+  text-decoration: none;
+  color: var(--foreground);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.rowLink::after {
+  content: " \2197";
+  font-size: 0.85em;
+  color: var(--muted);
+}
+
+.rowLink:hover,
+.rowLink:focus-visible {
+  color: var(--accent);
+}
+
+.missing {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  max-width: none;
+}
