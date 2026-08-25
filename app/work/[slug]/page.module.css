@@ -29,42 +29,6 @@
   color: var(--muted);
 }
 
-.metaBand {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-lg);
-  padding-block: var(--space-md);
-  border-bottom: var(--border-thin) solid var(--line);
-  margin-bottom: var(--space-xl);
-}
-
-.metaItem {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3xs);
-}
-
-.metaLabel {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
-  color: var(--muted);
-}
-
-.metaValue {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  max-width: none;
-}
-
-.toolsRow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2xs);
-}
-
 .cover {
   width: 100%;
   aspect-ratio: 21 / 9;

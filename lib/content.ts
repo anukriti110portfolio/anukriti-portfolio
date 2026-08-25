@@ -55,6 +55,55 @@ export function getProject(
   return getProjects().find((file) => file.slug === slug);
 }
 
+export type PlaygroundFrontmatter = {
+  title: string;
+  category: string;
+  date?: string;
+  description?: string;
+  tools?: string[];
+  skills?: string[];
+  cover?: string;
+  video?: string;
+  figmaUrl?: string;
+  externalUrl?: string;
+  codeUrl?: string;
+};
+
+export function getPlaygroundItems(): ContentFile<PlaygroundFrontmatter>[] {
+  return readCollection<PlaygroundFrontmatter>("playground").sort((a, b) => {
+    const dateA = a.frontmatter.date ?? "0000-00-00";
+    const dateB = b.frontmatter.date ?? "0000-00-00";
+    return dateB.localeCompare(dateA);
+  });
+}
+
+export function getPlaygroundItem(
+  slug: string
+): ContentFile<PlaygroundFrontmatter> | undefined {
+  return getPlaygroundItems().find((file) => file.slug === slug);
+}
+
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+export function formatDate(isoDate: string): string {
+  const [year, month] = isoDate.split("-");
+  const monthName = MONTHS[Number(month) - 1] ?? "";
+  return `${monthName} ${year}`;
+}
+
 export type ProjectNeighbors = {
   prev: ContentFile<ProjectFrontmatter> | undefined;
   next: ContentFile<ProjectFrontmatter> | undefined;

@@ -1,0 +1,34 @@
+---
+title: Four-theme design token system
+category: Code
+date: "2026-08-25"
+description: The colour and typography engine behind this portfolio — four complete themes from one set of CSS variables.
+tools:
+  - Next.js
+  - CSS
+skills:
+  - Design tokens
+  - Theming
+  - CSS variables
+---
+
+This website is itself a playground experiment. Every colour, font, spacing
+value and shadow you see is a **design token** — a named CSS variable defined
+in one file.
+
+Switching theme swaps the values behind the names; no component is rewritten.
+The Editorial theme you are most likely reading in is the default. Try Retro
+Print, Minimal, and Indian Print from the homepage.
+
+## How it works
+
+1. `styles/tokens.css` defines shared tokens (spacing, type scale, motion)
+   plus one block per theme holding only colours and shadows.
+2. Each theme sets `data-theme="indian-print"` style attributes on the page.
+3. Components never reference raw hex values — they ask for `var(--accent)`.
+
+## What I learned
+
+Designing themes first forced every component to stay honest: if a component
+hard-codes a colour, it breaks the system. Tokens made the whole site
+re-skinable in an afternoon.

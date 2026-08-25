@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import MdxContent from "@/components/MdxContent";
+import MetaList from "@/components/MetaList";
 import Tag from "@/components/Tag";
 import Button from "@/components/Button";
 import { getProject, getProjectNeighbors, getProjects } from "@/lib/content";
@@ -61,26 +62,26 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         {fm.subtitle ? <p className={styles.subtitle}>{fm.subtitle}</p> : null}
       </header>
 
-      {(metaEntries.length > 0 || fm.tools?.length) && (
-        <div className={styles.metaBand}>
-          {metaEntries.map(([label, value]) => (
-            <div key={label} className={styles.metaItem}>
-              <span className={styles.metaLabel}>{label}</span>
-              <span className={styles.metaValue}>{value}</span>
-            </div>
-          ))}
-          {fm.tools?.length ? (
-            <div className={styles.metaItem}>
-              <span className={styles.metaLabel}>Tools</span>
-              <span className={styles.toolsRow}>
-                {fm.tools.map((tool) => (
-                  <Tag key={tool}>{tool}</Tag>
-                ))}
-              </span>
-            </div>
-          ) : null}
-        </div>
-      )}
+      <MetaList
+        entries={[
+          ...(metaEntries.map(([label, value]) => ({ label, value }))),
+          ...(fm.tools?.length
+            ? [
+                {
+                  label: "Tools",
+                  isTags: true,
+                  value: (
+                    <>
+                      {fm.tools.map((tool) => (
+                        <Tag key={tool}>{tool}</Tag>
+                      ))}
+                    </>
+                  ),
+                },
+              ]
+            : []),
+        ]}
+      />
 
       {fm.cover ? (
         <div className={styles.cover}>
