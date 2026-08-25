@@ -47,16 +47,34 @@
   gap: var(--space-2xs);
 }
 
-.studioBand {
-  width: 100%;
+.plateStrip {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-md);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.plateThumb {
+  position: relative;
+  display: block;
+  width: 10rem;
+  aspect-ratio: 4 / 5;
   background: var(--surface);
   border: var(--border-thin) solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: var(--space-lg);
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.plateThumb img {
+  object-fit: cover;
+}
+
+.plateThumb:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-print);
 }
 
 .readingColumn {

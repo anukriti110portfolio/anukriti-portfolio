@@ -5,7 +5,8 @@ import ProjectCard from "@/components/ProjectCard";
 import Tag from "@/components/Tag";
 import ContactCTA from "@/components/ContactCTA";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
-import { getNotes, getProjects } from "@/lib/content";
+import Image from "next/image";
+import { getNotes, getProjects, getStudioItems } from "@/lib/content";
 import styles from "./page.module.css";
 
 const PLAYGROUND_CATEGORIES = [
@@ -33,6 +34,7 @@ const FIELD_NOTE_CATEGORIES = [
 export default function Home() {
   const projects = getProjects();
   const latestNote = getNotes()[0];
+  const studioPlates = getStudioItems().slice(0, 3);
 
   return (
     <main className="wrap page">
@@ -113,16 +115,30 @@ export default function Home() {
       <section aria-labelledby="studio-preview" className={styles.section}>
         <SectionHeader id="studio-preview" kicker="04 · Process" title="Studio" />
         <div className={styles.sectionBody}>
-          <div className={styles.studioBand}>
-            <p>
-              A visual archive — branding experiments, visual studies, and
-              process work collected like archival plates rather than a social
-              feed.
-            </p>
-            <a href="/studio" className="text-link">
-              Enter the archive
-            </a>
-          </div>
+          <ul className={styles.plateStrip} aria-label="Latest studio items">
+            {studioPlates.map((item) => (
+              <li key={item.slug}>
+                <a href="/studio" className={styles.plateThumb}>
+                  {item.frontmatter.image ? (
+                    <Image
+                      src={item.frontmatter.image}
+                      alt={item.frontmatter.title}
+                      fill
+                      sizes="(max-width: 48rem) 33vw, 12rem"
+                    />
+                  ) : null}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p>
+            A visual archive — branding experiments, visual studies, and
+            process work collected like archival plates rather than a social
+            feed.
+          </p>
+          <a href="/studio" className="text-link">
+            Enter the archive
+          </a>
         </div>
       </section>
 

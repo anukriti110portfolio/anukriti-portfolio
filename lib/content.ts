@@ -83,6 +83,24 @@ export function getPlaygroundItem(
   return getPlaygroundItems().find((file) => file.slug === slug);
 }
 
+export type StudioItemFrontmatter = {
+  title: string;
+  kind?: string;
+  year?: string;
+  image?: string;
+  videoUrl?: string;
+  externalUrl?: string;
+  description?: string;
+};
+
+export function getStudioItems(): ContentFile<StudioItemFrontmatter>[] {
+  return readCollection<StudioItemFrontmatter>("studio").sort((a, b) => {
+    const yearA = a.frontmatter.year ?? "0000";
+    const yearB = b.frontmatter.year ?? "0000";
+    return yearB.localeCompare(yearA);
+  });
+}
+
 export type NoteFrontmatter = {
   title: string;
   date?: string;
