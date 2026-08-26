@@ -9,6 +9,7 @@ import {
   getPlaygroundItem,
   getPlaygroundItems,
 } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const dynamicParams = false;
@@ -29,10 +30,11 @@ export async function generateMetadata({
   if (!item) return {};
 
   const { title, description } = item.frontmatter;
-  return {
-    title: `${title} — Playground — Anukriti Tripathi`,
+  return buildPageMetadata({
+    title,
     description: description ?? `${title} — playground experiment.`,
-  };
+    path: `/playground/${slug}`,
+  });
 }
 
 export default async function ExperimentPage({ params }: ExperimentPageProps) {

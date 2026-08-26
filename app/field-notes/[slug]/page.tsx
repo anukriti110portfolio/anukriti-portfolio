@@ -10,6 +10,7 @@ import {
   getNotes,
   getReadingTime,
 } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const dynamicParams = false;
@@ -30,10 +31,11 @@ export async function generateMetadata({
   if (!note) return {};
 
   const { title, description } = note.frontmatter;
-  return {
-    title: `${title} — Field Notes — Anukriti Tripathi`,
+  return buildPageMetadata({
+    title,
     description: description ?? `${title} — field note.`,
-  };
+    path: `/field-notes/${slug}`,
+  });
 }
 
 export default async function NotePage({ params }: NotePageProps) {

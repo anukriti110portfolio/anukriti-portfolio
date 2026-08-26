@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
+import { buildPageMetadata } from "@/lib/site";
 import { getStudioItems } from "@/lib/content";
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "Studio — Anukriti Tripathi",
+export const metadata = buildPageMetadata({
+  title: "Studio",
   description: "A visual archive of experiments, process, and explorations.",
-};
+  path: "/studio",
+});
 
 export default function StudioPage() {
   const items = getStudioItems();
@@ -17,7 +18,7 @@ export default function StudioPage() {
     <main className="wrap page">
       <SectionHeader id="studio-title" kicker="Archive" title="Studio" headingLevel={1} />
       <p className={styles.intro}>
-        A visual archive — branding experiments, visual studies, process
+        A visual archive â€” branding experiments, visual studies, process
         recordings, and design explorations. Collected like archival plates,
         not a feed.
       </p>
@@ -53,8 +54,8 @@ export default function StudioPage() {
                 )}
                 <span className={styles.caption}>
                   PL.{plateNumber}
-                  {item.frontmatter.year ? ` · ${item.frontmatter.year}` : ""}
-                  {item.frontmatter.kind ? ` · ${item.frontmatter.kind}` : ""}
+                  {item.frontmatter.year ? ` Â· ${item.frontmatter.year}` : ""}
+                  {item.frontmatter.kind ? ` Â· ${item.frontmatter.kind}` : ""}
                 </span>
                 <h2 className={styles.title}>{item.frontmatter.title}</h2>
                 {item.frontmatter.description ? (

@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Tag from "@/components/Tag";
+import { buildPageMetadata } from "@/lib/site";
 import ContactCTA from "@/components/ContactCTA";
 import { getPlaygroundItems } from "@/lib/content";
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "About — Anukriti Tripathi",
+export const metadata = buildPageMetadata({
+  title: "About",
   description:
     "About Anukriti Tripathi, a designer working across digital and physical products.",
-};
+  path: "/about",
+});
 
 const PRINCIPLES = [
   {
@@ -53,20 +54,20 @@ export default function AboutPage() {
           <div className={styles.portrait}>
             <Image
               src="/images/about/portrait.svg"
-              alt="Portrait placeholder — replace with a photo of Anukriti"
+              alt="Portrait placeholder â€” replace with a photo of Anukriti"
               fill
               sizes="(max-width: 56rem) 100vw, 22rem"
             />
           </div>
           <p className={styles.caption}>
-            Portrait — replace /images/about/portrait.svg
+            Portrait â€” replace /images/about/portrait.svg
           </p>
         </div>
 
         <div className={styles.content}>
           <header>
             <p className={styles.intro}>
-              I&apos;m Anukriti Tripathi — a product and interaction designer
+              I&apos;m Anukriti Tripathi â€” a product and interaction designer
               working across digital and physical products. My work usually
               starts with questions about people and ends in things you can
               click, hold, or both.
@@ -108,7 +109,7 @@ export default function AboutPage() {
               Currently learning
             </h2>
             <ul className={styles.learningList}>
-              <li>Frontend development — this website is the coursework</li>
+              <li>Frontend development â€” this website is the coursework</li>
               <li>Motion and interaction design</li>
               <li>[CONTENT NEEDED] What else is on your desk right now?</li>
             </ul>

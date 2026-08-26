@@ -7,6 +7,7 @@ import MetaList from "@/components/MetaList";
 import Tag from "@/components/Tag";
 import Button from "@/components/Button";
 import { getProject, getProjectNeighbors, getProjects } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const dynamicParams = false;
@@ -27,10 +28,11 @@ export async function generateMetadata({
   if (!project) return {};
 
   const { title, subtitle } = project.frontmatter;
-  return {
-    title: `${title} — Anukriti Tripathi`,
+  return buildPageMetadata({
+    title,
     description: subtitle ?? `${title} — case study.`,
-  };
+    path: `/work/${slug}`,
+  });
 }
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {

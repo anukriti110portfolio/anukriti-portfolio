@@ -3,6 +3,7 @@ import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
+import { siteConfig, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const themeScript = `(function(){try{var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(t){document.documentElement.dataset.theme=t;}}catch(e){}})();`;
@@ -26,9 +27,20 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Anukriti Tripathi — Designer",
+  metadataBase: siteUrl,
+  title: {
+    default: `${siteConfig.name} — ${siteConfig.role}`,
+    template: `%s — ${siteConfig.name}`,
+  },
   description:
     "Portfolio of Anukriti Tripathi, a designer working across digital and physical products.",
+  openGraph: {
+    siteName: siteConfig.name,
+    type: "website",
+    url: siteUrl.toString(),
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

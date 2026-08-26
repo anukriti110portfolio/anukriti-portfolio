@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import CopyEmail from "@/components/CopyEmail";
 import { siteConfig } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/site";
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "Connect — Anukriti Tripathi",
+export const metadata = buildPageMetadata({
+  title: "Connect",
   description: "Start a conversation with Anukriti Tripathi.",
-};
+  path: "/connect",
+});
 
 type Channel = {
   label: string;
@@ -28,7 +29,7 @@ export default function ConnectPage() {
       <h1 className={styles.title}>Let&apos;s start a conversation.</h1>
       <p className={styles.lede}>
         A project, a question about my work, an experiment you think I should
-        see — my inbox is open to all of it.
+        see â€” my inbox is open to all of it.
       </p>
 
       <div className={styles.emailPlate}>
@@ -67,7 +68,7 @@ export default function ConnectPage() {
 
       {!siteConfig.linkedin && !siteConfig.instagram && !siteConfig.github && (
         <p className={styles.missing} style={{ marginTop: "var(--space-md)" }}>
-          Add your links in lib/site.ts — one file, every page updates.
+          Add your links in lib/site.ts â€” one file, every page updates.
         </p>
       )}
     </main>
