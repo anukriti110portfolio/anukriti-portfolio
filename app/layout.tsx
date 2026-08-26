@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono, Tiro_Devanagari_Hindi } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
 import "./globals.css";
+
+const themeScript = `(function(){try{var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(t){document.documentElement.dataset.theme=t;}}catch(e){}})();`;
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -38,10 +41,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      data-theme="editorial"
+      data-theme={DEFAULT_THEME}
+      suppressHydrationWarning
       className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} ${tiroHindi.variable}`}
     >
       <body>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <a href="#content" className="skip-link">
           Skip to content
         </a>

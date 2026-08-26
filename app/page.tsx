@@ -4,7 +4,6 @@ import ProjectGrid from "@/components/ProjectGrid";
 import ProjectCard from "@/components/ProjectCard";
 import Tag from "@/components/Tag";
 import ContactCTA from "@/components/ContactCTA";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 import Image from "next/image";
 import { getNotes, getProjects, getStudioItems } from "@/lib/content";
 import styles from "./page.module.css";
@@ -158,10 +157,6 @@ export default function Home() {
       </section>
 
       <ContactCTA />
-
-      <div className={styles.devRow}>
-        <ThemeSwitcher />
-      </div>
     </main>
   );
 }

@@ -85,11 +85,6 @@
   gap: var(--space-md);
 }
 
-.devRow {
-  margin-top: var(--space-xl);
-  opacity: 0.7;
-}
-
 @media (min-width: 56rem) {
   .spread {
     grid-template-columns: 1fr 1fr;

@@ -21,6 +21,7 @@
 .tagline {
   color: var(--muted);
   font-size: var(--text-sm);
+  margin-bottom: var(--space-sm);
 }
 
 .colophon {
