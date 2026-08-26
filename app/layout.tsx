@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono, Tiro_Devanagari_Hindi } from "next/font/google";
+import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
@@ -25,12 +25,6 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
-const tiroHindi = Tiro_Devanagari_Hindi({
-  subsets: ["devanagari", "latin"],
-  weight: "400",
-  variable: "--font-tiro",
-});
-
 export const metadata: Metadata = {
   title: "Anukriti Tripathi — Designer",
   description:
@@ -43,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       data-theme={DEFAULT_THEME}
       suppressHydrationWarning
-      className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} ${tiroHindi.variable}`}
+      className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}
     >
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

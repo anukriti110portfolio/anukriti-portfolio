@@ -2,7 +2,6 @@
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-plex-mono), "Courier New", monospace;
-  --font-hindi: var(--font-tiro), serif;
 
   --text-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
   --text-sm: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
