@@ -31,7 +31,7 @@
 
 .cover {
   width: 100%;
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 4 / 3;
   position: relative;
   display: grid;
   place-items: center;
@@ -39,6 +39,12 @@
   border: var(--border-thin) dashed var(--line);
   margin-bottom: var(--space-xl);
   overflow: hidden;
+}
+
+@media (min-width: 48rem) {
+  .cover {
+    aspect-ratio: 21 / 9;
+  }
 }
 
 .cover img {

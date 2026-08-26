@@ -40,3 +40,9 @@
   background: var(--foreground);
   color: var(--background);
 }
+
+@media (pointer: coarse) {
+  .base {
+    padding: 1.1em 1.9em;
+  }
+}

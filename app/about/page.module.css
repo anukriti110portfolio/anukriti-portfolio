@@ -13,6 +13,7 @@
 .portrait {
   aspect-ratio: 4 / 5;
   position: relative;
+  max-width: 24rem;
   background: var(--surface);
   border: var(--border-thin) solid var(--line);
   overflow: hidden;

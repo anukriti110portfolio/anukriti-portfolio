@@ -38,6 +38,12 @@
   color: var(--accent-contrast);
 }
 
+@media (pointer: coarse) {
+  .filter {
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
 .grid {
   list-style: none;
   margin: 0;
