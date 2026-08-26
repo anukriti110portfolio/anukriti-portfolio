@@ -15,7 +15,12 @@ export default function FieldNotesPage() {
 
   return (
     <main className="wrap page">
-      <SectionHeader id="field-notes-title" kicker="Writing" title="Field Notes" />
+      <SectionHeader
+        id="field-notes-title"
+        kicker="Writing"
+        title="Field Notes"
+        headingLevel={1}
+      />
       <p className={styles.intro}>
         Observations from the field — written as I learn, in public.
       </p>

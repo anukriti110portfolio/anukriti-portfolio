@@ -41,27 +41,29 @@ export default function ConnectPage() {
         <CopyEmail email={siteConfig.email} />
       </div>
 
-      <ul className={styles.directory}>
+      <dl className={styles.directory}>
         {channels.map((channel) => (
-          <li key={channel.label} className={styles.row}>
-            <span className={styles.rowLabel}>{channel.label}</span>
+          <div key={channel.label} className={styles.row}>
+            <dt className={styles.rowLabel}>{channel.label}</dt>
             {channel.url ? (
-              <a
-                href={channel.url}
-                className={`rowLink ${styles.rowValue} ${styles.rowLink}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {channel.display ?? channel.url.replace(/^https?:\/\/(www\.)?/, "")}
-              </a>
+              <dd className={styles.rowValue}>
+                <a
+                  href={channel.url}
+                  className={`rowLink ${styles.rowLink}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {channel.display ?? channel.url.replace(/^https?:\/\/(www\.)?/, "")}
+                </a>
+              </dd>
             ) : (
-              <span className={`${styles.rowValue} ${styles.missing}`}>
+              <dd className={`${styles.rowValue} ${styles.missing}`}>
                 Coming soon
-              </span>
+              </dd>
             )}
-          </li>
+          </div>
         ))}
-      </ul>
+      </dl>
 
       {!siteConfig.linkedin && !siteConfig.instagram && !siteConfig.github && (
         <p className={styles.missing} style={{ marginTop: "var(--space-md)" }}>

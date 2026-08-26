@@ -15,7 +15,7 @@ export default function WorkPage() {
 
   return (
     <main className="wrap page">
-      <SectionHeader id="work-title" kicker="Archive" title="Work" />
+      <SectionHeader id="work-title" kicker="Archive" title="Work" headingLevel={1} />
       <p className={styles.intro}>
         Case studies across UX, digital product design, physical product
         design, and research — written the way the work actually happened.

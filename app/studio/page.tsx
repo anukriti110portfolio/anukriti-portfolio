@@ -15,7 +15,7 @@ export default function StudioPage() {
 
   return (
     <main className="wrap page">
-      <SectionHeader id="studio-title" kicker="Archive" title="Studio" />
+      <SectionHeader id="studio-title" kicker="Archive" title="Studio" headingLevel={1} />
       <p className={styles.intro}>
         A visual archive — branding experiments, visual studies, process
         recordings, and design explorations. Collected like archival plates,

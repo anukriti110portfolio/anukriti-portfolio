@@ -48,6 +48,12 @@ export default function PlaygroundBrowser({
           No experiments in this category yet — new ones land as they are made.
         </p>
       )}
+
+      <p aria-live="polite" className="sr-only">
+        {visibleItems.length}{" "}
+        {visibleItems.length === 1 ? "experiment" : "experiments"} shown
+        {activeCategory === "All" ? "" : ` in ${activeCategory}`}.
+      </p>
     </div>
   );
 }

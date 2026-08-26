@@ -122,8 +122,12 @@ export default function Home() {
           <div className={styles.sectionBody}>
             <ul className={styles.plateStrip} aria-label="Latest studio items">
               {studioPlates.map((item) => (
-                <li key={item.slug}>
-                  <a href="/studio" className={styles.plateThumb}>
+              <li key={item.slug}>
+                <a
+                  href="/studio"
+                  className={styles.plateThumb}
+                  aria-label={`Studio preview — ${item.frontmatter.title}`}
+                >
                     {item.frontmatter.image ? (
                       <Image
                         src={item.frontmatter.image}

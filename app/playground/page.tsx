@@ -42,6 +42,7 @@ export default function PlaygroundPage() {
         id="playground-title"
         kicker="Experiments"
         title="Playground"
+        headingLevel={1}
       />
       <p className={styles.intro}>
         A living proof-of-skills archive. Not a list of tools — evidence of
