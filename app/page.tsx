@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import ProjectGrid from "@/components/ProjectGrid";
 import ProjectCard from "@/components/ProjectCard";
@@ -39,24 +40,27 @@ export default function Home() {
     <main className="wrap page">
       <Hero />
 
-      <section aria-labelledby="selected-work" className={styles.section}>
-        <SectionHeader id="selected-work" kicker="01 · Archive" title="Selected work" />
-        <div className={styles.sectionBody}>
-          <ProjectGrid>
-            {projects.map((project, index) => (
-              <ProjectCard key={project.slug} project={project} index={index} />
-            ))}
-          </ProjectGrid>
-          <p className={styles.sectionNote}>
-            Each case study covers problem, research, process, and outcome.
-          </p>
-          <a href="/work" className="text-link">
-            All work
-          </a>
-        </div>
-      </section>
+      <Reveal>
+        <section aria-labelledby="selected-work" className={styles.section}>
+          <SectionHeader id="selected-work" kicker="01 · Archive" title="Selected work" />
+          <div className={styles.sectionBody}>
+            <ProjectGrid>
+              {projects.map((project, index) => (
+                <ProjectCard key={project.slug} project={project} index={index} />
+              ))}
+            </ProjectGrid>
+            <p className={styles.sectionNote}>
+              Each case study covers problem, research, process, and outcome.
+            </p>
+            <a href="/work" className="text-link">
+              All work
+            </a>
+          </div>
+        </section>
+      </Reveal>
 
-      <div className={styles.spread}>
+      <Reveal>
+        <div className={styles.spread}>
         <section aria-labelledby="playground-preview">
           <SectionHeader
             id="playground-preview"
@@ -109,52 +113,57 @@ export default function Home() {
             Read field notes
           </a>
         </section>
-      </div>
-
-      <section aria-labelledby="studio-preview" className={styles.section}>
-        <SectionHeader id="studio-preview" kicker="04 · Process" title="Studio" />
-        <div className={styles.sectionBody}>
-          <ul className={styles.plateStrip} aria-label="Latest studio items">
-            {studioPlates.map((item) => (
-              <li key={item.slug}>
-                <a href="/studio" className={styles.plateThumb}>
-                  {item.frontmatter.image ? (
-                    <Image
-                      src={item.frontmatter.image}
-                      alt={item.frontmatter.title}
-                      fill
-                      sizes="(max-width: 48rem) 33vw, 12rem"
-                    />
-                  ) : null}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p>
-            A visual archive — branding experiments, visual studies, and
-            process work collected like archival plates rather than a social
-            feed.
-          </p>
-          <a href="/studio" className="text-link">
-            Enter the archive
-          </a>
         </div>
-      </section>
+      </Reveal>
 
-      <section aria-labelledby="about-preview" className={styles.section}>
-        <SectionHeader id="about-preview" kicker="05 · Person" title="About" />
-        <div className={styles.readingColumn}>
-          <p>
-            I move between digital tools and workshop materials. The common
-            thread is curiosity about how people actually use things — which
-            is why my process usually starts with research and ends with
-            something you can click or hold.
-          </p>
-          <a href="/about" className="text-link">
-            More about me
-          </a>
-        </div>
-      </section>
+      <Reveal>
+        <section aria-labelledby="studio-preview" className={styles.section}>
+          <SectionHeader id="studio-preview" kicker="04 · Process" title="Studio" />
+          <div className={styles.sectionBody}>
+            <ul className={styles.plateStrip} aria-label="Latest studio items">
+              {studioPlates.map((item) => (
+                <li key={item.slug}>
+                  <a href="/studio" className={styles.plateThumb}>
+                    {item.frontmatter.image ? (
+                      <Image
+                        src={item.frontmatter.image}
+                        alt={item.frontmatter.title}
+                        fill
+                        sizes="(max-width: 48rem) 33vw, 12rem"
+                      />
+                    ) : null}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p>
+              A visual archive — branding experiments, visual studies, and
+              process work collected like archival plates rather than a social
+              feed.
+            </p>
+            <a href="/studio" className="text-link">
+              Enter the archive
+            </a>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section aria-labelledby="about-preview" className={styles.section}>
+          <SectionHeader id="about-preview" kicker="05 · Person" title="About" />
+          <div className={styles.readingColumn}>
+            <p>
+              I move between digital tools and workshop materials. The common
+              thread is curiosity about how people actually use things — which
+              is why my process usually starts with research and ends with
+              something you can click or hold.
+            </p>
+            <a href="/about" className="text-link">
+              More about me
+            </a>
+          </div>
+        </section>
+      </Reveal>
 
       <ContactCTA />
     </main>

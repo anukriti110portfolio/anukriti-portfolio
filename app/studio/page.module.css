@@ -51,6 +51,11 @@
 
 .image img {
   object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.plate a:hover .image img {
+  transform: scale(1.04);
 }
 
 .caption {

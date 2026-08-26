@@ -70,6 +70,7 @@
 
 .link {
   display: inline-block;
+  position: relative;
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   text-transform: uppercase;
@@ -78,6 +79,25 @@
   text-decoration: none;
   padding-block: var(--space-2xs);
   transition: color var(--dur-fast) var(--ease-out);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--border-rule);
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .link:hover {

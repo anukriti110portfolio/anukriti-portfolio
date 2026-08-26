@@ -1,3 +1,14 @@
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -13,12 +24,14 @@
   text-transform: uppercase;
   letter-spacing: var(--tracking-caps);
   color: var(--accent);
+  animation: heroRise var(--dur-slow) var(--ease-out) backwards;
 }
 
 .title {
   font-size: var(--text-hero);
   font-weight: 560;
   max-width: none;
+  animation: heroRise var(--dur-slow) var(--ease-out) 80ms backwards;
 }
 
 .title em {
@@ -31,6 +44,7 @@
   line-height: var(--leading-snug);
   color: var(--muted);
   max-width: 34rem;
+  animation: heroRise var(--dur-slow) var(--ease-out) 160ms backwards;
 }
 
 .actions {
@@ -38,4 +52,5 @@
   flex-wrap: wrap;
   gap: var(--space-xs);
   margin-top: var(--space-2xs);
+  animation: heroRise var(--dur-slow) var(--ease-out) 240ms backwards;
 }

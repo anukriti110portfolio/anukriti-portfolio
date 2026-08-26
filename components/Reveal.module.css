@@ -1,0 +1,16 @@
+.reveal {
+  min-width: 0;
+}
+
+.armed {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.shown,
+.shown.armed {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+}

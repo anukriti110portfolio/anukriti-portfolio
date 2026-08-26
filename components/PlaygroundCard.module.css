@@ -38,6 +38,11 @@
 
 .thumb img {
   object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.card:hover .thumb img {
+  transform: scale(1.04);
 }
 
 .plate {
