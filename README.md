@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Anukriti Tripathi — Portfolio
 
-## Getting Started
+A personal portfolio and design studio site, built from scratch as a
+frontend-learning project. Design across digital and physical products.
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router) + React + TypeScript
+- Hand-rolled design-token system with four switchable themes
+- MDX content architecture — case studies, playground experiments, field
+  notes, and studio items all live in `content/`
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Content | Where | Notes |
+|---|---|---|
+| Case study | `content/projects/your-slug.mdx` | Copy `_template.mdx`; slug becomes the URL |
+| Experiment | `content/playground/your-slug.mdx` | Category drives the filter bar |
+| Field note | `content/blog/your-slug.mdx` | Reading time is automatic |
+| Studio plate | `content/studio/your-slug.mdx` | Images in `public/images/studio/` |
 
-## Learn More
+No component edits required — ever.
 
-To learn more about Next.js, take a look at the following resources:
+## Themes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Design tokens live in `styles/tokens.css`; the theme registry is
+`lib/themes.ts`. A new theme = one CSS block + one registry entry.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Personal links
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Edit `lib/site.ts` — email, socials, resume path. Set
+`NEXT_PUBLIC_SITE_URL` in your hosting dashboard to the production domain so
+canonical URLs and the sitemap are correct.
