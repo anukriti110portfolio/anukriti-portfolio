@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const siteConfig = {
   name: "Anukriti Tripathi",
+  nameDevanagari: "अनुकृति त्रिपाठी",
   role: "Product & Interaction Designer",
   email: "anukrititripathi22@gmail.com",
   linkedin: "",

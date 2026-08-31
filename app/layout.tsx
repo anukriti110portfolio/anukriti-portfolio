@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Fraunces, Inter, IBM_Plex_Mono, Noto_Serif_Devanagari } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/lib/themes";
@@ -26,6 +26,12 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
+const notoDevanagari = Noto_Serif_Devanagari({
+  subsets: ["devanagari"],
+  weight: ["400", "500"],
+  variable: "--font-devanagari",
+});
+
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
@@ -49,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       data-theme={DEFAULT_THEME}
       suppressHydrationWarning
-      className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}
+      className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} ${notoDevanagari.variable}`}
     >
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

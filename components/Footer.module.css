@@ -18,6 +18,17 @@
   font-size: var(--text-lg);
 }
 
+.devanagari {
+  display: inline-block;
+  margin-inline-start: 0.5em;
+  font-family: var(--font-devanagari-face);
+  font-size: 0.68em;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted);
+  vertical-align: 0.08em;
+}
+
 .tagline {
   color: var(--muted);
   font-size: var(--text-sm);
