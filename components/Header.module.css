@@ -25,6 +25,17 @@
   white-space: nowrap;
 }
 
+.devanagari {
+  display: inline-block;
+  margin-inline-start: 0.5em;
+  font-family: var(--font-devanagari-face);
+  font-size: 0.68em;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted);
+  vertical-align: 0.08em;
+}
+
 .initials {
   display: none;
 }
@@ -118,6 +129,12 @@
 
 .link[aria-current="page"] {
   color: var(--accent);
+}
+
+@media (min-width: 48rem) and (max-width: 71.99rem) {
+  .devanagari {
+    display: none;
+  }
 }
 
 @media (min-width: 48rem) {

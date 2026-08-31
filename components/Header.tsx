@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { siteConfig } from "@/lib/site";
 import styles from "./Header.module.css";
 
 const NAV_ITEMS = [
@@ -42,7 +43,12 @@ export default function Header() {
     <header className={styles.header}>
       <div className={`wrap ${styles.bar}`}>
         <Link href="/" className={styles.wordmark} onClick={closeMenu}>
-          <span className={styles.fullName}>Anukriti Tripathi</span>
+          <span className={styles.fullName}>
+            {siteConfig.name}
+            <span className={styles.devanagari} lang="hi" aria-hidden="true">
+              {siteConfig.nameDevanagari}
+            </span>
+          </span>
           <span className={styles.initials}>A.&thinsp;T.</span>
         </Link>
 
