@@ -1,4 +1,4 @@
-﻿import SectionHeader from "@/components/SectionHeader";
+import SectionHeader from "@/components/SectionHeader";
 import PlaygroundBrowser from "@/components/PlaygroundBrowser";
 import { getPlaygroundItems } from "@/lib/content";
 import styles from "./page.module.css";
@@ -47,7 +47,7 @@ export default function PlaygroundPage() {
         headingLevel={1}
       />
       <p className={styles.intro}>
-        A living proof-of-skills archive. Not a list of tools â€” evidence of
+        A living proof-of-skills archive. Not a list of tools — evidence of
         what happens when I take an idea apart to see how it works.
       </p>
       <PlaygroundBrowser items={items} categories={usedCategories} />

@@ -29,7 +29,7 @@ export default function ConnectPage() {
       <h1 className={styles.title}>Let&apos;s start a conversation.</h1>
       <p className={styles.lede}>
         A project, a question about my work, an experiment you think I should
-        see â€” my inbox is open to all of it.
+        see — my inbox is open to all of it.
       </p>
 
       <div className={styles.emailPlate}>
@@ -68,7 +68,7 @@ export default function ConnectPage() {
 
       {!siteConfig.linkedin && !siteConfig.instagram && !siteConfig.github && (
         <p className={styles.missing} style={{ marginTop: "var(--space-md)" }}>
-          Add your links in lib/site.ts â€” one file, every page updates.
+          Add your links in lib/site.ts — one file, every page updates.
         </p>
       )}
     </main>

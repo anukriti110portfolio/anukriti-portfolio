@@ -8,7 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work",
     "/playground",
     "/field-notes",
-    "/studio",
     "/about",
     "/connect",
   ].map((path) => ({

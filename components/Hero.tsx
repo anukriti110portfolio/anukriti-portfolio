@@ -1,4 +1,3 @@
-import Button from "@/components/Button";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -15,12 +14,6 @@ export default function Hero() {
         prototyping, and building work that has to survive contact with real
         people.
       </p>
-      <div className={styles.actions}>
-        <Button href="/work">Selected work</Button>
-        <Button href="/playground" variant="outline">
-          Playground
-        </Button>
-      </div>
     </section>
   );
 }

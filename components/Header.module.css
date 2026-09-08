@@ -1,4 +1,5 @@
 .header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -14,6 +15,23 @@
   justify-content: space-between;
   gap: var(--space-sm);
   padding-block: var(--space-xs);
+  padding-inline: var(--gutter);
+}
+
+.themeItem {
+  display: flex;
+  align-items: center;
+}
+
+.cvItem {
+  display: flex;
+  align-items: center;
+}
+
+.cvButton {
+  padding: 0.6em 1.1em;
+  font-size: var(--text-xs);
+  white-space: nowrap;
 }
 
 .wordmark {
@@ -23,17 +41,6 @@
   letter-spacing: var(--tracking-tight);
   text-decoration: none;
   white-space: nowrap;
-}
-
-.devanagari {
-  display: inline-block;
-  margin-inline-start: 0.5em;
-  font-family: var(--font-devanagari-face);
-  font-size: 0.68em;
-  font-weight: 400;
-  letter-spacing: 0;
-  color: var(--muted);
-  vertical-align: 0.08em;
 }
 
 .initials {
@@ -88,6 +95,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-3xs);
 }
 
@@ -100,6 +108,7 @@
   letter-spacing: var(--tracking-caps);
   color: var(--muted);
   text-decoration: none;
+  white-space: nowrap;
   padding-block: var(--space-xs);
   transition: color var(--dur-fast) var(--ease-out);
 }
@@ -131,13 +140,7 @@
   color: var(--accent);
 }
 
-@media (min-width: 48rem) and (max-width: 71.99rem) {
-  .devanagari {
-    display: none;
-  }
-}
-
-@media (min-width: 48rem) {
+@media (min-width: 74rem) {
   .menuButton {
     display: none;
   }
@@ -153,11 +156,26 @@
 
   .nav ul {
     flex-direction: row;
-    gap: var(--space-md);
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: var(--space-sm);
   }
 
   .link {
     padding-block: var(--space-3xs);
+  }
+
+  .cvItem {
+    padding-inline-start: var(--space-2xs);
+  }
+
+  .themeItem {
+    padding-inline-start: var(--space-2xs);
+    border-inline-start: var(--border-thin) solid var(--line);
+  }
+
+  .cvButton {
+    padding: 0.9em 1.6em;
   }
 }
 

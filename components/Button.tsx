@@ -5,11 +5,12 @@ type ButtonProps = {
   href: string;
   variant?: "solid" | "outline";
   children: React.ReactNode;
+  className?: string;
 };
 
-export default function Button({ href, variant = "solid", children }: ButtonProps) {
+export default function Button({ href, variant = "solid", children, className: extraClassName }: ButtonProps) {
   const variantClass = variant === "solid" ? styles.solid : styles.outline;
-  const className = `${styles.base} ${variantClass}`;
+  const className = `${styles.base} ${variantClass}${extraClassName ? ` ${extraClassName}` : ""}`;
   const isExternal = href.startsWith("http");
 
   if (isExternal) {

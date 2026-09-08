@@ -5,8 +5,7 @@ import ProjectGrid from "@/components/ProjectGrid";
 import ProjectCard from "@/components/ProjectCard";
 import Tag from "@/components/Tag";
 import ContactCTA from "@/components/ContactCTA";
-import Image from "next/image";
-import { getNotes, getProjects, getStudioItems } from "@/lib/content";
+import { getNotes, getProjects } from "@/lib/content";
 import styles from "./page.module.css";
 
 const PLAYGROUND_CATEGORIES = [
@@ -34,15 +33,14 @@ const FIELD_NOTE_CATEGORIES = [
 export default function Home() {
   const projects = getProjects();
   const latestNote = getNotes()[0];
-  const studioPlates = getStudioItems().slice(0, 3);
 
   return (
     <main className="wrap page">
       <Hero />
 
       <Reveal>
-        <section aria-labelledby="selected-work" className={styles.section}>
-          <SectionHeader id="selected-work" kicker="01 · Archive" title="Selected work" />
+        <section aria-labelledby="selected-work" className={`${styles.section} ${styles.firstSection}`}>
+          <SectionHeader id="selected-work" kicker="01 · Project" title="Case Studies" />
           <div className={styles.sectionBody}>
             <ProjectGrid>
               {projects.map((project, index) => (
@@ -88,7 +86,7 @@ export default function Home() {
           <SectionHeader
             id="field-notes-preview"
             kicker="03 · Writing"
-            title="Field Notes"
+            title="Blog"
           />
           <p>
             Short observations from the field — design, human behaviour,
@@ -110,51 +108,15 @@ export default function Home() {
             ))}
           </ul>
           <a href="/field-notes" className="text-link">
-            Read field notes
+            Read the blog
           </a>
         </section>
         </div>
       </Reveal>
 
       <Reveal>
-        <section aria-labelledby="studio-preview" className={styles.section}>
-          <SectionHeader id="studio-preview" kicker="04 · Process" title="Studio" />
-          <div className={styles.sectionBody}>
-            <ul className={styles.plateStrip} aria-label="Latest studio items">
-              {studioPlates.map((item) => (
-              <li key={item.slug}>
-                <a
-                  href="/studio"
-                  className={styles.plateThumb}
-                  aria-label={`Studio preview — ${item.frontmatter.title}`}
-                >
-                    {item.frontmatter.image ? (
-                      <Image
-                        src={item.frontmatter.image}
-                        alt={item.frontmatter.title}
-                        fill
-                        sizes="(max-width: 48rem) 33vw, 12rem"
-                      />
-                    ) : null}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <p>
-              A visual archive — branding experiments, visual studies, and
-              process work collected like archival plates rather than a social
-              feed.
-            </p>
-            <a href="/studio" className="text-link">
-              Enter the archive
-            </a>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
         <section aria-labelledby="about-preview" className={styles.section}>
-          <SectionHeader id="about-preview" kicker="05 · Person" title="About" />
+          <SectionHeader id="about-preview" kicker="04 · Person" title="My Story" />
           <div className={styles.readingColumn}>
             <p>
               I move between digital tools and workshop materials. The common

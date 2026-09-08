@@ -7,6 +7,7 @@ const CONTENT_ROOT = path.join(process.cwd(), "content");
 export type ProjectFrontmatter = {
   title: string;
   subtitle?: string;
+  whatIf?: string;
   year?: string;
   category?: string;
   role?: string;

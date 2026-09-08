@@ -8,7 +8,7 @@ export const siteConfig = {
   linkedin: "",
   instagram: "",
   github: "",
-  resumePath: "",
+  resumePath: "/resume.pdf",
 };
 
 export const siteUrl = new URL(

@@ -14,8 +14,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-md);
-  padding-block: var(--space-lg) var(--space-xl);
-  border-bottom: var(--border-heavy) solid var(--foreground);
+  padding-block: var(--space-lg) var(--space-sm);
 }
 
 .kicker {
@@ -45,12 +44,4 @@
   color: var(--muted);
   max-width: 34rem;
   animation: heroRise var(--dur-slow) var(--ease-out) 160ms backwards;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-top: var(--space-2xs);
-  animation: heroRise var(--dur-slow) var(--ease-out) 240ms backwards;
 }

@@ -7,6 +7,7 @@
 .inner {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
   padding-block: var(--space-lg);
@@ -35,18 +36,47 @@
   margin-bottom: var(--space-sm);
 }
 
-.colophon {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  color: var(--muted);
-  max-width: none;
-  text-align: right;
+.linksGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
-@media (max-width: 48rem) {
-  .colophon {
-    text-align: left;
-  }
+.socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  transition: border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  border-color: var(--foreground);
+  color: var(--foreground);
+}
+
+.socialLink svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.cvButton {
+  padding: 0.6em 1.2em;
+  font-size: var(--text-xs);
+  white-space: nowrap;
 }

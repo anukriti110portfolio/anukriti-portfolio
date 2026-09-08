@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const metadata = buildPageMetadata({
-  title: "Field Notes",
+  title: "Blogs",
   description:
     "Notes on design, human behaviour, research, technology, and visual culture.",
   path: "/field-notes",
@@ -19,11 +19,11 @@ export default function FieldNotesPage() {
       <SectionHeader
         id="field-notes-title"
         kicker="Writing"
-        title="Field Notes"
+        title="Blogs"
         headingLevel={1}
       />
       <p className={styles.intro}>
-        Observations from the field â€” written as I learn, in public.
+        Observations from the field — written as I learn, in public.
       </p>
 
       {notes.length > 0 ? (
@@ -36,7 +36,7 @@ export default function FieldNotesPage() {
                   note.frontmatter.category,
                 ]
                   .filter(Boolean)
-                  .join(" Â· ")}
+                  .join(" · ")}
               </span>
               <Link href={`/field-notes/${note.slug}`} className={styles.link}>
                 <h2 className={styles.title}>{note.frontmatter.title}</h2>

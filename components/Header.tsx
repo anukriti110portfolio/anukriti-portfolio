@@ -4,15 +4,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site";
+import Button from "@/components/Button";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import styles from "./Header.module.css";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
+  { href: "/work", label: "Case Studies" },
+  { href: "/field-notes", label: "Blogs" },
   { href: "/playground", label: "Playground" },
-  { href: "/field-notes", label: "Field Notes" },
-  { href: "/studio", label: "Studio" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "My Story" },
   { href: "/connect", label: "Connect" },
 ];
 
@@ -41,14 +42,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={`wrap ${styles.bar}`}>
+      <div className={styles.bar}>
         <Link href="/" className={styles.wordmark} onClick={closeMenu}>
-          <span className={styles.fullName}>
-            {siteConfig.name}
-            <span className={styles.devanagari} lang="hi" aria-hidden="true">
-              {siteConfig.nameDevanagari}
-            </span>
-          </span>
+          <span className={styles.fullName}>{siteConfig.name}</span>
           <span className={styles.initials}>A.&thinsp;T.</span>
         </Link>
 
@@ -80,6 +76,18 @@ export default function Header() {
                 </Link>
               </li>
             ))}
+            <li className={styles.themeItem}>
+              <ThemeSwitcher />
+            </li>
+            <li className={styles.cvItem}>
+              <Button
+                href={siteConfig.resumePath || "#"}
+                variant="solid"
+                className={styles.cvButton}
+              >
+                My CV
+              </Button>
+            </li>
           </ul>
         </nav>
       </div>
