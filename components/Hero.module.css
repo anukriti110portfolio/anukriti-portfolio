@@ -10,11 +10,62 @@
 }
 
 .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+  align-items: center;
+  gap: var(--space-xl);
+  padding-block: var(--space-lg) var(--space-sm);
+}
+
+.text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-md);
-  padding-block: var(--space-lg) var(--space-sm);
+}
+
+.portrait {
+  position: relative;
+  background: var(--surface);
+  box-shadow: var(--shadow-print);
+  isolation: isolate;
+  animation: heroRise var(--dur-slow) var(--ease-out) 240ms backwards;
+}
+
+/* Blend the cool grey studio backdrop into the warm paper palette. */
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  mix-blend-mode: multiply;
+  filter: sepia(0.28) saturate(0.9) contrast(1.03) brightness(1.1);
+}
+
+/* Soft accent wash and a fade into the page at the bottom edge. */
+.portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, var(--background) 0%, transparent 28%),
+    linear-gradient(135deg, transparent 55%, var(--accent) 260%);
+  opacity: 0.55;
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 48rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .portrait {
+    max-width: 18rem;
+  }
 }
 
 .kicker {
