@@ -8,17 +8,7 @@ import ContactCTA from "@/components/ContactCTA";
 import { getNotes, getProjects } from "@/lib/content";
 import styles from "./page.module.css";
 
-const PLAYGROUND_CATEGORIES = [
-  "Figma",
-  "Interaction",
-  "Motion",
-  "Typography",
-  "Visual Design",
-  "3D",
-  "Physical Design",
-  "Code",
-  "Research",
-];
+const PLAYGROUND_CATEGORIES = ["3D", "Physical Design"];
 
 const FIELD_NOTE_CATEGORIES = [
   "Design",
@@ -66,9 +56,9 @@ export default function Home() {
             title="Playground"
           />
           <p>
-            A living proof-of-skills archive: micro-interactions, motion and
-            type studies, code experiments, and physical prototypes. Not a
-            list of skills — evidence of them.
+            What I have learned and explored in my academics at IIT Guwahati:
+            form studies, mechanisms, 3D printing and sheet metal fabrication,
+            from first sketch to physical prototype.
           </p>
           <ul className={styles.chipRow} aria-label="Playground categories">
             {PLAYGROUND_CATEGORIES.map((category) => (
