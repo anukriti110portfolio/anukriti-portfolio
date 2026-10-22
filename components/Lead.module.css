@@ -1,0 +1,8 @@
+.lead {
+  max-width: 36rem;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--foreground);
+}

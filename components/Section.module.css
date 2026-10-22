@@ -1,0 +1,61 @@
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+  gap: var(--space-md);
+  padding-block: var(--space-lg);
+  border-top: var(--border-thin) solid var(--line);
+}
+
+.section:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* `.section >` out-ranks the generic `.prose h2` rule in MdxContent.module.css */
+.section > .label {
+  align-self: start;
+  position: sticky;
+  top: var(--space-md);
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--muted);
+}
+
+.body {
+  min-width: 0;
+}
+
+.body > * + * {
+  margin-top: var(--space-sm);
+}
+
+.section > .body > h3 {
+  margin-top: var(--space-md);
+}
+
+.section > .body > h3 + * {
+  margin-top: var(--space-2xs);
+}
+
+.section > .body > h3:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 48rem) {
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-sm);
+    padding-block: var(--space-md);
+  }
+
+  .section > .label {
+    position: static;
+  }
+}

@@ -20,7 +20,8 @@ import { buildPageMetadata } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "Playground",
-  description: "A living archive of design experiments and skills in action.",
+  description:
+    "What I learned and explored in my academics at IIT Guwahati: form studies, mechanisms, 3D printing and fabrication.",
   path: "/playground",
 });
 
@@ -47,8 +48,10 @@ export default function PlaygroundPage() {
         headingLevel={1}
       />
       <p className={styles.intro}>
-        A living proof-of-skills archive. Not a list of tools — evidence of
-        what happens when I take an idea apart to see how it works.
+        What I have learned and explored in my academics at IIT Guwahati: form
+        studies, mechanisms, 3D printing and sheet metal fabrication. Each
+        project follows an idea from sketch to CAD to a physical prototype,
+        including the attempts that didn’t work.
       </p>
       <PlaygroundBrowser items={items} categories={usedCategories} />
     </main>

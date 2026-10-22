@@ -1,0 +1,165 @@
+---
+title: Reimagining automata maker with 3d printing
+category: 3D
+description: Design for additive manufacturing-DD559, guided by- prof. Ajeet kumar. By Anukriti Tripathi.
+tools:
+  - Blender
+  - Bambu Studio
+  - Bambu Lab printer
+  - PLA filament
+skills:
+  - Mechanism design
+  - CAD modelling
+  - Dimensional tolerancing
+cover: "/images/playground/reimagining-automata-with-3d-printing/p06-3.jpg"
+order: 5
+layout: wide
+---
+
+<Section title="Abstract">
+
+Automata are moving mechanical models that use simple mechanisms to create repetitive motion. This project explores the application of additive manufacturing in designing, fabricating, and realizing a functional automata model through 3D printing. The objective was to recreate a traditional automata concept using digital design tools and additive manufacturing techniques. The model was developed using an eccentric cam mechanism, where manual rotational input is converted into vertical reciprocating motion to create the movement of the bird structure. The project involved concept ideation, mechanism development, 3D modelling, prototyping, and final fabrication. PLA filament was selected due to its ease of printing and dimensional stability. The final prototype successfully demonstrated the intended movement and highlighted the potential of additive manufacturing in recreating traditional automata through modern fabrication techniques.
+
+</Section>
+
+<Section title="Introduction">
+
+Mechanical toys and kinetic sculptures have long been used to create engaging motion through simple manually operated systems. Traditional automata are examples of such creations, where movement is generated using mechanisms like cams, gears, levers, and linkages. These models were commonly handcrafted using materials such as wood, paper, cardboard, and metal, serving as toys, decorative artifacts, and demonstrations of basic mechanical principles.
+
+With the rise of digital fabrication technologies, additive manufacturing has created new possibilities for recreating such traditional crafts through modern methods. 3D printing enables rapid prototyping, customization of complex geometries, and easier fabrication of intricate mechanical parts, making it suitable for developing functional automata models.
+
+This project aimed to explore automata through additive manufacturing by designing and fabricating a 3D printed model based on an eccentric cam mechanism. The mechanism converts manual rotational input into vertical motion, creating the movement of the bird structure. Through this project, the team explored digital modelling, fabrication processes, assembly, and motion design while understanding how traditional mechanical crafts can be realized using contemporary manufacturing techniques.
+
+</Section>
+
+<Section title="Inspiration">
+
+The inspiration was derived from traditional wooden automata toys that create playful movement through simple mechanical systems.
+
+<Spread
+  cols={3}
+  ratio="1 / 1"
+  images={[
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p03-1.jpg", alt: "A traditional wooden automaton with a row of seated figures driven by a cam shaft" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p03-2.jpg", alt: "A wooden whale automaton above a wave-shaped cam box" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p03-3.jpg", alt: "A wooden horse automaton on a lattice base" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p03-4.jpg", alt: "A wooden bird automaton on a turned wooden stand" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p03-5.jpg", alt: "A wooden cat automaton on an open frame" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p03-6.jpg", alt: "A wooden winged creature automaton on a box with a side handle" },
+  ]}
+/>
+
+The selected concept consists of a bird placed on a top structure that moves vertically when the side handle is rotated.
+
+Multiple sketches were developed to understand the overall form, movement style, and internal arrangement of mechanical components. Different automata concepts were explored, and the final design was selected based on simplicity of movement, compactness, and ease of fabrication using 3D printing. The objective was to create an engaging motion while keeping the mechanism easy to assemble and operate.
+
+</Section>
+
+<Section title="Working principle">
+
+The automata works using an eccentric cam mechanism, which converts continuous rotary motion into vertical reciprocating motion. The eccentric cam is mounted off-centre on a rotating shaft, which is connected to a manually operated side crank. When the crank is rotated, the shaft rotates the eccentric cam. Due to its off-centre geometry, the cam creates varying displacement during rotation.
+
+A vertical follower rod is placed above the cam and remains in contact with its surface. As the higher portion of the eccentric cam rotates upward, it pushes the follower rod vertically upward. As the cam continues rotating and the lower portion passes beneath the follower, the rod moves downward. This repeated motion creates a continuous up-and-down movement.
+
+The follower rod is connected to the bird assembly placed on top. As a result, the bird appears to bob up and down in a rhythmic motion, creating the visual effect of a playful moving automata. One complete rotation of the crank results in one full movement cycle of the bird.
+
+### Major Components
+
+<Facts
+  cols={3}
+  items={[
+    { title: "Base Frame", text: "Supports all components and houses the internal mechanism." },
+    { title: "Crank Handle", text: "Provides manual rotational input." },
+    { title: "Rotating Shaft", text: "Transfers motion from the crank to the eccentric cam." },
+    { title: "Eccentric Cam", text: "The primary component responsible for converting rotational motion into vertical displacement." },
+    { title: "Follower Rod", text: "Moves vertically according to the cam profile." },
+    { title: "Bird Assembly", text: "The moving visual component placed on top of the structure." },
+  ]}
+/>
+
+</Section>
+
+<Section title="Rough sketches- ideation">
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p04-1.jpg", alt: "Rough pencil sketches of the bird, the cam and shaft arrangement, and the crank, follower and base" },
+  ]}
+/>
+
+</Section>
+
+<Section title="CAD model - in blender">
+
+All components were modelled using Blender and fabricated using PLA filament.
+
+PLA was selected because of its ease of printing, dimensional accuracy, lightweight properties, and suitability for rapid prototyping. The material provided sufficient strength for low-load moving components while enabling quick iterations during the design process.
+
+Through this project, additive manufacturing allowed precise fabrication of intricate mechanical components and demonstrated how traditional automata can be recreated using modern digital manufacturing techniques.
+
+<Spread
+  cols={2}
+  ratio="16 / 10"
+  images={[
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p05-1.jpg", alt: "The automata model open in the Blender interface" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p05-2.jpg", alt: "Blender render of the box frame with the shaft, handle and follower rod laid out beside it" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Additive Manufacturing Process">
+
+After finalizing the design in Blender, all components including the base frame, eccentric cam, shaft, crank handle, follower rod, bowl structure, and bird assembly were exported as STL files and prepared for printing in Bambu Studio.
+
+The parts were fabricated using FDM printing on a Bambu Lab printer using PLA filament due to its ease of printing, dimensional accuracy, and low warping properties. A layer height of 0.2 mm was used to balance print quality and printing time. Higher infill was used for functional components such as the eccentric cam and shaft while lower infill was used for decorative parts.
+
+After printing, support structures were removed and minor sanding was carried out to improve fitting and reduce friction between moving parts. Finally, all components were assembled to create the working automata model. The use of additive manufacturing enabled quick prototyping and efficient fabrication of the mechanism.
+
+<Spread
+  cols={3}
+  ratio="1 / 1"
+  images={[
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p06-2.jpg", alt: "The printer working on the orange frame and cam parts" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p06-3.jpg", alt: "Printed orange frame, gears and handle parts on the print bed" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p06-1.webp", alt: "The printer beginning a part on the bed" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p06-6.webp", alt: "Orange cam discs and shaft parts printing on the bed" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p06-4.jpg", alt: "The assembled orange automata with a green bird, held in hands" },
+    { src: "/images/playground/reimagining-automata-with-3d-printing/p06-5.webp", alt: "The assembled automata frame with the crank handle on the side" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Learning and Conclusion">
+
+The project successfully explored the recreation of traditional automata using additive manufacturing techniques. The final prototype effectively demonstrated the working principle of an eccentric cam mechanism, where manual rotational input through the crank was converted into vertical reciprocating motion, producing the oscillatory movement of the bird structure.
+
+The use of 3D printing enabled rapid prototyping, faster design iterations, and reduced material usage compared to conventional fabrication methods. The process also highlighted the potential of additive manufacturing for producing mechanical components efficiently and in shorter development time, making it suitable for small scale and future mass production applications.
+
+Throughout the project, several practical challenges were encountered during modelling and assembly. Proper tolerancing between rods, shafts, and moving components had to be carefully maintained to ensure smooth movement and successful assembly. Minor alignment errors, friction between interacting parts, and fitting inaccuracies required repeated modifications, adjustments, and reassembly during the prototyping stage.
+
+Despite these challenges, the project achieved the intended mechanical movement and provided valuable understanding of:
+
+- mechanism design and motion transfer
+- CAD modelling for moving assemblies
+- dimensional tolerancing in 3D printing
+- and the role of additive manufacturing in developing functional kinetic products.
+
+Overall, the project demonstrated how contemporary digital fabrication methods can be used to reinterpret traditional mechanical crafts through accessible and iterative manufacturing processes.
+
+</Section>
+
+<Section title="Future Directions">
+
+The current automata demonstrates a basic vertical motion mechanism; however, future improvements can enhance both functionality and user interaction. One possible improvement is the integration of more complex movement systems such as dual cams, gears, or linkage mechanisms to create multiple simultaneous motions. This could make the automata more dynamic and visually engaging.
+
+Future versions could also explore motorized actuation instead of manual crank operation to automate movement. The integration of small motors and electronics could create interactive products with continuous motion.
+
+Material experimentation can also be explored by using stronger or more sustainable materials such as recycled filaments, biodegradable materials, or resin printing for finer detailing. Improving print quality and reducing friction through better tolerancing, lubrication methods, and optimized part design can further enhance movement efficiency.
+
+Additionally, the concept can be expanded into educational toys, kinetic sculptures, or customized decorative products, demonstrating wider applications of automata combined with additive manufacturing.
+
+</Section>

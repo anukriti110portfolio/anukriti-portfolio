@@ -113,7 +113,7 @@ export default async function ExperimentPage({ params }: ExperimentPageProps) {
         </div>
       )}
 
-      <MdxContent source={item.body} />
+      <MdxContent source={item.body} wide={fm.layout === "wide"} />
     </main>
   );
 }

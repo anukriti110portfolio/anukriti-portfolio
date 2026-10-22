@@ -60,10 +60,14 @@ export type PlaygroundFrontmatter = {
   title: string;
   category: string;
   date?: string;
+  /** Lower numbers come first. Entries without one follow, newest date first. */
+  order?: number;
   description?: string;
   tools?: string[];
   skills?: string[];
   cover?: string;
+  /** "wide" switches the detail page to the editorial <Section> layout. */
+  layout?: "wide";
   video?: string;
   figmaUrl?: string;
   externalUrl?: string;
@@ -72,6 +76,10 @@ export type PlaygroundFrontmatter = {
 
 export function getPlaygroundItems(): ContentFile<PlaygroundFrontmatter>[] {
   return readCollection<PlaygroundFrontmatter>("playground").sort((a, b) => {
+    const orderA = a.frontmatter.order ?? 999;
+    const orderB = b.frontmatter.order ?? 999;
+    if (orderA !== orderB) return orderA - orderB;
+
     const dateA = a.frontmatter.date ?? "0000-00-00";
     const dateB = b.frontmatter.date ?? "0000-00-00";
     return dateB.localeCompare(dateA);

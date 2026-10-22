@@ -2,8 +2,16 @@
   max-width: var(--content-reading);
 }
 
+.wide {
+  max-width: none;
+}
+
 .prose > * + * {
   margin-top: var(--space-sm);
+}
+
+.wide > * + * {
+  margin-top: 0;
 }
 
 .prose h2 {

@@ -1,0 +1,43 @@
+/* Doubled class: out-ranks the generic `.prose ol` rule in MdxContent.module.css */
+.steps.steps {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: var(--border-thin) solid var(--line);
+}
+
+.step {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: var(--space-xs);
+  padding-block: var(--space-xs);
+  border-bottom: var(--border-thin) solid var(--line);
+}
+
+.step + .step {
+  margin-top: 0;
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  color: var(--accent);
+  padding-top: 0.2em;
+}
+
+.step .title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.text {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}

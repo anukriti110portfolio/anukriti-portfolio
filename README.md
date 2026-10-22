@@ -30,6 +30,24 @@ Open http://localhost:3000.
 
 No component edits required — ever.
 
+### Long-form playground pages
+
+Add `layout: wide` to a playground entry's frontmatter to get the editorial
+layout (label on the left, content on the right). Build the page from these
+blocks — see `content/playground/anda-cracker.mdx` for a full example:
+
+| Block | Use |
+|---|---|
+| `<Section title="…">` | A labelled row; put normal markdown inside, with blank lines around it |
+| `<Lead>…</Lead>` | One larger intro line |
+| `<Spread images={[…]} cols={3} ratio="4 / 3" fit="contain" />` | Image grid; `fit` is `contain` (never crops), `cover` or `natural` |
+| `<Facts items={[…]} cols={3} />` | Titled notes, each with optional text, bullets and images |
+| `<Steps items={[…]} />` | Numbered `{ title, text }` steps |
+| `<Flow items={["A", "B"]} />` | A short sequence: A → B |
+
+Images live in `public/images/playground/<slug>/`. Add `date: "YYYY-MM-DD"` to
+control the order on the Playground page (newest first).
+
 ## Themes
 
 Design tokens live in `styles/tokens.css`; the theme registry is

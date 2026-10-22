@@ -1,0 +1,281 @@
+---
+title: Anda - cracker
+category: Physical Design
+description: Redefining the Egg Workflow in the Indian Kitchen.
+skills:
+  - User insight
+  - Competitive analysis
+  - Mechanism design
+  - Ideation sketching
+cover: "/images/playground/anda-cracker/p12-1.jpg"
+order: 3
+layout: wide
+---
+
+<Section title="Anda - cracker">
+
+<Lead>A product design solution addressing the messy reality of cracking and peeling eggs in a high speed, one handed environment.</Lead>
+
+by : Anukriti Tripathi
+
+</Section>
+
+<Section title="The “Anda” Ritual">
+
+### Daily Staple
+
+Eggs are the universal protein in Indian households from quick morning omelets to Sunday egg curries.
+
+- High consumption volume across all demographics.
+- Traditional methods rely on table-edges or spoons.
+- Cooking is often a synchronous task (stirring with one hand while cracking with the other).
+
+<Spread
+  cols={1}
+  ratio="16 / 9"
+  images={[
+    { src: "/images/playground/anda-cracker/p02-1.jpg", alt: "A street vendor arranging eggs, vegetables and fruit at a market stall" },
+  ]}
+/>
+
+</Section>
+
+<Section title="The Shell Trap">
+
+### Precision Failure
+
+A “clean crack” is a culinary skill that many home cooks and beginners struggle with.
+
+One imprecise strike leads to shell fragments entering the pan, creating a physical hazard and an unappetizing experience.
+
+The Hazard: Fragments are hard to spot in whisked yolks and can carry surface contaminants into the food.
+
+<Spread
+  cols={1}
+  ratio="16 / 9"
+  images={[
+    { src: "/images/playground/anda-cracker/p03-1.webp", alt: "A cracked egg with its shell in fragments around it" },
+  ]}
+/>
+
+</Section>
+
+<Section title="The Peeling Frustration">
+
+### Messy & Tedious
+
+Peeling boiled eggs in the Indian context often involves fresh eggs which are notoriously difficult to peel without tearing the white.
+
+- The membrane sticks to the shell.
+- The result is a “mangled” egg that looks unappealing for serving.
+- Process is time consuming for large family batches.
+
+<Spread
+  cols={1}
+  ratio="16 / 9"
+  images={[
+    { src: "/images/playground/anda-cracker/p04-1.jpg", alt: "Torn, partly peeled boiled eggs in a glass bowl" },
+  ]}
+/>
+
+</Section>
+
+<Section title="The Design Brief">
+
+<Lead>100 % Clean separation</Lead>
+
+### Project Brief
+
+To develop a handheld device that provides a controlled fracture for raw eggs and a membrane safe release for boiled eggs.
+
+### Primary Users:
+
+Home cooks, bachelor students, and large scale breakfast vendors (Rehri-walas).
+
+</Section>
+
+<Section title="User Insight: The “Third Hand”">
+
+<Facts
+  cols={3}
+  items={[
+    {
+      title: "One-Handed Utility",
+      text: "Indian cooking is busy. A tool that frees one hand is a workflow revolution, not just a gimmick.",
+      images: [{ src: "/images/playground/anda-cracker/p06-2.webp", alt: "Open hand icon" }],
+    },
+    {
+      title: "Hygiene Priority",
+      text: "Zero contact between the shell exterior and the yolk ensures a safer, cleaner breakfast.",
+      images: [{ src: "/images/playground/anda-cracker/p06-3.jpg", alt: "Shield with a check mark icon" }],
+    },
+    {
+      title: "Universal State",
+      text: "The gap is in versatility. Users need one tool for raw cracking AND boiled peeling.",
+      images: [{ src: "/images/playground/anda-cracker/p06-1.jpg", alt: "Infinity symbol icon" }],
+    },
+  ]}
+/>
+
+</Section>
+
+<Section title="Competitive analysis">
+
+I research mechanism and various product exist in this market
+
+<Facts
+  cols={3}
+  items={[
+    {
+      title: "Clamp+ split method",
+      images: [
+        { src: "/images/playground/anda-cracker/p07-5.jpg", alt: "A clamp-style egg cracker with an egg held between two jaws" },
+        { src: "/images/playground/anda-cracker/p07-6.jpg", alt: "A hand pressing a metal clamp over a bowl" },
+      ],
+      text: "Working Principle:",
+      bullets: ["Egg placed between two jaws", "Gentle compression", "Shell fractures at weakest point", "Jaws separate shell halves"],
+    },
+    {
+      title: "Impact ring mechanism",
+      images: [{ src: "/images/playground/anda-cracker/p07-2.jpg", alt: "A ring-type egg topper removing the top of an egg" }],
+      text: "Working Principle:",
+      bullets: ["Egg hits circular ridge", "Force evenly distributed along ring", "Shell cracks in controlled circle"],
+    },
+    {
+      title: "Blade Cut Method",
+      images: [{ src: "/images/playground/anda-cracker/p07-3.jpg", alt: "Two orange and yellow egg cutters with steel blades" }],
+      text: "Working Principle:",
+      bullets: ["Circular blade scores shell", "Creates controlled fracture line", "Top pops off cleanly"],
+    },
+    {
+      title: "Crack egg on bowl edge",
+      images: [{ src: "/images/playground/anda-cracker/p07-4.jpg", alt: "Hands cracking an egg over a bowl" }],
+      text: "Working Principle:",
+      bullets: ["Sharp edge creates localized stress", "Shell fractures along impact line", "User pulls shell apart manually"],
+    },
+    {
+      title: "Spring loaded taper",
+      images: [{ src: "/images/playground/anda-cracker/p07-1.jpg", alt: "Steel egg cups, spoons and a spring-loaded egg topper" }],
+      text: "Working Principle:",
+      bullets: ["Spring builds energy", "Release small hammer hits top", "Creates clean crack"],
+    },
+  ]}
+/>
+
+</Section>
+
+<Section title="Figuring out working principle for one hand">
+
+I tested cracking mechanism based on circumferential stress
+
+<Spread
+  cols={3}
+  ratio="3 / 4"
+  images={[
+    { src: "/images/playground/anda-cracker/p08-1.webp", alt: "A person holding an egg with a small cap placed over its top", caption: "I placed a cap on egg which covers the upper part of egg" },
+    { src: "/images/playground/anda-cracker/p08-2.webp", alt: "A hand holding the capped egg above a red cup" },
+    { src: "/images/playground/anda-cracker/p08-3.webp", alt: "A spoon about to tap the capped egg held over a bowl", caption: "Then hammer it with spoon so the crack is even" },
+    { src: "/images/playground/anda-cracker/p08-4.webp", alt: "A spoon striking the capped egg over a bowl", caption: "I needed to hit 3 to 4 times to crack" },
+    { src: "/images/playground/anda-cracker/p08-5.webp", alt: "Hands lifting the cracked top shell from the egg", caption: "After the crack removing the upper part of shell" },
+    { src: "/images/playground/anda-cracker/p08-6.webp", alt: "The egg with its top removed and the yolk intact" },
+  ]}
+/>
+
+egg yolk without any shell fragment
+
+I tested this working principle on 4–5 eggs.
+
+**Fun fact!!!!** Some recipes require eggshells to be reused during cooking.
+
+</Section>
+
+<Section title="Ideation sketch">
+
+<Lead>What if the circumferential stress principle could be operated with one hand?</Lead>
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { src: "/images/playground/anda-cracker/p09-1.jpg", alt: "Pencil ideation sketches of one-handed egg cracking mechanisms" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Final sketch">
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { src: "/images/playground/anda-cracker/p11-1.jpg", alt: "Annotated sketch of the pistol-style egg cracker with barrel, spring, rod and latch" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Description of solution">
+
+### Pistol Inspired Ergonomics
+
+The vertical barrel design allows for a steady, one handed grip, providing better control than traditional horizontal cracking methods.
+
+### Core Components
+
+<Facts
+  cols={3}
+  items={[
+    { title: "Outer Barrel", text: "Serves as the housing and guide for the internal motion." },
+    { title: "Internal Cylinder Rod", text: "A weighted piston that delivers the kinetic energy." },
+    { title: "Helical Spring", text: "The energy storage unit of the system." },
+  ]}
+/>
+
+### The Latch (Trigger)
+
+A side mounted pin that holds the rod in a high potential energy state within a keyed slot.
+
+### Step-by-Step Operation
+
+<Steps
+  items={[
+    { title: "Loading", text: "The user pulls the side latch upward through the “J” or “L” shaped slot compressing the internal spring." },
+    { title: "Locking", text: "The latch is rotated into a notch to hold the tension, similar to a bolt action mechanism." },
+    { title: "Positioning", text: "The flared bottom cap is placed over the egg (raw, semi-boiled, or boiled)." },
+    { title: "Firing", text: "Releasing the latch allows the spring to expand rapidly, driving the rod downward at high velocity." },
+    { title: "The Impact", text: "The rod hits the bottom circular plate, which transfers a uniform ring of force to the eggshell." },
+  ]}
+/>
+
+</Section>
+
+<Section title="Mechanism overview">
+
+<Lead>Vision of ideation is that it can be use by single hand</Lead>
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { src: "/images/playground/anda-cracker/p12-1.jpg", alt: "CAD mechanism overview and operational logic: barrel, piston, spring, cap, plate and stand, with the latch action shown" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Engineering Limitations & Future Tuning">
+
+**Spring stiffness (k):** A critical unknown; the spring must be strong enough to crack the shell but not so stiff that it crushes the entire egg.
+
+**Energy Calibration:** Research suggests an impact energy of 12-26 mJ is ideal for a clean crack.
+
+**he Formula:** We must solve for U= 1/2kx^2
+
+- U = Required impact energy.
+- k = Spring constant.
+- x= Displacement (compression distance).
+
+**Next Steps:** Testing with various spring gauges and adjustable compression slots to accommodate different egg sizes and shell thicknesses.
+
+</Section>

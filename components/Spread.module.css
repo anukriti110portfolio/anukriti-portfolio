@@ -1,0 +1,55 @@
+.spread {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: var(--space-xs);
+  align-items: start;
+}
+
+.tile {
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: var(--ratio, 4 / 3);
+  overflow: hidden;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+}
+
+/* Absolutely positioned so object-fit has a real box to fit into. */
+.spread .frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.spread[data-fit="cover"] .frame img {
+  object-fit: cover;
+}
+
+.spread[data-fit="natural"] .frame {
+  aspect-ratio: auto;
+  background: none;
+}
+
+.spread[data-fit="natural"] .frame img {
+  position: static;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.tile figcaption {
+  margin-top: var(--space-2xs);
+}
+
+@media (max-width: 48rem) {
+  .spread {
+    grid-template-columns: repeat(min(var(--cols, 3), 2), minmax(0, 1fr));
+  }
+}
+
