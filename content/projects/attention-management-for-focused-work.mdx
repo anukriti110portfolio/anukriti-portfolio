@@ -1,46 +1,432 @@
 ---
 title: Attention Management for Focused Work
-subtitle: "A master's thesis exploring how people sustain focus and recover from interruptions — and an electronic product to help them resume work seamlessly."
-whatIf: "your tools helped you recover focus after an interruption, instead of just blocking distractions?"
+subtitle: "How might we help high cognitive performers like IITians, who deal with anxiety and high stress, increase their focus, attention and productivity?"
+whatIf: "high-performing students could recover focus and calm under pressure, instead of relying on deadlines and willpower?"
+year: "2026"
 category: Electronic Product Design
 duration: Ongoing
 role: "Master's thesis project, advised by Dr. Shakuntala Acharya"
+tools:
+  - User interviews
+  - Literature review
+  - Expert interview
 order: 4
+layout: wide
 ---
 
-## Problem
+<Section title="Overview">
 
-[CONTENT NEEDED] What problem were you solving, and for whom?
+<Lead>An ongoing master's thesis, advised by Dr. Shakuntala Acharya, on designing an intelligent attention management tool.</Lead>
 
-## Context
-Master's thesis project, advised by Dr. Shakuntala Acharya.
+How might we help high cognitive performers like IITians, who deal with anxiety and high stress, increase their focus, attention and productivity?
 
-## Research
+How might we design an intelligent attention management system that helps people maintain focus, recover from interruptions, and seamlessly continue their work throughout the day?
 
-Exploring how people sustain focus and recover from interruptions, beyond
-conventional task management and distraction-blocking tools.
+</Section>
 
-## Insights
+<Section title="Context">
 
-[CONTENT NEEDED] Findings that changed the direction.
+Most existing solutions focus on task management, note-taking, scheduling or blocking distractions. However, they provide limited support in helping users sustain attention, recover from interruptions, and resume work with the same level of focus. People are distracted not only by digital tools but also by their own thoughts, context switching (shifting attention from one task to another), and unexpected tasks.
 
-## Process
+This suggests that the challenge lies not only in managing tasks but in managing attention.
 
-[CONTENT NEEDED] From insight to concept.
+</Section>
 
-## Iterations
+<Section title="What is attention?">
 
-[CONTENT NEEDED] What changed between versions and why.
+The everyday expression "I cannot concentrate" could mean that relevant information is not being selected, a goal is not being sustained, a thought is intruding, the task is aversive, or a return after interruption is difficult. It is not one scientific outcome measure.
 
-## Solution
+Posner's attention network theory, proposed by cognitive psychologist Michael Posner and Steven Petersen in 1990, states that human attention is not a single, general ability. Instead, it is managed by three distinct, anatomically and functionally separate neural networks: Alerting, Orienting, and Executive Control.
 
-Designing an electronic product to support students and professionals in
-maintaining attention and seamlessly resuming work after interruptions.
+<Facts
+  cols={3}
+  items={[
+  {
+    "title": "1 · The Alerting Network",
+    "bullets": [
+      "Function: achieves and maintains a state of high readiness, arousal, and sustained vigilance to process incoming stimuli. It handles rapid changes caused by warning or alert signals.",
+      "Brain regions: right hemisphere structures, the brainstem arousal systems, and the locus coeruleus (which supplies norepinephrine).",
+      "Primary neurotransmitter: norepinephrine."
+    ]
+  },
+  {
+    "title": "2 · The Orienting Network",
+    "bullets": [
+      "Function: selects and prioritizes specific sensory information from the environment, either overtly by moving the eyes or head, or covertly by shifting mental focus without moving the body.",
+      "Brain regions: posterior parietal cortex, superior colliculus, pulvinar nucleus of the thalamus, and frontal eye fields.",
+      "Primary neurotransmitter: acetylcholine."
+    ]
+  },
+  {
+    "title": "3 · The Executive Control Network",
+    "bullets": [
+      "Function: resolves conflicts between thoughts, feelings, or competing responses, monitors errors, and regulates goal-directed behavior.",
+      "Brain regions: anterior cingulate cortex (ACC) and lateral prefrontal cortex.",
+      "Primary neurotransmitter: dopamine."
+    ]
+  }
+]}
+/>
 
-## Outcome
+</Section>
 
-[CONTENT NEEDED] What happened in the end — verifiable facts only.
+<Section title="What happens when attention is lost?">
 
-## Reflection
+<Facts
+  cols={3}
+  items={[
+  {
+    "title": "Different triggers",
+    "text": "External stimuli, internal thoughts, deliberate shifts, or task dependencies."
+  },
+  {
+    "title": "Mind-wandering",
+    "text": "Thoughts drift away from the task, disrupting comprehension and requiring rereading."
+  },
+  {
+    "title": "Difficulty increases mental drift",
+    "text": "Challenging tasks can trigger off-task thoughts, while deadlines create competing worries."
+  },
+  {
+    "title": "Context matters",
+    "text": "Mind-wandering may disrupt reading but support creative problem-solving during an undemanding break."
+  },
+  {
+    "title": "Breaks are not a universal reset",
+    "text": "Micro-breaks can improve energy and reduce fatigue, but do not consistently improve performance."
+  }
+]}
+/>
 
-[CONTENT NEEDED] Lessons learned as a designer.
+**Key takeaway:** attention loss is not always harmful. Its impact depends on the task, the timing, and whether the person can return to their goal.
+
+</Section>
+
+<Section title="Interruption, switching, recovery">
+
+<Flow items={["Interruption", "Switching", "Recovery", "Resumption"]} />
+
+<Facts
+  cols={3}
+  items={[
+  {
+    "title": "Interruption",
+    "text": "Something external, internal, or task related demands attention and disrupts the current activity."
+  },
+  {
+    "title": "Switching",
+    "text": "The person decides whether to pause the current task, shifts attention, and may need to remember where to return."
+  },
+  {
+    "title": "Recovery",
+    "text": "After the interruption, the person retrieves the previous goal, recalls what was completed, and identifies the next action."
+  },
+  {
+    "title": "Resumption delay",
+    "text": "Time is needed to restart the task; longer or more demanding interruptions can increase this delay."
+  },
+  {
+    "title": "Return cues matter",
+    "text": "Notes, open documents, visible progress, and a clear next step can help reconstruct the task state."
+  },
+  {
+    "title": "Preparation helps",
+    "text": "A simple plan for resuming the task may reduce the effort required to get back into it."
+  }
+]}
+/>
+
+**Key research insight:** the challenge is not just preventing interruptions; it is helping people return to their original task effectively.
+
+Can we make returning to focused work easier without forcing people to suppress their thoughts or avoid every interruption?
+
+</Section>
+
+<Section title="Is attention trainable?">
+
+<Facts
+  cols={2}
+  items={[
+  {
+    "title": "People can improve at attention exercises.",
+    "text": "Well supported."
+  },
+  {
+    "title": "Some related skills or task-specific strategies can be learned.",
+    "text": "Supported, but depends on the skill and context."
+  },
+  {
+    "title": "Mindfulness or cognitive training generally makes people better at academic work.",
+    "text": "Not reliably demonstrated."
+  },
+  {
+    "title": "Practising noticing drift and returning to real work builds a lasting, transferable skill.",
+    "text": "Plausible research question, not an established finding."
+  }
+]}
+/>
+
+Sources: Paul (2015), Rule (2017), via interruptions.net. Full list under References.
+
+</Section>
+
+<Section title="Getting into the field">
+
+Framing questions for the interviews, grouped into four clusters.
+
+<Facts
+  cols={2}
+  items={[
+  {
+    "title": "1 · Physical environment and sensory boundaries",
+    "text": "How spatial setup and sensory input act as a prerequisite for deep work.",
+    "bullets": [
+      "Sensory limits: managing light sensitivity (morning sun versus dim night lighting), blue light protection, and a strict preference for ambient audio without earphones.",
+      "Ergonomic scaffolding: the need for physical support tools, like laptop stands and ergonomic chairs, to stay comfortable over long periods.",
+      "Spatial memory: relying on physical artifacts in the environment, such as sticky notes and wall banners, to externalize memory and maintain task direction."
+    ]
+  },
+  {
+    "title": "2 · Biological rhythms and physiological baselines",
+    "text": "How focus is dictated by the body's physical and emotional readiness, rather than just willpower.",
+    "bullets": [
+      "Chronobiology: the friction between a natural peak focus window (3:00 AM to 11:00 AM) and the difficulty of keeping the sleep routine needed to support it.",
+      "Somatic dependencies: how deviations in diet and exercise immediately show up as headaches and lost concentration.",
+      "Emotional fluctuations: the impact that sadness or shifting physical health has on the baseline ability to concentrate."
+    ]
+  },
+  {
+    "title": "3 · Cognitive load and the \"freeze\" response",
+    "text": "How the brain processes complex, ambiguous or demanding tasks, and what happens when capacity is exceeded.",
+    "bullets": [
+      "Endurance versus quality: sitting for 7 to 8 hours yields only 2 hours of high-quality output, and task clarity degrades over time even on low-stress days.",
+      "Navigating ambiguity: high stress plus a lack of clarity leads to a complete mental block, and physical notepads are used to map out exact steps.",
+      "Verbal self-regulation: talking aloud to manage a wandering mind, overcome brain freezes and process heavy cognitive loads."
+    ]
+  },
+  {
+    "title": "4 · Break mechanics and motivation friction",
+    "text": "The danger zones of transitioning away from and back to work, and the external pressures needed to finish tasks.",
+    "bullets": [
+      "Cognitive detachment: \"productive\" breaks can fail. Reading while walking still carries a heavy cognitive load, while napping or scrolling causes frustration. True sensory recovery may look closer to tactile, input-free activities like cloth embroidery or a quiet night cycle ride.",
+      "Manufactured momentum: deadlines force completion, but perfectionism loops cause exhaustion.",
+      "External enforcement: using digital friction, like app lockers, to guard against dopamine-depleting habits."
+    ]
+  }
+]}
+/>
+
+</Section>
+
+<Section title="Interview questions">
+
+<Facts
+  cols={2}
+  items={[
+  {
+    "title": "1 · Physical environment and sensory boundaries",
+    "bullets": [
+      "Walk me through your ideal sensory setup when you need to do deep, focused work. How do you specifically manage lighting and sound?",
+      "Tell me about the physical objects on or around your workspace. How do physical artifacts, like sticky notes or specific ergonomic tools, actively help you manage your workflow?",
+      "Describe a time when your preferred environment was disrupted or unavailable. How did your body and your focus react to that change?"
+    ]
+  },
+  {
+    "title": "2 · Biological rhythms and physiological baselines",
+    "bullets": [
+      "Describe your energy levels throughout a typical 24 hour cycle. When is your absolute peak focus window, and what usually prevents you from fully utilizing it?",
+      "Think about a recent day when your foundational routine, like your sleep schedule, diet or exercise, was thrown off. How did that deficit specifically show up in your ability to concentrate?",
+      "How do you currently adapt your task list or expectations for yourself when you are navigating an emotional low, stress, or physical fog?"
+    ]
+  },
+  {
+    "title": "3 · Cognitive load and the \"freeze\" response",
+    "bullets": [
+      "If you have a completely open, low stress day, at what hour mark does the actual quality of your focus start to drop off, even if you are still physically sitting at your desk?",
+      "Think of a time you experienced a complete mental block or \"freeze\" due to a highly ambiguous or poorly defined task. What was the very first action you took to break it down?",
+      "When your mind starts wandering during a complex project, what active, real time strategies, like talking aloud or sketching, do you use to regulate your attention and stay on track?"
+    ]
+  },
+  {
+    "title": "4 · Break mechanics and motivation friction",
+    "bullets": [
+      "Walk me through a break that genuinely leaves you feeling cognitively refreshed. Do you rely on tactile activities like cloth embroidery, or rhythmic movement like going for a cycle ride, to fully disconnect from screen based work?",
+      "Describe the internal friction you experience when trying to resume a complex task after a \"low quality\" break, such as scrolling social media or taking a nap.",
+      "How do external pressures, like strict deadlines or digital barriers like app lockers, influence your momentum when you are stuck working on a task you find completely uninteresting?"
+    ]
+  }
+]}
+/>
+
+</Section>
+
+<Section title="Interviews">
+
+<Lead>Seven interviews with students, designers and working professionals, plus one expert interview with a student psychologist.</Lead>
+
+Participants are anonymised.
+
+<Facts
+  cols={2}
+  items={[
+  {
+    "title": "Interview 1 · AI/ML master's student, software engineer",
+    "bullets": [
+      "Focus capacity: reports being able to study for only 2–2.5 hours a day.",
+      "Coping strategy: relies on structured classes to stay consistent and ensures he never misses them.",
+      "Productivity triggers: feels productivity is driven by pressure and deadlines.",
+      "Anxiety management: does push-ups or listens to songs in an unfamiliar language when anxious.",
+      "Task planning: sets task-specific goals in 20–25 minute intervals within his study window.",
+      "Break activities: takes walks or listens to unfamiliar-language music.",
+      "Emotional influence: reports working more when feeling sad or emotionally low.",
+      "Social accountability: asks friends whose expectations matter to him to hold him accountable, using his reluctance to disappoint them as motivation."
+    ]
+  },
+  {
+    "title": "Interview 2 · Designer",
+    "bullets": [
+      "Focus capacity: reports 2–3 hours of focused work on average; can extend to 6–7 hours under pressure, though during intense pressure she may manage only 90 minutes.",
+      "Productivity: finds deadlines and narrowed learning goals helpful when learning complex topics. Reports satisfactory results during focused work.",
+      "Distractions and recovery: easily distracted by conversations and phone notifications. Can recover from mind-wandering, but finds it difficult to resume work after Instagram doomscrolling; prefers long-form content.",
+      "Creative inspiration: sometimes finds interruptions and mind-wandering helpful for generating ideas. Watches films and product-manufacturing videos for inspiration.",
+      "Workload and prioritisation: struggles to prioritise tasks when overwhelmed by workload, stressful competition, or high-pressure expectations.",
+      "Biological rhythm: her strongest flow state is after dinner, particularly between 10:30 PM and 3 AM.",
+      "Work environment: prefers natural sunlight or warm lighting over white light. Dislikes her chair because it causes lower-back pain.",
+      "Breaks and emotional regulation: takes walks during breaks. When anxious, finds it difficult to work and turns to family and friends for emotional support.",
+      "Self-regulation practices: uses meditation, candles, and incense sticks to feel calm and manage emotional pressure.",
+      "Desired support: wants to remain able to work even in a toxic or stressful environment."
+    ]
+  },
+  {
+    "title": "Interview 3 · Designer",
+    "bullets": [
+      "Perceived focus capacity: reports difficulty sustaining focus beyond approximately 30 minutes, except under pressure.",
+      "Pressure-driven productivity: can work continuously for 6–7 hours with coffee under pressure. When deadlines intensify, she may stay awake and work for up to 18 hours, despite disliking this approach.",
+      "Emotional regulation: her emotional state significantly affects her focus. When sad, she misses her family; when anxious, she reaches out to friends. She reports that her anxiety is increasing over time.",
+      "Breaks and recovery: uses social media, doomscrolling, tea breaks, going outside, and deep cleaning as breaks. These do not feel cognitively refreshing, and she struggles to resume work afterward.",
+      "Stress response: under excessive workload, she tends to freeze, overthink, or sleep rather than act.",
+      "Task prioritisation: starts with the most important task but struggles when the overall workload becomes overwhelming.",
+      "Distraction patterns: frequently gets distracted by random thoughts and feels she is losing willpower and motivation. She reports leaving tasks incomplete.",
+      "Self-monitoring strategy: during entrance-exam preparation, used an Excel sheet to record data and visualise her progress through graphs.",
+      "Environmental influence: finds her surroundings highly influential. Coming from an arts background, where work was often collaborative, she finds the independent working culture of her current environment challenging.",
+      "Physical environment: often works on her bed or an ergonomically unsuitable chair, uses dim lighting, and experiences lower-back pain.",
+      "Nutrition and movement: reports that diet significantly affects her focus and tries to eat protein-rich food. Short walks during a week of experimentation made little noticeable difference.",
+      "Self-regulation challenge: recognises difficulty with self-control and managing anxiety, although she can deliver results when deadlines demand it.",
+      "Key tension: pressure can temporarily improve her productivity, but excessive stress negatively affects her emotional well-being, health, and ability to work sustainably."
+    ]
+  },
+  {
+    "title": "Interview 4 · PhD scholar",
+    "bullets": [
+      "Daily work routine: attends approximately 4 hours of classes and studies for another 4 hours in the evening.",
+      "History of attention difficulties: experienced significant attention difficulties and last-minute, pressure-driven studying during her B.Tech, which contributed to severe anxiety. Currently receives psychiatric support and medication.",
+      "Anxiety response: when situations feel out of control, experiences intense heart palpitations and seeks support through professional care and prescribed medication.",
+      "Focus and distractions: easily distracted by internal thoughts despite actively trying to concentrate.",
+      "Break and recovery: finds it difficult to resume work after using Instagram. After 120 minutes of focused work, takes a break involving two 20-minute anime episodes and eating Maggi.",
+      "Environmental sensitivity: table setup, noise, and other external factors significantly affect her concentration.",
+      "Anxiety regulation: uses box breathing and other techniques taught by her psychiatrist to manage anxiety.",
+      "Emotional influence: rates the impact of emotions on her work at 8–9/10. When emotionally overwhelmed, she struggles to focus and takes a break. Despite reporting episodes of intense crying approximately every two days, she feels consistency helps her maintain work progress.",
+      "Deadline response: dislikes last-minute pressure but reports managing to complete work somehow when deadlines approach.",
+      "Key tension: maintains academic productivity through consistency, yet experiences substantial emotional and attentional difficulties that can interfere with concentration and task resumption."
+    ]
+  },
+  {
+    "title": "Interview 5 · First-year B.Tech student",
+    "bullets": [
+      "Focus and task resumption: struggles to settle into focused work and finds it difficult to resume after breaks.",
+      "Pressure-driven productivity: can work for up to 18 hours under pressure but struggles to maintain a sustainable routine.",
+      "Productive hours: previously felt most productive between 4 AM and 11 AM but now struggles to wake up during those hours.",
+      "Commuting constraints: spends approximately 3 hours daily travelling to and from college by local train in Mumbai.",
+      "Learning preference: prefers oral learning and consistently attends classes, which helps him retain at least some of what he hears.",
+      "Deep-learning tendency: enjoys exploring topics in depth but often studies material beyond the immediate requirements, increasing his workload.",
+      "Procrastination trigger: excessive workload and overexploration lead him to procrastinate.",
+      "Existing strategies: has tried to-do lists and task planning but reports that they have not worked for him.",
+      "Consistency and self-regulation: maintains consistency with gym workouts and class attendance but struggles to apply the same consistency to independent study.",
+      "Key tension: wants to learn deeply but struggles to control the scope of his study, manage workload, and sustain focus without deadline pressure."
+    ]
+  },
+  {
+    "title": "Interview 6 · Software engineer",
+    "bullets": [
+      "Work versus personal growth: can perform effectively under workplace pressure but feels too exhausted after work to pursue personal development.",
+      "Motivation and initiation: personal growth activities require substantial willpower or a strong sense of urgency to get started.",
+      "Pressure and well-being: recognises that sustained stress and pressure can compromise health and increase anxiety.",
+      "Work–life balance: wants to maintain an active social life alongside professional responsibilities and personal growth, but sometimes struggles with time management.",
+      "Unmet need: wants a solution to manage these competing demands but is unsure which approach would work for him.",
+      "Key tension: can meet externally driven work demands but struggles to consistently invest energy in self-directed goals after work without relying on urgency or willpower."
+    ]
+  },
+  {
+    "title": "Interview 7 · Student psychologist (expert interview)",
+    "bullets": [
+      "Variation in anxiety management: some students manage anxiety through grounding techniques, sports, and gym activities.",
+      "Need for clinical support: for students whose difficulties may have biological or clinical factors, the psychologist takes their history, assesses their concerns, and may prescribe medication when appropriate.",
+      "Anxiety and cognitive functioning: some students report feeling completely frozen or experiencing brain fog when anxiety intensifies.",
+      "Impact on productivity: students experiencing these symptoms often report being unable to initiate or carry out their work.",
+      "Key insight: anxiety-related difficulties vary across students. While some benefit from self-regulation strategies, others require professional assessment and clinical support."
+    ]
+  }
+]}
+/>
+
+</Section>
+
+<Section title="Conclusion">
+
+<Lead>Understanding attention beyond willpower.</Lead>
+
+The interviews reveal that attention difficulties cannot be explained by a lack of discipline alone. They are influenced by emotional states, internal and external distractions, workload, the work environment, and individual differences.
+
+<Facts
+  cols={2}
+  items={[
+  {
+    "title": "1 · When attention difficulties require professional support",
+    "bullets": [
+      "How can we distinguish everyday distraction and stress from persistent attention difficulties associated with anxiety, panic, or other health-related factors?",
+      "When should self-regulation strategies give way to professional assessment and support?"
+    ]
+  },
+  {
+    "title": "2 · Entering a focused state",
+    "bullets": [
+      "How can individuals overcome internal distractions, such as random thoughts and overthinking, and external interruptions, such as noise and digital notifications?",
+      "What helps people settle into a task and sustain attention without depending entirely on urgency, pressure, or willpower?"
+    ]
+  },
+  {
+    "title": "3 · Recovering and resuming attention",
+    "bullets": [
+      "Which breaks genuinely refresh attention rather than create further distraction?",
+      "How can individuals calm themselves, retain their intention to return, and resume work without prolonged delays?"
+    ]
+  },
+  {
+    "title": "4 · Sustaining focus on their own terms",
+    "bullets": [
+      "How can people maintain attention for a duration suited to their needs, energy, and task demands?",
+      "How can they recognise their limits, regulate their effort, and build sustainable focus without compromising their well-being?"
+    ]
+  }
+]}
+/>
+
+**Research direction:** to investigate how an attention-support approach could help individuals enter focused work, manage distractions, recover from interruptions, and re-engage effectively, while recognising when professional support is needed.
+
+</Section>
+
+<Section title="Status">
+
+This is an ongoing thesis. The research phase is documented here; the concept and the electronic product are still in progress and will be added as the work develops.
+
+</Section>
+
+<Section title="References">
+
+- [Paul (2015), interruptions research](https://www.interruptions.net/literature/Paul-IntJHumComputStud15.pdf)
+- [Rule (2017), interruptions research](https://www.interruptions.net/literature/Rule-HumComputInteract17.pdf)
+- [Hodgetts (2006), interruptions research](https://interruptions.net/literature/Hodgetts-JEP_LMC06.pdf)
+- [Zimmerman (2002), Becoming a Self-Regulated Learner](https://www.leiderschapsdomeinen.nl/wp-content/uploads/2016/12/Zimmerman-B.-2002-Becoming-Self-Regulated-Learner.pdf)
+- [Hutt et al. (2019)](https://visualcognition.nd.edu/assets/351493/hutt_etal_2019_umap.pdf)
+
+</Section>
