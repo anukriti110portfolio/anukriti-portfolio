@@ -115,7 +115,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </div>
       )}
 
-      <MdxContent source={project.body} />
+      <MdxContent source={project.body} wide={fm.layout === "wide"} />
 
       <nav aria-label="More projects" className={styles.neighborNav}>
         {prev ? (

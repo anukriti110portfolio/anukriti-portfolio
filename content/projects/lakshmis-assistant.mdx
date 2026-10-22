@@ -1,0 +1,431 @@
+---
+title: Lakshmi's Assistant
+subtitle: "How a home baker in Bangalore works with an AI assistant on WhatsApp: what it answers alone, where it stops and waits for her, and what happens when it gets one wrong."
+whatIf: "an AI assistant could speak for a home baker without ever speaking for her kitchen?"
+year: "2026"
+category: Product Design
+role: Research and product design
+duration: Salesforce product design challenge
+tools:
+  - WhatsApp Business
+  - AI interaction
+  - Prototyping
+cover: "/images/projects/lakshmis-assistant/cover.jpg"
+order: 2
+prototypeUrl: "/demos/lakshmis-assistant/index.html"
+prototypeLabel: Open the clickable prototype
+layout: wide
+---
+
+<Section title="Overview">
+
+<Lead>Letting AI speak for a home baker, without letting it speak for her kitchen.</Lead>
+
+I designed how a home baker in Bangalore works with an AI assistant on WhatsApp: what it answers alone, where it stops and waits for her, and what happens when it gets one wrong.
+
+<Facts
+  cols={2}
+  items={[
+    { title: "Platform", text: "WhatsApp Business, owner side" },
+    { title: "Status", text: "Clickable prototype. Not yet user-tested." },
+  ]}
+/>
+
+I helped a solo home baker hand her WhatsApp replies to an assistant by making every reply that could commit her kitchen wait for her.
+
+<Facts
+  cols={5}
+  items={[
+    { title: "2", text: "owner interviews" },
+    { title: "4", text: "customer message types" },
+    { title: "8", text: "simulated chats" },
+    { title: "4", text: "things it never does without her" },
+    { title: "0", text: "usability sessions so far" },
+  ]}
+/>
+
+</Section>
+
+<Section title="The four messages">
+
+<Facts
+  cols={2}
+  items={[
+    { title: "Sent", text: "\"Hi aunty, do you have the eggless chocolate cake today?\" Answers from this week's list, asks which chocolate and when. Notes it as not booked." },
+    { title: "Collects", text: "\"I need 40 cupcakes for an office party on Saturday. What's the price?\" Takes flavours, pickup and time. Won't book Saturday or send a final price until Lakshmi checks." },
+    { title: "Held", text: "\"My order was supposed to come at 5. It's 6:30. Very disappointed.\" Sends Lakshmi's own apology line. No refund, no blame. She takes it from there." },
+    { title: "Needs you", text: "\"Can you make a 2 kg photo cake by tomorrow morning? Urgent please\" Sends only her waiting line. She decides if she can make it." },
+  ]}
+/>
+
+</Section>
+
+<Section title="Stakes">
+
+<Lead>A helpful-sounding reply can cost her a cake, a customer or a Saturday.</Lead>
+
+Lakshmi runs a home bakery from her kitchen. Nearly every order arrives on WhatsApp, at night, during school pickup, or while she is mid-bake. Some messages go unanswered, some get late replies, and orders are lost. An assistant could fix that. She sees the value, and she hesitates, because her name is on every reply.
+
+<Facts
+  cols={2}
+  items={[
+    { title: "Without help", bullets: ["Chats go unanswered while her hands are busy.", "Late replies lose the order to another baker.", "She is sales, support and kitchen from one phone."] },
+    { title: "With a generic assistant", bullets: ["It fills in a complete-looking order and says yes to a Saturday that already has two cakes.", "It promises a photo cake by morning she has no time or supplies for.", "It offers a refund she never approved."] },
+  ]}
+/>
+
+The question I was given: how might we enable a small business owner to let AI manage customer conversations, without losing control of her business or her customers' trust? Most AI tools are built for the customer's side of the chat. This case is about the owner's side, including what happens when the assistant is wrong.
+
+</Section>
+
+<Section title="Research">
+
+<Lead>Two bakers, two different answers to "would you let it speak?"</Lead>
+
+I could not interview Lakshmi, so I interviewed two real home bakers and kept them apart. They agree on where the risk sits. They disagree on whether an assistant should speak at all.
+
+<Facts
+  cols={2}
+  items={[
+    { title: "CrumbLust · few months in, 1–2 enquiries a week", bullets: ["Orders come from friends and family by text and call, mostly in the daytime. She has not missed an enquiry.", "Confirming is a conversation: flavour, frosting, filling, design, date, pickup, egg or eggless. Then yes.", "She turned down an intricate design on a very small bento cake because she was not confident she could do it.", "Would delegate: flavours, fillings, availability, collecting details. Keeps: custom designs, final price, final confirm, any refund or compensation.", "Wants a notification and a short note whenever the assistant replies, not a full thread to reread. Does not want to approve every reply."] },
+    { title: "Megha · eight years, 5–10 orders a week, 11–12 cakes on a peak day", bullets: ["Runs the whole bakery alone on the IIT Guwahati campus and uses WhatsApp end to end. Students will not download another app.", "Vague requests like \"kuch bhi banado\" (make anything) frustrate her. She asks chocolate or not, size, event, then shares reference photos.", "She once baked a detailed order that the client then walked away from. She now confirms twice before she starts.", "She educates or declines when a customer wants 2 kg detail on a 0.5 kg cake, even if it costs a repeat order.", "Rejects automated bots for intake. Custom baking needs her judgement on feasibility."] },
+  ]}
+/>
+
+> "Thank you for your enquiry! Please give us a little time to check the requirements and confirm whether we can accommodate your order. We'll get back to you shortly."
+>
+> CrumbLust, the holding message she wrote herself for an urgent custom order
+
+> "We're sorry for the inconvenience. Please give us a little time to look into what happened and discuss the best way to resolve this. We'll get back to you shortly."
+>
+> CrumbLust, the holding message she wrote herself for a complaint
+
+Both interviews are written accounts supplied by me, not recordings, so wording is each baker's stated account. CrumbLust had not yet lived a complaint, so her complaint answers are preferences, not incidents. Neither owner is Lakshmi, and I did not average them into one person.
+
+</Section>
+
+<Section title="Insight">
+
+<Lead>Completeness is not capability.</Lead>
+
+Both bakers had refused an order after every detail was filled in: an intricate small bento cake, and 2 kg detail squeezed onto 0.5 kg. The form was complete. The cake was not something they could stand behind.
+
+So the trust risk is not that an assistant might chat. It is that a reply can commit her kitchen and her name, in a tone that sounds finished. The line to design is between answering and promising.
+
+</Section>
+
+<Section title="Persona">
+
+<Lead>Lakshmi, the owner whose name is on every reply.</Lead>
+
+A composite built from the brief and the two interviews. I have not given her an age, income or family details, because nothing I have supports them.
+
+Home baker, Bangalore. Customers call her "aunty". Runs sales, support and orders from a single phone. Orders arrive almost entirely on WhatsApp, often late at night, at school pickup, or mid-bake.
+
+<Facts
+  cols={2}
+  items={[
+    { title: "Goals", bullets: ["Stop losing orders to unanswered or late replies.", "Keep every reply sent in her name true to what her kitchen can do.", "Stay the one who decides what she can bake and when."] },
+    { title: "Frustrations", bullets: ["Messages she cannot get to while her hands are busy.", "Being the only voice of the business.", "Customers who expect a yes before she has checked supplies and time."] },
+    { title: "She will hand over", text: "Flavours, fillings, egg or eggless, this week's menu, collecting date, pickup and quantity." },
+    { title: "She keeps", text: "Custom designs, a final price, \"you're booked\", anything urgent, and any refund, compensation or blame." },
+    { title: "What would make her trust it", bullets: ["Information that matches her real menu, prices and capacity.", "It says \"I'll check\" instead of promising what she may not deliver.", "She can read what it said, correct it, and stop it in one tap."] },
+  ]}
+/>
+
+What she hands over and keeps is taken from CrumbLust's answers and Megha's practice. It is a design assumption for Lakshmi until tested with her.
+
+</Section>
+
+<Section title="Journey">
+
+<Lead>Six moments with the assistant, and where trust is won or lost.</Lead>
+
+I mapped Lakshmi's side of the day, not the customer's. The moments that matter most are the three where the assistant could speak for her and be wrong.
+
+<Facts
+  cols={3}
+  items={[
+    { title: "1 · Handing over", text: "First setup. She is opening AI and business and choosing what it may do alone. Worry: will it say something I cannot stand behind? Design: rules in her split, Auto, Ask me, I speak. Four boundaries locked on. Pause for everyone in the header." },
+    { title: "2 · A normal baking day", text: "She is icing a cake while routine questions arrive. Worry: is it saying the right thing while I'm not looking? Design: answers from this week's list, collects details, marks the chat AI handled and Not booked. No approval needed." },
+    { title: "3 · A reply that would bind her", text: "Ravi, Rahul, Aarav. She sees a Needs you chip and opens a draft that has not been sent. Worry: can I make this by Saturday, with two cakes already booked? Design: customer gets her waiting line. Draft shows Not sent, awaiting you. Approve, Edit or Reject." },
+    { title: "4 · Someone is upset", text: "Ananya. She is reading a customer who is already unhappy. Worry: will a canned sorry sound like nobody is listening? Design: sends her apology line and one factual question. Tags No resolution. Take over is one tap." },
+    { title: "5 · It already said yes", text: "Divya. She finds that a customer holds a yes she never sent. Worry: how bad is it, and what exactly did it say? Design: pauses that chat, quotes the exact send in red, offers three honest correction lines she sends as herself." },
+    { title: "6 · Evening check", text: "She scans the inbox and the activity log after the rush. Worry: did anything go out that I missed? Design: filters for Needs attention and Awaiting approval, status chips on every row, and an activity log." },
+  ]}
+/>
+
+Today, the pains are that she is hesitant to let it speak for her business, unanswered or late replies lose orders, a complete form looks like a yes, a refund or blame offered too early cannot be taken back, fixing a wrong send means digging through the thread, and activity is invisible unless she rereads every chat. The worry and feeling in this map are my reading of the interviews and the brief, not measured feelings.
+
+</Section>
+
+<Section title="User flows">
+
+<Lead>Four scenarios, one rule: Lakshmi steps in only where a promise begins.</Lead>
+
+I split the work into four flows. The first three cover how an order gets from enquiry to confirmed. The fourth covers what happens after.
+
+### 1 · Standard order, no custom design
+
+Goal: the customer explores, picks and confirms on WhatsApp without needing Lakshmi. Prototype: Priya (works) and Aarav (doesn't).
+
+<Steps
+  items={[
+    { title: "Customer", text: "Opens WhatsApp and asks about the bakery, kitchen hygiene and prices." },
+    { title: "Assistant", text: "Shares her story, from-scratch approach, a kitchen photo, designs with price per kg. It says it is the assistant." },
+    { title: "Customer", text: "Picks a listed design and a simple customisation, such as a name on the cake." },
+    { title: "Assistant", text: "Collects weight, pickup or delivery, time. Summarises with \"not started baking, reply yes to confirm\"." },
+    { title: "If the options work", text: "Customer replies yes. The assistant forwards the order to Lakshmi. Kitchen starts only after she checks the calendar." },
+    { title: "If the options don't work", text: "The assistant sends her waiting line and does not promise the design. Lakshmi takes the chat when the customer dislikes the list, needs an unlisted option, or the request needs her judgement on feasibility." },
+  ]}
+/>
+
+### 2 · Urgent order
+
+Goal: quick orders go through fast, and Lakshmi is clearly alerted when one is confirmed. Prototype: Rahul.
+
+<Steps
+  items={[
+    { title: "Assistant", text: "States the advance-order requirement first: please order at least 5 hours ahead. Shows only designs eligible for urgent orders." },
+    { title: "Path A · picks an available cake", text: "The customer chooses a pre-approved design and enters details. The assistant checks the urgent-order conditions and never promises availability on its own. Lakshmi gets a distinct ringing alert with the order details once the urgent order is confirmed." },
+    { title: "Path B · wants something different", text: "The assistant connects the customer to Lakshmi to check feasibility. She decides if the cake can be prepared and delivered in the customer's time. Then the assistant can confirm." },
+  ]}
+/>
+
+A customer turned away on an urgent request assumes quick orders are not possible and does not come back, so the rule is shown up front. The alarm fires only on a confirmed urgent order, not on every enquiry. A normal WhatsApp notification may not ring reliably, so this needs its own notification with permission. The 5-hour window is Megha's rule. Lakshmi sets her own.
+
+### 3 · Custom cake through consultation
+
+Goal: understand the vision, document what was agreed, get an explicit yes. An enquiry is not an order. Prototype: Ravi (draft she approves).
+
+<Steps
+  items={[
+    { title: "Customer", text: "Wants a design or customisation the list does not offer." },
+    { title: "Assistant", text: "Connects them to Lakshmi." },
+    { title: "Lakshmi", text: "Discusses design, occasion and expectations. Records price, date and details." },
+    { title: "Assistant", text: "Writes the agreed specification as an order summary in the chat, so both sides have the same record." },
+    { title: "Lakshmi", text: "Reconfirms design, price, delivery schedule and terms. The order is ready to bake only now." },
+    { title: "Payment", text: "First-time customer: the assistant asks for the owner's advance of ₹100–₹200 and helps with payment, marking it received only after the transaction is verified. Existing customer: Lakshmi follows her usual payment policy, with design, status, date and payment recorded in one place." },
+  ]}
+/>
+
+### 4 · After the order: delivery, feedback, review
+
+Goal: the assistant watches the loose ends so Lakshmi does not carry them in her head. Designed, not in the prototype.
+
+<Steps
+  items={[
+    { title: "Log", text: "The assistant logs the confirmed order and assigns a slot first-come, first-served." },
+    { title: "Watch", text: "It watches the delivery window and payment. If a delivery runs late or a payment confirmation is missing, it sends Lakshmi an urgent alert card." },
+    { title: "Feedback", text: "When she marks the order delivered, it sends a short feedback form on WhatsApp and routes the reply to her." },
+    { title: "Review", text: "At month end, it compiles orders, sales and feedback into a plain list of pros and cons." },
+  ]}
+/>
+
+### The boundary, in one table
+
+<Facts
+  cols={3}
+  items={[
+    { title: "Routine", text: "Eggless chocolate today? What's on the list? The assistant answers from this week's menu, asks flavour, date, pickup, and leaves her a note. Nothing waits for Lakshmi. She can ignore it while baking." },
+    { title: "Large dated order", text: "40 cupcakes, Saturday. The assistant collects number, flavours, pickup, time and shows her an overview. Lakshmi decides booking Saturday, the final price, the yes." },
+    { title: "Custom or urgent", text: "Photo cake, galaxy glaze. The assistant sends her waiting line only. Lakshmi decides whether she can make it, and every promise about time and design." },
+    { title: "Complaint", text: "Late, disappointed. The assistant sends her apology line and asks one fact: has it arrived? Lakshmi decides refund, remake, compensation, and whose delay it was." },
+    { title: "A yes to start baking", text: "The assistant never says \"you're booked\". It asks the customer to reply yes first. The kitchen starts only after the customer confirms back." },
+  ]}
+/>
+
+</Section>
+
+<Section title="Decisions">
+
+<Lead>Four forks that shaped the product.</Lead> Each one had a reasonable alternative. Here is what I weighed and what I dropped.
+
+### When should Lakshmi be in the loop: before, during or after the assistant speaks?
+
+<Facts
+  cols={3}
+  items={[
+    { title: "A · Permission sheet (used in part)", text: "She sets rules once, up front. Feels like homework at 1–2 enquiries a week, and fails if a custom request looks complete." },
+    { title: "B · Needs you list (shipped)", text: "Silence on routine, a clear ask on judgement. Built for hands-in-batter hours. Gets noisy if the list is wrong." },
+    { title: "C · Recoverable send (used in part)", text: "Contains damage after a wrong promise. Interrupts too late to be the whole product." },
+  ]}
+/>
+
+I shipped B for daily use, with A's defaults and C's repair, because CrumbLust asked for "a combination": independent on basics, her on custom designs and final confirmations. She did not want to approve every reply.
+
+### What should an angry customer receive first?
+
+<Facts
+  cols={3}
+  items={[
+    { title: "A · Silence, then page Lakshmi (killed)", text: "Nothing canned reaches a hurt customer. It was my research bet. She did not ask for it." },
+    { title: "B · Her apology line and one question (shipped)", text: "Acknowledges them immediately, in her words, and commits to nothing. Might still sound like a bot." },
+    { title: "C · Assistant offers a fix (killed)", text: "A refund is a commitment only she can make. Blaming the rider before she knows is a guess." },
+  ]}
+/>
+
+I dropped my own silence idea. She wrote the apology and waiting line herself and ruled out any refund or resolution without her. The risk that a canned sorry feels like not being listened to is still open, and it is the third thing I would test.
+
+### What counts as a yes?
+
+<Facts
+  cols={3}
+  items={[
+    { title: "A · All details filled equals order (killed)", text: "Fastest for the customer, but both bakers refused complete orders they could not do." },
+    { title: "B · Lakshmi says yes equals order (not enough)", text: "Her judgement is in, but Megha once baked a negotiated order the client then dropped." },
+    { title: "C · Her yes, then the customer confirms back (shipped)", text: "Matches Megha's double confirmation. The draft says \"I won't bake until you confirm\"." },
+  ]}
+/>
+
+Kitchen work starts after two yeses. This protects her ingredients and her afternoon, and the prototype states it in the details panel of every chat.
+
+### Where does the assistant live?
+
+<Facts
+  cols={2}
+  items={[
+    { title: "A · Customer chatbot as the product (killed)", text: "The brief is about the owner. Megha rejects intake bots." },
+    { title: "B · Web dashboard (killed)", text: "She runs everything from one phone, often with floury hands." },
+    { title: "C · Companion phone layer (first pass)", text: "Shows \"not promised\" without rereading, but is a second surface she may never open." },
+    { title: "D · Inside her WhatsApp Business inbox (shipped)", text: "Status chips, filters, approvals and Take over sit where she already works. Real WhatsApp behaviour is mocked." },
+  ]}
+/>
+
+I first built nine screens as a companion layer, then moved the same ideas into the inbox itself. Customers and Megha already avoid extra apps. Lakshmi should not need a new one either.
+
+</Section>
+
+<Section title="The prototype">
+
+<Lead>Her inbox shows what each chat has promised.</Lead>
+
+A clickable WhatsApp Business inbox with the assistant switched on. Every thread carries one of a few states, so she can tell at a glance whether something is open, held, booked or already sent in her name. Use "Open the clickable prototype" at the top of this page to try it.
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { src: "/images/projects/lakshmis-assistant/chat_ravi.webp", alt: "Prototype: Ravi's chat for 40 cupcakes. The assistant's draft with the price is marked Not sent, awaiting you, with Approve and send, Edit and Reject.", caption: "The draft with the price is held, not sent. The assistant collected details and gave her an overview, then wrote a reply with ₹4,000 in it and stopped. She sees Saturday already has two cakes and decides." },
+  ]}
+/>
+
+<Facts
+  cols={4}
+  items={[
+    { title: "Status on every row", text: "AI handled, Waiting on them, Awaiting you, Needs you, It promised. Filters narrow the list to what needs her." },
+    { title: "\"Not sent\" is visible", text: "A dashed bubble and a yellow bar separate a draft from something the customer already read." },
+    { title: "One voice at a time", text: "Take over pauses the assistant in that chat. If she types, it stays quiet." },
+    { title: "Rules in the panel", text: "The details side shows what the assistant may do here and that the kitchen starts only after the customer confirms back." },
+  ]}
+/>
+
+<Spread
+  cols={2}
+  fit="natural"
+  images={[
+    { src: "/images/projects/lakshmis-assistant/chat_priya.webp", alt: "Prototype: Priya's chat where the assistant shows listed cakes with prices, she picks a pink rosette and confirms, and the order is forwarded.", caption: "Routine work closes without her. Priya picked a listed cake and a name. The assistant summarised not started baking and forwarded the order after she confirmed." },
+    { src: "/images/projects/lakshmis-assistant/chat_ananya.webp", alt: "Prototype: Ananya's late-delivery complaint with the assistant's apology line and a question whether the cake has arrived.", caption: "The first reply to a complaint apologises and promises nothing. Tagged No resolution, with Take over ready. Whether the delay was hers or the rider's is her call." },
+    { src: "/images/projects/lakshmis-assistant/chat_divya.webp", alt: "Prototype: Divya's chat after the assistant wrongly confirmed a red velvet cake. A red card quotes the exact send and offers correction lines.", caption: "When it is wrong, she sees the exact line. The chat pauses, the send is quoted in red, and she picks an honest correction to send as herself." },
+    { src: "/images/projects/lakshmis-assistant/view_airules.webp", alt: "Prototype: AI rules screen with Auto, Ask me and I speak per conversation type, and four locked boundaries.", caption: "Four boundaries she cannot switch on by accident: refund and remake, you're booked, inventing a design, and a final price on custom or dated work." },
+    { src: "/images/projects/lakshmis-assistant/chat_aarav.webp", alt: "Prototype: Aarav asks for a galaxy mirror glaze that is not on the list. The assistant sends the waiting line.", caption: "When the options don't fit, the customer is handed up. Aarav's galaxy glaze is not on the list, so the assistant sends her waiting line and flags the chat." },
+    { src: "/images/projects/lakshmis-assistant/view_activity.webp", alt: "Prototype: AI activity log listing what the assistant sent, held or asked the owner.", caption: "An activity log she can read in a minute. What was sent, held or asked, in plain sentences, so the evening check does not mean rereading every thread." },
+  ]}
+/>
+
+### First pass: the companion layer
+
+Before moving into the inbox, I built the same logic as a phone-sized layer next to WhatsApp. It is where the Needs you, Not promised and It promised language came from.
+
+<Spread
+  cols={4}
+  ratio="9 / 19"
+  fit="contain"
+  images={[
+    { src: "/images/projects/lakshmis-assistant/ph_home.webp", alt: "Companion layer home screen listing Needs you items and today's notes." },
+    { src: "/images/projects/lakshmis-assistant/ph_rahul.webp", alt: "Companion layer card for Rahul's photo cake, marked not promised." },
+    { src: "/images/projects/lakshmis-assistant/ph_ananya.webp", alt: "Companion layer card for Ananya's complaint, marked no resolution sent." },
+    { src: "/images/projects/lakshmis-assistant/ph_recover.webp", alt: "Companion layer recovery screen quoting a booking the assistant already sent." },
+  ]}
+/>
+
+</Section>
+
+<Section title="Struggle">
+
+<Lead>The interviews contradicted my first draft.</Lead>
+
+<Facts
+  cols={3}
+  items={[
+    { title: "The brief and the bakers disagreed", text: "The brief describes lost orders and missed chats. CrumbLust replies fast in the daytime and has not lost one. Megha is busy and still says no to a bot. I kept the disagreement visible. The default follows the brief and CrumbLust, and Megha's stance is served by Pause and the I speak setting." },
+    { title: "My complaint design was overruled", text: "I had planned silence on complaints. CrumbLust asked for a short apology and her own waiting line. I switched, and kept the silence idea on the list of things to retest." },
+    { title: "My own critique found a trap", text: "Buttons such as \"delay was mine\" or \"it left on time\" on the complaint card invite a guess before she knows what happened. I flagged them as a risk. In the prototype she only gets Take over until she has looked into it." },
+  ]}
+/>
+
+</Section>
+
+<Section title="Proof">
+
+<Lead>What I can claim today, and what I can't.</Lead>
+
+There are no usage numbers and no usability results. Anything that sounded like a metric would be invented. Here is the honest level of evidence.
+
+<Facts
+  cols={1}
+  items={[
+    { title: "Level 5 · Business consequence", text: "Orders saved, revenue, support load. Not claimed." },
+    { title: "Level 4 · Behavioural data", text: "Task completion, error rate. Not claimed." },
+    { title: "Level 3 · Qualitative signal: two owner interviews", text: "The boundary comes from what two real bakers said they would and would not hand over. It is interview evidence, not a usability test." },
+    { title: "Level 2 · Principles you can check by inspection", text: "Every chat row carries a status chip. Every unsent draft is labelled Not sent. Four boundaries are locked. Pause for everyone is one tap from the header. No reply says booked." },
+    { title: "Level 1 · \"It looks better\"", text: "Not used as evidence." },
+  ]}
+/>
+
+### What I would test first, and how it could fail
+
+<Steps
+  items={[
+    { title: "Can she tell a hold from a booking in one glance?", text: "Show the inbox while she is icing a cake. Ask which chats already promised something. Pass: Rahul = not promised, Ravi = not confirmed, Meera = not booked. Fail: she treats the photo-cake hold as accepted, or hunts for a dashboard." },
+    { title: "Does her attention go to judgement first?", text: "Show the same chats with her hands busy. Ask what she opens first. Pass: Ananya or Rahul before Meera. Fail: she opens whatever pinged, or every chat." },
+    { title: "Does her complaint line still sound like her once it has been sent?", text: "Show the thread with her sentence already sent. Ask what she would do next. Pass: she recognises it and wants to look into it. Fail: \"this sounds like a bot\", or she wants the assistant silent." },
+    { title: "Is recovery faster than raw WhatsApp?", text: "Divya already has a wrong yes. Ask her to get out of it without making it worse. Pass: she states what was promised, pauses, sends a correction. Fail: the card slows her down and she turns the assistant off." },
+    { title: "Will she still refuse a complete but unrealistic order?", text: "A small bento with every field filled, or a 2 kg design on 0.5 kg. May it confirm? Pass: it waits for her. Fail: she is happy for a complete form to auto-confirm. Then my insight is wrong." },
+  ]}
+/>
+
+I would also ask Megha one question first: if it never judges a design and never starts the kitchen, would she turn it on at all? If not, the product for her is Pause plus plain WhatsApp.
+
+</Section>
+
+<Section title="After the prototype">
+
+<Lead>What I would change, and what I'd build next.</Lead>
+
+<Facts
+  cols={3}
+  items={[
+    { title: "Now", bullets: ["Inbox with status chips and filters", "Her two waiting lines", "Approve, Edit, Reject on drafts", "Pause, Take over, and recovery for a wrong send", "Four locked boundaries"] },
+    { title: "Next, if tests say so", bullets: ["Make the hold unmistakably not a yes, in her words", "Mute routine pings, keep Needs you loud, if every-reply notes become noise at her volume", "Let her send the complaint apology herself if seeing it already sent feels wrong", "The urgent-order alarm"] },
+    { title: "Later", bullets: ["Delivery watch, feedback form, month-end review", "Menu, prices and calendar she actually maintains", "A daily digest for festive weeks", "Tell customers delivery limits when she confirms an order, so 5:00 is a shared fact"] },
+  ]}
+/>
+
+<Facts
+  cols={2}
+  items={[
+    { title: "What I'd do differently", text: "Interview earlier and more widely. Both bakers differ from Lakshmi on volume, hours and channel. I would also sit Lakshmi-like owners in front of the inbox before polishing any screen." },
+    { title: "Open questions", bullets: ["Should customers be told an assistant is replying? I did not ask either baker.", "Does the every-reply note scale to dozens of chats a night?", "Would Megha use any of it?"] },
+  ]}
+/>
+
+</Section>
+
+<Section title="Limits">
+
+The prototype is mock HTML with invented chats and no real WhatsApp connection. Screenshots are design checks, not test results. Interview notes are written accounts, and no quotes or figures were added beyond them. Order and payment rules (5-hour window, ₹100–₹200 advance, delivery grace) are owner-specific and Lakshmi would set her own.
+
+AI tools helped with structuring, drafting and prototyping. Research notes were supplied by me and checked against the sources.
+
+</Section>

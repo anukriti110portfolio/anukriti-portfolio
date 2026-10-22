@@ -18,6 +18,7 @@ export type ProjectFrontmatter = {
   video?: string;
   prototypeUrl?: string;
   prototypeLabel?: string;
+  layout?: "wide";
 };
 
 export type ContentFile<TFrontmatter> = {

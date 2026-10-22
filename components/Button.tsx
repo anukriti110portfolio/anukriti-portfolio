@@ -11,7 +11,7 @@ type ButtonProps = {
 export default function Button({ href, variant = "solid", children, className: extraClassName }: ButtonProps) {
   const variantClass = variant === "solid" ? styles.solid : styles.outline;
   const className = `${styles.base} ${variantClass}${extraClassName ? ` ${extraClassName}` : ""}`;
-  const isExternal = href.startsWith("http") || href.endsWith(".pdf");
+  const isExternal = href.startsWith("http") || href.endsWith(".pdf") || href.endsWith(".html");
 
   if (isExternal) {
     return (
