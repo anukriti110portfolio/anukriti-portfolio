@@ -11,15 +11,7 @@ import styles from "./page.module.css";
 
 const PLAYGROUND_CATEGORIES = ["3D", "Physical Design"];
 
-const FIELD_NOTE_CATEGORIES = [
-  "Design",
-  "Human Behaviour",
-  "Research",
-  "Technology",
-  "Visual Culture",
-  "Learning",
-  "Experiments",
-];
+const BLOG_TOPICS = ["3D printing", "Product teardown", "AI agents"];
 
 export default function Home() {
   const projects = getProjects();
@@ -95,8 +87,9 @@ export default function Home() {
             title="Blog"
           />
           <p>
-            Short observations from the field — design, human behaviour,
-            research, and visual culture, written as I learn.
+            Notes from my coursework and learning: 3D printing experiments,
+            everyday product teardowns, and a plain-language guide to AI agents
+            for designers.
           </p>
           {latestNote ? (
             <p className={styles.sectionNote}>
@@ -106,10 +99,10 @@ export default function Home() {
               </a>
             </p>
           ) : null}
-          <ul className={styles.chipRow} aria-label="Field note categories">
-            {FIELD_NOTE_CATEGORIES.map((category) => (
-              <li key={category}>
-                <Tag>{category}</Tag>
+          <ul className={styles.chipRow} aria-label="Blog topics">
+            {BLOG_TOPICS.map((topic) => (
+              <li key={topic}>
+                <Tag>{topic}</Tag>
               </li>
             ))}
           </ul>

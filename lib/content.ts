@@ -117,6 +117,7 @@ export type NoteFrontmatter = {
   tags?: string[];
   cover?: string;
   description?: string;
+  layout?: "wide";
 };
 
 export function getNotes(): ContentFile<NoteFrontmatter>[] {

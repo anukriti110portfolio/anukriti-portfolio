@@ -33,7 +33,7 @@ export async function generateMetadata({
   const { title, description } = note.frontmatter;
   return buildPageMetadata({
     title,
-    description: description ?? `${title} — field note.`,
+    description: description ?? `${title} — blog.`,
     path: `/field-notes/${slug}`,
   });
 }
@@ -53,7 +53,7 @@ export default async function NotePage({ params }: NotePageProps) {
   return (
     <main className="wrap page">
       <Link href="/field-notes" className="text-link">
-        All field notes
+        All blogs
       </Link>
 
       <header className={styles.header}>
@@ -79,11 +79,11 @@ export default async function NotePage({ params }: NotePageProps) {
         </div>
       ) : null}
 
-      <MdxContent source={note.body} />
+      <MdxContent source={note.body} wide={fm.layout === "wide"} />
 
       <div className={styles.footerNav}>
         <Link href="/field-notes" className="text-link">
-          Back to field notes
+          Back to blogs
         </Link>
       </div>
     </main>

@@ -1,0 +1,112 @@
+---
+title: Understanding STL & layer height resolution and its impact on 3D printing
+date: "2026-10-05"
+category: Experiments
+tags:
+  - 3D printing
+  - DFAM
+  - Layer height
+description: A chess knight printed at three layer heights, to see how resolution changes print time, support removal and surface finish. DFAM (DD559) submission.
+layout: wide
+---
+
+<Section title="DFAM - DD559">
+
+A short experiment from the Design for Additive Manufacturing course: one model, printed at different resolutions, to understand how STL files and layer height shape the final print. Submitted by Anukriti Tripathi.
+
+<Spread
+  cols={1}
+  ratio="21 / 9"
+  images={[
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p01-1.webp", alt: "Three white 3D printed chess knights on a round base" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Step 1 · Designing a product">
+
+I chose the chess knight for its flowing, dynamic curves. I began translating this form into a 3D model in SolidWorks.
+
+<Spread
+  cols={2}
+  ratio="4 / 3"
+  images={[
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p02-2.jpg", alt: "The knight profile being drawn in SolidWorks on a laptop screen" },
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p02-3.jpg", alt: "The finished SolidWorks model of the chess knight" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Step 2 · From model to print">
+
+I exported the 3D model as an STL file and imported it into Bambu Studio for slicing. Due to its organic form, I used tree supports to ensure a stable print.
+
+<Spread
+  cols={2}
+  ratio="4 / 3"
+  images={[
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p03-1.jpg", alt: "The layer height presets list in Bambu Studio" },
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p03-2.jpg", alt: "Two knights placed on the build plate in Bambu Studio" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Step 3 · Testing at low resolution">
+
+I began with a low-resolution setting of 0.20 mm, the lowest available with minimal strength. This allowed a faster print, completed in under 45 minutes.
+
+<Spread
+  cols={3}
+  ratio="3 / 4"
+  images={[
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p04-1.jpg", alt: "The knight printed at 0.20 mm sitting on the printer bed" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Step 4 · Result at low resolution">
+
+After slicing, I exported the file to an SD card and inserted that card in the 3D printer (FDM). The model formed well, but while removing the support structures, it broke at the center and the surface was not smooth.
+
+Extra rough layer underneath the neck can be seen, and if observed closely, layers on the body were distinctly visible.
+
+<Spread
+  cols={2}
+  ratio="3 / 4"
+  images={[
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p05-1.webp", alt: "Two printed knights side by side with visible layer lines" },
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p05-2.jpg", alt: "The low-resolution knight held in a hand, broken at the center after support removal" },
+  ]}
+/>
+
+</Section>
+
+<Section title="Step 5 · Testing at high resolution">
+
+I increased the resolution to 0.08 mm and 0.12 mm to capture finer details. The print time increased to approximately 1 hour 25 minutes.
+
+<Spread
+  cols={2}
+  ratio="3 / 4"
+  images={[
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p06-1.jpg", alt: "The knight printing on the FDM printer at higher resolution" },
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p06-2.jpg", alt: "The printer bed with the knight partway through the print" },
+  ]}
+/>
+
+At higher resolutions the support structures were removed cleanly in one go, leaving no visible residue. The surface layers appeared finer and more intact as the resolution increased, showing improved detail and finish.
+
+<Spread
+  cols={2}
+  ratio="3 / 4"
+  images={[
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p07-1.jpg", alt: "The finished high-resolution knights held in a hand in front of the printer" },
+    { src: "/images/notes/stl-and-layer-height-resolution-in-3d-printing/p07-2.jpg", alt: "Two finished knights on the printer bed" },
+  ]}
+/>
+
+</Section>

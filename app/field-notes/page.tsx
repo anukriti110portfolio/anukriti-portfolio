@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata = buildPageMetadata({
   title: "Blogs",
   description:
-    "Notes on design, human behaviour, research, technology, and visual culture.",
+    "Notes on 3D printing, product teardowns, and AI agents for designers.",
   path: "/field-notes",
 });
 
@@ -23,7 +23,7 @@ export default function FieldNotesPage() {
         headingLevel={1}
       />
       <p className={styles.intro}>
-        Observations from the field — written as I learn, in public.
+        Notes from my coursework and learning: experiments, teardowns, and what I am figuring out about AI.
       </p>
 
       {notes.length > 0 ? (
@@ -48,7 +48,7 @@ export default function FieldNotesPage() {
           ))}
         </ul>
       ) : (
-        <p className={styles.intro}>First notes are being written.</p>
+        <p className={styles.intro}>First posts are being written.</p>
       )}
     </main>
   );
