@@ -13,7 +13,6 @@ const NAV_ITEMS = [
   { href: "/work", label: "Case Studies" },
   { href: "/field-notes", label: "Blogs" },
   { href: "/playground", label: "Playground" },
-  { href: "/about", label: "My Story" },
   { href: "/connect", label: "Connect" },
 ];
 

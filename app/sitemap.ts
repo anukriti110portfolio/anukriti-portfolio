@@ -8,7 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work",
     "/playground",
     "/field-notes",
-    "/about",
     "/connect",
   ].map((path) => ({
     url: new URL(path, siteUrl).toString(),
