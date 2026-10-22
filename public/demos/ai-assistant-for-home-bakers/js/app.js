@@ -75,9 +75,9 @@
       scenario: "s1-ok",
       messages: [
         msg("c", "Hi! I found you on WhatsApp. I’d love a cake for my son’s birthday — nothing too custom, just something pretty from what you already make.", { time: "15:41" }),
-        msg("ai", "Hi Priya, this is Lakshmi’s Cakes (assistant). Lakshmi bakes every cake from scratch with fresh ingredients — no long-stored bases. I can show this week’s designs. If you need something that isn’t on the list, I’ll ask her.", { time: "15:41" }),
+        msg("ai", "Hi Priya, this is Home Bakery (assistant). The owner bakes every cake from scratch with fresh ingredients — no long-stored bases. I can show this week’s designs. If you need something that isn’t on the list, I’ll ask her.", { time: "15:41" }),
         msg("c", "How did she start? And is the kitchen clean? I care about hygiene.", { time: "15:42" }),
-        msg("ai", "She runs a home bakery and handles baking and delivery herself. Cakes are prepared to order. I can share that she keeps a clean home kitchen — here’s what we show customers. For anything more specific, Lakshmi will talk to you.", {
+        msg("ai", "She runs a home bakery and handles baking and delivery herself. Cakes are prepared to order. I can share that she keeps a clean home kitchen — here’s what we show customers. For anything more specific, the owner will talk to you.", {
           time: "15:42",
           cards: [{ id: "kit", title: "Home kitchen (photo)", sub: "Clean home kitchen — not a certificate" }],
         }),
@@ -93,9 +93,9 @@
         msg("c", "The pink rosette, 1 kg. Can it say Arjun?", { time: "16:02" }),
         msg("ai", "Pink rosette, 1 kg, name “Arjun”. That’s a simple option on this design. Pickup or delivery, and when would you like it?", { time: "16:02" }),
         msg("c", "Pickup tomorrow 5pm.", { time: "16:10" }),
-        msg("ai", "Summary (not started baking): 1 kg Pink rosette · name Arjun · pickup tomorrow 5pm · ₹900. Reply yes to confirm. Lakshmi will see this only after you confirm.", { time: "16:11" }),
+        msg("ai", "Summary (not started baking): 1 kg Pink rosette · name Arjun · pickup tomorrow 5pm · ₹900. Reply yes to confirm. the owner will see this only after you confirm.", { time: "16:11" }),
         msg("c", "Yes, please confirm", { time: "16:18" }),
-        msg("sys", "Customer confirmed. Order details forwarded to Lakshmi. Kitchen has not started until she checks tomorrow’s list.", { time: "16:18" }),
+        msg("sys", "Customer confirmed. Order details forwarded to the owner. Kitchen has not started until she checks tomorrow’s list.", { time: "16:18" }),
       ],
     },
     aarav: {
@@ -111,7 +111,7 @@
       messages: [
         msg("c", "Hi, can you do a galaxy mirror glaze like the one on Instagram?", { time: "16:38" }),
         msg("ai", HOLD_CUSTOM, { time: "16:38" }),
-        msg("ai", "That look isn’t on this week’s list, and I can’t promise a custom design. Lakshmi will check if she can do it.", { time: "16:39" }),
+        msg("ai", "That look isn’t on this week’s list, and I can’t promise a custom design. the owner will check if she can do it.", { time: "16:39" }),
         msg("c", "Can you do a galaxy mirror glaze?", { time: "16:40" }),
       ],
     },
@@ -142,9 +142,9 @@
       scenario: "large",
       messages: [
         msg("c", "I need 40 cupcakes for an office party on Saturday. What’s the price?", { time: "17:05" }),
-        msg("ai", "I can collect details. Number, flavours, pickup or delivery, time. I won’t book Saturday or send a final price until Lakshmi checks.", { time: "17:06" }),
+        msg("ai", "I can collect details. Number, flavours, pickup or delivery, time. I won’t book Saturday or send a final price until the owner checks.", { time: "17:06" }),
         msg("c", "24 vanilla, 16 chocolate. Pickup 4pm from her place.", { time: "17:10" }),
-        msg("ai", "Overview for Lakshmi — not a booking. 40 cupcakes, 24 vanilla / 16 chocolate, Saturday 4pm pickup. List would be ₹4,000 if no extra design. Saturday already has 2 cakes.", { time: "17:11" }),
+        msg("ai", "Overview for the owner — not a booking. 40 cupcakes, 24 vanilla / 16 chocolate, Saturday 4pm pickup. List would be ₹4,000 if no extra design. Saturday already has 2 cakes.", { time: "17:11" }),
         msg("ai", "Saturday 4pm pickup works for 40 cupcakes (24 vanilla, 16 chocolate), ₹4,000. If you want a specific design, send a picture first. Reply “yes” and I’ll start — I won’t bake until you confirm.", {
           time: "17:12",
           kind: "draft",
@@ -324,9 +324,9 @@
     const rows = chatList();
     return html`<aside class="side">
       <div class="side-head">
-        <div class="avatar" style="background:#fff;color:var(--teal)">LC</div>
+        <div class="avatar" style="background:#fff;color:var(--teal)">HB</div>
         <div>
-          <h1>Lakshmi’s Cakes</h1>
+          <h1>Home Bakery</h1>
           <p>${paused() ? "AI paused" : "AI on · WhatsApp"}</p>
         </div>
         <div class="side-actions">
@@ -395,7 +395,7 @@
         <div class="quick">${quickFor(c).map((q) => `<button class="qchip" data-act="quick" data-t="${esc(q)}">${esc(q)}</button>`).join("")}</div>
         <div class="comp-row">
           <button class="icon-btn" title="Attach" data-act="attach">＋</button>
-          <textarea id="composer" rows="1" placeholder="${c.handler === "owner" ? "Message as Lakshmi" : "Message as you — AI stays paused if you send"}"></textarea>
+          <textarea id="composer" rows="1" placeholder="${c.handler === "owner" ? "Message as the owner" : "Message as you — AI stays paused if you send"}"></textarea>
           <button class="send" data-act="send">➤</button>
         </div>
       </div>
@@ -614,7 +614,7 @@
 
   function profileView() {
     return html`<div class="block" style="background:var(--panel);padding:1rem;border-radius:8px">
-      <p><strong>Lakshmi’s Cakes</strong> · home bakery</p>
+      <p><strong>Home Bakery</strong> · home bakery</p>
       <p>From scratch, primarily eggless. Pickup from home. Digital bill. Pay on receipt (GPay) — AI does not chase payment.</p>
       <p>Story she allows: home baker, every cake to order, fresh ingredients. Kitchen photos: AI may say the kitchen is a clean home kitchen; it must not invent hygiene certificates.</p>
     </div>
@@ -802,7 +802,7 @@
     c.status = "waiting";
     c.preview = dft.text.slice(0, 48);
     if (c.scenario === "large") c.order = "40 cupcakes Sat 4pm pickup · vanilla 24 / chocolate 16 · you sent the price. Not a bake until they confirm back.";
-    c.messages.push(msg("sys", "You sent this as Lakshmi. It is still not a bake until they confirm back.", { time: nowTime() }));
+    c.messages.push(msg("sys", "You sent this as the owner. It is still not a bake until they confirm back.", { time: nowTime() }));
     log(`You approved a send to ${c.name}.`);
     toast("Sent as you");
   }
@@ -852,7 +852,7 @@
     if (c.scenario === "sent-mistake" && !c.repaired) {
       c.repaired = true;
       c.order = "1 kg red velvet · you corrected the false booking. Kitchen has not started. List still needs the fix if red velvet is on it.";
-      c.messages.push(msg("sys", "You sent the correction as Lakshmi. No second bot apology. Now stop the repeat — take red velvet off this week’s list.", { time: nowTime() }));
+      c.messages.push(msg("sys", "You sent the correction as the owner. No second bot apology. Now stop the repeat — take red velvet off this week’s list.", { time: nowTime() }));
       log(`You corrected the wrong send to ${c.name}.`);
     } else {
       log(`You wrote to ${c.name}.`);

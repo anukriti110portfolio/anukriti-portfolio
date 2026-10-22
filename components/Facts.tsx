@@ -1,5 +1,12 @@
 import styles from "./Facts.module.css";
 
+/** Renders **bold** segments inside plain strings. */
+function inline(text: string) {
+  return text.split("**").map((part, i) =>
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+  );
+}
+
 type FactItem = {
   title: string;
   text?: string;
@@ -31,11 +38,11 @@ export default function Facts({ items, cols = 3 }: FactsProps) {
               ))}
             </div>
           ) : null}
-          {item.text ? <p className={styles.text}>{item.text}</p> : null}
+          {item.text ? <p className={styles.text}>{inline(item.text)}</p> : null}
           {item.bullets?.length ? (
             <ul className={styles.bullets}>
               {item.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
+                <li key={bullet}>{inline(bullet)}</li>
               ))}
             </ul>
           ) : null}
