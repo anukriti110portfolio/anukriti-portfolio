@@ -78,14 +78,18 @@
 }
 
 .title {
-  font-size: var(--text-hero);
+  font-size: clamp(2.2rem, 1.6rem + 3.2vw, 4.5rem);
   font-weight: 560;
+  line-height: var(--leading-snug);
   max-width: none;
   animation: heroRise var(--dur-slow) var(--ease-out) 80ms backwards;
 }
 
-.title em {
-  font-style: italic;
+.title :global(.devanagari) {
+  margin-top: var(--space-2xs);
+  font-family: var(--font-devanagari-face);
+  font-weight: 500;
+  font-size: 0.78em;
   color: var(--accent);
 }
 
@@ -95,4 +99,13 @@
   color: var(--muted);
   max-width: 34rem;
   animation: heroRise var(--dur-slow) var(--ease-out) 160ms backwards;
+}
+
+.about {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--muted);
+  animation: heroRise var(--dur-slow) var(--ease-out) 200ms backwards;
 }
