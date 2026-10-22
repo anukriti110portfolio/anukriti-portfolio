@@ -82,10 +82,13 @@
   box-shadow: var(--shadow-print);
 }
 
-.readingColumn {
-  max-width: var(--content-reading);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.teaserGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 46rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr));
   gap: var(--space-md);
 }

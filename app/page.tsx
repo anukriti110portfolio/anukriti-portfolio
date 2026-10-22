@@ -5,7 +5,8 @@ import ProjectGrid from "@/components/ProjectGrid";
 import ProjectCard from "@/components/ProjectCard";
 import Tag from "@/components/Tag";
 import ContactCTA from "@/components/ContactCTA";
-import { getNotes, getProjects } from "@/lib/content";
+import PlaygroundCard from "@/components/PlaygroundCard";
+import { getNotes, getPlaygroundItems, getProjects } from "@/lib/content";
 import styles from "./page.module.css";
 
 const PLAYGROUND_CATEGORIES = ["3D", "Physical Design"];
@@ -23,6 +24,16 @@ const FIELD_NOTE_CATEGORIES = [
 export default function Home() {
   const projects = getProjects();
   const latestNote = getNotes()[0];
+  const playgroundTeasers = getPlaygroundItems()
+    .slice(0, 2)
+    .map((file) => ({
+      slug: file.slug,
+      title: file.frontmatter.title,
+      category: file.frontmatter.category,
+      date: file.frontmatter.date,
+      description: file.frontmatter.description,
+      cover: file.frontmatter.cover,
+    }));
 
   return (
     <main className="wrap page">
@@ -60,6 +71,11 @@ export default function Home() {
             form studies, mechanisms, 3D printing and sheet metal fabrication,
             from first sketch to physical prototype.
           </p>
+          <ul className={styles.teaserGrid} aria-label="Featured playground projects">
+            {playgroundTeasers.map((item) => (
+              <PlaygroundCard key={item.slug} item={item} />
+            ))}
+          </ul>
           <ul className={styles.chipRow} aria-label="Playground categories">
             {PLAYGROUND_CATEGORIES.map((category) => (
               <li key={category}>
@@ -102,23 +118,6 @@ export default function Home() {
           </a>
         </section>
         </div>
-      </Reveal>
-
-      <Reveal>
-        <section aria-labelledby="about-preview" className={styles.section}>
-          <SectionHeader id="about-preview" kicker="04 · Person" title="My Story" />
-          <div className={styles.readingColumn}>
-            <p>
-              I move between digital tools and workshop materials. The common
-              thread is curiosity about how people actually use things — which
-              is why my process usually starts with research and ends with
-              something you can click or hold.
-            </p>
-            <a href="/about" className="text-link">
-              More about me
-            </a>
-          </div>
-        </section>
       </Reveal>
 
       <ContactCTA />
