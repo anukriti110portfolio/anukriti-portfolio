@@ -101,11 +101,12 @@
   animation: heroRise var(--dur-slow) var(--ease-out) 160ms backwards;
 }
 
-.about {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
-  color: var(--muted);
-  animation: heroRise var(--dur-slow) var(--ease-out) 200ms backwards;
+.tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-style: italic;
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: 34rem;
+  animation: heroRise var(--dur-slow) var(--ease-out) 160ms backwards;
 }
