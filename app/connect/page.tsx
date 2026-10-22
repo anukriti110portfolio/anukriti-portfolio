@@ -18,8 +18,6 @@ type Channel = {
 export default function ConnectPage() {
   const channels: Channel[] = [
     { label: "LinkedIn", url: siteConfig.linkedin },
-    { label: "Instagram", url: siteConfig.instagram },
-    { label: "GitHub", url: siteConfig.github },
     { label: "Resume", url: siteConfig.resumePath, display: "Download PDF" },
   ];
 
@@ -65,12 +63,6 @@ export default function ConnectPage() {
           </div>
         ))}
       </dl>
-
-      {!siteConfig.linkedin && !siteConfig.instagram && !siteConfig.github && (
-        <p className={styles.missing} style={{ marginTop: "var(--space-md)" }}>
-          Add your links in lib/site.ts — one file, every page updates.
-        </p>
-      )}
     </main>
   );
 }

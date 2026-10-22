@@ -5,9 +5,7 @@ export const siteConfig = {
   nameDevanagari: "अनुकृति त्रिपाठी",
   role: "Product & Interaction Designer",
   email: "anukrititripathi22@gmail.com",
-  linkedin: "",
-  instagram: "",
-  github: "",
+  linkedin: "https://www.linkedin.com/in/anukriti-b-tripathi/",
   resumePath: "/resume.pdf",
 };
 
