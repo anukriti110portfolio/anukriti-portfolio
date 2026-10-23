@@ -18,7 +18,9 @@ type Channel = {
 export default function ConnectPage() {
   const channels: Channel[] = [
     { label: "LinkedIn", url: siteConfig.linkedin },
-    { label: "Resume", url: siteConfig.resumePath, display: "Open PDF" },
+    ...(siteConfig.resumePath
+      ? [{ label: "Resume", url: siteConfig.resumePath, display: "Open PDF" }]
+      : []),
   ];
 
   return (

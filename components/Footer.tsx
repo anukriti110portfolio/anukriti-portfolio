@@ -46,9 +46,11 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          <Button href={siteConfig.resumePath || "#"} variant="outline" className={styles.cvButton}>
-            CV
-          </Button>
+          {siteConfig.resumePath && (
+            <Button href={siteConfig.resumePath} variant="outline" className={styles.cvButton}>
+              CV
+            </Button>
+          )}
         </div>
       </div>
     </footer>

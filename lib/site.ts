@@ -6,7 +6,8 @@ export const siteConfig = {
   role: "Product & Interaction Designer",
   email: "anukrititripathi22@gmail.com",
   linkedin: "https://www.linkedin.com/in/anukriti-b-tripathi/",
-  resumePath: "/resume.pdf",
+  // Set to "/resume.pdf" (and add the file to /public) to show the CV buttons again.
+  resumePath: "",
 };
 
 export const siteUrl = new URL(

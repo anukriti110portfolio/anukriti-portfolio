@@ -78,15 +78,17 @@ export default function Header() {
             <li className={styles.themeItem}>
               <ThemeSwitcher />
             </li>
-            <li className={styles.cvItem}>
-              <Button
-                href={siteConfig.resumePath || "#"}
-                variant="solid"
-                className={styles.cvButton}
-              >
-                My CV
-              </Button>
-            </li>
+            {siteConfig.resumePath && (
+  <li className={styles.cvItem}>
+                <Button
+                  href={siteConfig.resumePath}
+                  variant="solid"
+                  className={styles.cvButton}
+                >
+                  My CV
+                </Button>
+              </li>
+            )}
           </ul>
         </nav>
       </div>
