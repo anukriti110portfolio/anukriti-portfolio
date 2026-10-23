@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indian e-Visa redesign: clickable prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Public Sans',system-ui,sans-serif;color:#14181F;background:#E9ECF1;line-height:1.5}
+h1,h2,h3,p,ul,ol,dl,dd{margin:0}
+a{color:#1D3F8F}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #1D3F8F;outline-offset:3px}
+.proto{background:#14181F;color:#fff;font-size:14px}
+.proto-in{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center}
+.proto strong{font-weight:600}
+.proto nav{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.proto button{font:500 13px 'Public Sans',sans-serif;min-height:32px;padding:0 12px;border-radius:6px;border:1px solid #6B7587;background:transparent;color:#fff;cursor:pointer}
+.proto button[aria-pressed="true"]{background:#fff;color:#14181F;border-color:#fff}
+.stage{display:flex;justify-content:center;padding:24px}
+#app{container-type:inline-size;width:100%;max-width:1280px;background:#fff;box-shadow:0 2px 24px rgba(20,24,31,.12);min-height:80vh}
+#app.phone{max-width:390px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.hdr{border-bottom:1px solid #D5D9E0}
+.hdr .wrap{display:flex;align-items:center;gap:16px 24px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:12px;flex-grow:1}
+.emb{width:36px;height:36px;border:1px dashed #5F6877;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#4B5563}
+.brand small{display:block;font-size:12px;color:#4B5563}
+.brand b{font-size:16px;font-weight:600}
+.nav{display:flex;gap:24px;flex-wrap:wrap;font-size:15px;font-weight:500}
+.nav a{color:#14181F;text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
+.nav a[aria-current]{border-bottom-color:#1D3F8F}
+main.wrap{padding-top:40px;padding-bottom:72px}
+h1{font-size:40px;line-height:1.12;font-weight:600;letter-spacing:-.02em}
+h2{font-weight:600}
+.lead{font-size:18px;color:#4B5563;max-width:660px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:8px;font:600 16px 'Public Sans',sans-serif;text-decoration:none;cursor:pointer;border:1.5px solid #1D3F8F}
+.btn-p{background:#1D3F8F;color:#fff}.btn-p:hover{background:#15327A}
+.btn-s{background:#fff;color:#1D3F8F}.btn-s:hover{background:#EAF0FB}
+.chip{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:8px;font:500 16px 'Public Sans',sans-serif;cursor:pointer;background:#fff;color:#14181F;border:1px solid #7C8595}
+.chip[aria-pressed="true"]{background:#EAF0FB;color:#102A66;border:2px solid #1D3F8F;font-weight:600}
+.card{border:1px solid #D5D9E0;border-radius:14px;padding:32px}
+.grey{background:#F4F5F7;border-radius:12px;padding:28px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4B5563}
+.muted{color:#4B5563}
+.note{font-size:13px;color:#4B5563;line-height:1.5}
+.adv{display:flex;gap:14px;padding:20px 24px;background:#FFF7E0;border:1px solid #E0BE5A;border-radius:10px;color:#4A3600;font-size:15px;line-height:1.6}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;padding:22px 4px;border-top:1px solid #D5D9E0}
+.row:last-child{border-bottom:1px solid #D5D9E0}
+.row .t{flex:1 1 220px}.row .t b{font-size:18px;font-weight:600;display:block}.row .t span{font-size:14px;color:#4B5563}
+.row p{flex:2 1 320px;color:#4B5563}
+.lbl{display:block;font-weight:600;font-size:16px;margin-bottom:6px}
+.field{width:100%;min-height:48px;padding:0 12px;border:1.5px solid #5F6877;border-radius:8px;font:400 16px 'Public Sans',sans-serif;color:#14181F;background:#fff}
+.field[aria-invalid="true"]{border:2px solid #B42318}
+.hint{font-size:14px;color:#4B5563;margin-top:6px}
+.err{display:none;gap:8px;align-items:flex-start;margin-top:6px;font-size:14px;font-weight:500;color:#B42318}
+.err.on{display:flex}
+.opt{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1.5px solid #7C8595;border-radius:10px;cursor:pointer}
+.opt:has(input:checked){border:2px solid #1D3F8F;background:#EAF0FB}
+.opt input{width:22px;height:22px;margin-top:2px;accent-color:#1D3F8F;flex:none}
+.opt b{display:block;font-size:17px;font-weight:600}.opt span span{display:block;color:#4B5563;font-size:15px;margin-top:2px}
+.two{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.two>.main{flex:1 1 560px;min-width:0}.two>.side{flex:0 1 320px;min-width:260px}
+.steps{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:24px}
+.steps li{flex:1 1 180px;display:flex;flex-direction:column;gap:8px}
+.n{width:30px;height:30px;border:1.5px solid #1D3F8F;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#1D3F8F}
+.prog{list-style:none;padding:0;margin:0 0 36px;display:flex;flex-wrap:wrap;gap:12px 0}
+.prog li{flex:1 1 130px;padding-right:8px;font-size:14px;color:#4B5563}
+.prog li i{display:block;height:5px;border-radius:3px;background:#D5D9E0;margin-bottom:8px}
+.prog li.done i,.prog li.cur i{background:#1D3F8F}
+.prog li.done{color:#14181F}.prog li.cur{color:#1D3F8F;font-weight:700}
+.list{list-style:none;padding:0;display:flex;flex-direction:column;gap:14px}
+.list li{display:flex;gap:12px;align-items:flex-start}
+.list svg{flex:none;margin-top:3px}
+.tool{display:flex;justify-content:space-between;align-items:center;min-height:48px;padding:0 8px;border-bottom:1px solid #D5D9E0;color:#14181F;text-decoration:none}
+.tool:hover{background:#F4F5F7}
+dl.sp{display:grid;grid-template-columns:120px 1fr}
+dl.sp dt,dl.sp dd{padding:11px 0;border-bottom:1px solid #EEF1F5}
+dl.sp dt{color:#4B5563}
+.checks{border:1px solid #D5D9E0;border-radius:12px;padding:20px 24px;display:flex;flex-direction:column;gap:12px}
+.checks li{list-style:none;display:flex;gap:10px;font-size:15px}
+.checks ul{padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.ok{color:#14181F}.bad{color:#B42318}
+.tabs{display:flex;gap:4px;border-bottom:1px solid #D5D9E0;margin:32px 0 28px}
+.tabs button{min-height:48px;padding:0 20px;background:none;border:0;border-bottom:3px solid transparent;font:600 16px 'Public Sans',sans-serif;color:#4B5563;cursor:pointer}
+.tabs button[aria-selected="true"]{color:#1D3F8F;border-bottom-color:#1D3F8F}
+.stat{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px 0}
+.stat li{flex:1 1 150px;font-size:15px}
+.stat li i{display:block;height:6px;border-radius:3px;background:#D5D9E0;margin-bottom:8px}
+.stat li.d i,.stat li.c i{background:#1D3F8F}.stat li.c{font-weight:700;color:#1D3F8F}
+.foot{border-top:1px solid #D5D9E0;background:#F4F5F7;font-size:14px;color:#4B5563}
+.foot .wrap{padding-top:24px;padding-bottom:24px}
+[hidden]{display:none!important}
+@container (max-width:700px){
+ .wrap{padding:0 20px}
+ h1{font-size:30px}
+ main.wrap{padding-top:28px}
+ .card{padding:22px}
+ .row p{flex-basis:100%}
+ .nav{gap:16px}
+ .two{gap:32px}
+}
+@media (max-width:700px){.stage{padding:0}.proto-in{padding:10px 16px}}
+</style>
+</head>
+<body>
+
+<div class="proto">
+ <div class="proto-in">
+  <strong>Clickable prototype</strong>
+  <span>Concept redesign for a UX case study. Not an official Government of India page.</span>
+  <nav aria-label="Jump to a screen">
+   <button type="button" data-go="home">1 Home</button>
+   <button type="button" data-go="evisa">2 e-Visa</button>
+   <button type="button" data-go="trip">3 Your trip</button>
+   <button type="button" data-go="docs">4 Documents</button>
+   <button type="button" data-go="resume">5 Resume</button>
+   <span style="width:12px"></span>
+   <button type="button" id="vdesk" aria-pressed="true">Desktop</button>
+   <button type="button" id="vphone" aria-pressed="false">Phone</button>
+  </nav>
+ </div>
+</div>
+
+<div class="stage">
+<div id="app">
+
+<header class="hdr"><div class="wrap">
+ <div class="brand"><div class="emb" aria-hidden="true">EMBLEM</div><div><small>Government of India</small><b>Indian Visa Online</b></div></div>
+ <nav class="nav" aria-label="Primary">
+  <a href="#home" id="n-home">Apply</a>
+  <a href="#resume" id="n-resume">Resume application</a>
+  <a href="#resume" data-tab="status">Check status</a>
+  <a href="#help">Help</a>
+ </nav>
+</div></header>
+
+<!-- 1 HOME -->
+<main class="wrap" data-screen="home">
+ <h1>Apply for an Indian visa</h1>
+ <p class="lead">Answer two quick questions and we will suggest the right route. You can also pick a route yourself further down.</p>
+
+ <section class="card" aria-labelledby="g" style="margin-top:40px;display:flex;flex-wrap:wrap;gap:40px">
+  <h2 id="g" style="position:absolute;left:-9999px">Find the right route</h2>
+  <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:32px">
+   <fieldset style="border:0;margin:0;padding:0"><legend class="lbl" style="font-size:17px;margin-bottom:14px">1. What brings you to India?</legend>
+    <div id="why" style="display:flex;flex-wrap:wrap;gap:10px">
+     <button class="chip" type="button" data-v="tourism" aria-pressed="true">Tourism</button>
+     <button class="chip" type="button" data-v="business" aria-pressed="false">Business</button>
+     <button class="chip" type="button" data-v="medical" aria-pressed="false">Medical treatment</button>
+     <button class="chip" type="button" data-v="long" aria-pressed="false">Work, study or settling</button>
+    </div></fieldset>
+   <fieldset style="border:0;margin:0;padding:0"><legend class="lbl" style="font-size:17px;margin-bottom:14px">2. How long will you stay?</legend>
+    <div id="stay" style="display:flex;flex-wrap:wrap;gap:10px">
+     <button class="chip" type="button" data-v="short" aria-pressed="true">Up to 6 months</button>
+     <button class="chip" type="button" data-v="long" aria-pressed="false">More than 6 months</button>
+    </div></fieldset>
+  </div>
+  <div class="grey" aria-live="polite" style="flex:1 1 360px;display:flex;flex-direction:column;gap:14px">
+   <div class="eyebrow">Suggested route</div>
+   <h3 id="rt" style="font-size:26px;line-height:1.2;font-weight:600"></h3>
+   <p id="rr" class="muted"></p>
+   <a id="rc" class="btn btn-p" href="#evisa" style="align-self:flex-start"></a>
+   <p class="note">Suggestions are a guide only. Route rules shown are placeholders to confirm with the Bureau of Immigration before launch.</p>
+  </div>
+ </section>
+
+ <section style="margin-top:56px" aria-labelledby="rts">
+  <h2 id="rts" style="font-size:26px">Or choose a route yourself</h2>
+  <p class="muted" style="margin:8px 0 24px">Four routes exist. They differ in who processes your application, not in how important they are.</p>
+  <div>
+   <div class="row"><div class="t"><b>e-Visa</b><span>Processed online by the Bureau of Immigration</span></div><p>Apply online for short visits for tourism, business or medical reasons, if your country is eligible.</p><a class="btn btn-s" href="#evisa">Choose e-Visa</a></div>
+   <div class="row"><div class="t"><b>Regular visa</b><span>Processed by an Indian Mission or Post abroad</span></div><p>For long stays, employment, or if your country is not eligible for e-Visa. You submit your passport and biometrics in person.</p><a class="btn btn-s" href="#home" data-pick="long">Choose regular visa</a></div>
+   <div class="row"><div class="t"><b>Visa on Arrival</b><span>At selected airports</span></div><p>For nationals of Japan, South Korea and the UAE. UAE nationals qualify only if they previously obtained an e-Visa or regular visa for India.</p><a class="btn btn-s" href="#home">See requirements</a></div>
+   <div class="row"><div class="t"><b>Afghan visa</b><span>Separate application route</span></div><p>A dedicated route for Afghan nationals, with its own document and security checks.</p><a class="btn btn-s" href="#home">Choose Afghan visa</a></div>
+  </div>
+ </section>
+
+ <section style="margin-top:48px;display:flex;flex-direction:column;gap:16px">
+  <div class="adv"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><div><b style="display:block;margin-bottom:4px">Official advisory</b>The Government of India has not authorised any agent or intermediary to charge a fee for facilitating emergency or express visas or e-Visas. To travel to India you need a passport and a regular visa or e-Visa. Persons of Indian origin, in all categories, must hold an OCI card.</div></div>
+ </section>
+</main>
+
+<!-- 2 EVISA -->
+<main class="wrap" data-screen="evisa" hidden>
+ <nav aria-label="Breadcrumb" class="muted" style="font-size:14px;margin-bottom:24px"><a href="#home" class="muted">Apply</a> / <b style="color:#14181F;font-weight:500">e-Visa</b></nav>
+ <div class="two">
+  <div class="main" style="display:flex;flex-direction:column;gap:44px">
+   <section><h1>Apply for an e-Visa</h1><p class="lead">Apply online for a short visit to India. You pay the fee online, receive an electronic travel authorization by email, and show a printout at immigration.</p></section>
+   <section aria-labelledby="how"><h2 id="how" style="font-size:20px;margin-bottom:20px">How it works</h2>
+    <ol class="steps">
+     <li><span class="n">1</span><b>Apply online</b><span class="note" style="font-size:14px">Fill in the form and upload your photo and passport page.</span></li>
+     <li><span class="n">2</span><b>Pay the fee online</b><span class="note" style="font-size:14px">By credit or debit card, or a payment wallet.</span></li>
+     <li><span class="n">3</span><b>Receive your ETA</b><span class="note" style="font-size:14px">Your Electronic Travel Authorization is sent to your email.</span></li>
+     <li><span class="n">4</span><b>Fly to India</b><span class="note" style="font-size:14px">Show your printed ETA at immigration. The e-Visa is stamped on your passport.</span></li>
+    </ol></section>
+   <section class="card" aria-labelledby="bs" style="display:flex;flex-direction:column;gap:22px">
+    <h2 id="bs" style="font-size:24px">Before you start</h2>
+    <ul class="list">
+     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6E3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><b>A passport valid for at least six months</b></span></li>
+     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6E3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><b>A recent front-facing photo</b><br><span class="muted" style="font-size:15px">JPEG, 10 KB to 1 MB, at least 350 × 350 pixels, white or light background</span></span></li>
+     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6E3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><b>A scan of your passport details page</b><br><span class="muted" style="font-size:15px">PDF format</span></span></li>
+     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6E3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><b>A card or wallet to pay the fee online</b></span></li>
+     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6E3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><b>Your arrival airport and expected arrival date</b></span></li>
+    </ul>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px"><a class="btn btn-p" href="#trip" style="min-height:56px;font-size:18px;padding:0 32px">Start your application →</a><a href="#evisa" onclick="document.getElementById('full').open=true;return false">Read the full instructions</a></div>
+    <p class="note">Your progress is saved as you go. You will get an Application ID so you can come back later.</p>
+   </section>
+   <section aria-labelledby="cats"><h2 id="cats" style="font-size:20px;margin-bottom:8px">e-Visa categories</h2>
+    <p class="muted" style="font-size:15px;max-width:620px;margin-bottom:16px">You choose your category inside the application, where each one is explained in plain language.</p>
+    <ul style="padding:0 0 0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 24px"><li>e-Tourist Visa</li><li>e-Business Visa</li><li>e-Medical Visa</li><li>e-Medical Attendant Visa</li><li>e-Student Visa</li><li>e-Family Visa</li><li>e-Transit Visa</li><li>e-Miscellaneous Visa</li></ul>
+    <p class="note" style="margin-top:14px">Category list to verify: the audit captures list different sets.</p></section>
+   <details id="full" style="border:1px solid #D5D9E0;border-radius:10px;padding:0 20px"><summary style="min-height:56px;display:flex;align-items:center;font-weight:600;font-size:17px;cursor:pointer">Full applicant instructions</summary><p class="muted" style="padding:0 0 20px">The complete official instructions appear here, unabridged. [Official text to be inserted.]</p></details>
+   <div class="adv"><div><b>No extra fees.</b> The Government of India makes no provision for charging any emergency or additional fee for the grant of an e-Visa.</div></div>
+  </div>
+  <aside class="side" aria-label="Existing applications and help">
+   <h2 style="font-size:18px;margin-bottom:8px">Already started?</h2>
+   <div style="border-top:1px solid #D5D9E0">
+    <a class="tool" href="#resume">Resume a saved application ›</a>
+    <a class="tool" href="#resume" data-tab="status">Check your visa status ›</a>
+    <a class="tool" href="#docs">Re-upload a photo or document ›</a>
+    <a class="tool" href="#evisa">Pay or verify payment ›</a>
+    <a class="tool" href="#evisa">Print your application ›</a>
+   </div>
+   <h2 id="help" style="font-size:18px;margin:32px 0 10px">Need help?</h2>
+   <p class="muted" style="font-size:15px"><b style="color:#14181F">e-Visa helpdesk</b><br>[Phone and email: verify against the current official page]<br><b style="color:#14181F">Payment helpdesk</b><br>[Bank helpline numbers: verify]</p>
+  </aside>
+ </div>
+</main>
+
+<!-- 3 TRIP -->
+<main class="wrap" data-screen="trip" hidden>
+ <div class="muted" style="font-size:14px;margin-bottom:12px">e-Visa application</div>
+ <ol class="prog" aria-label="Application progress"><li class="cur" aria-current="step"><i></i>1 · Your trip</li><li><i></i>2 · About you</li><li><i></i>3 · Passport</li><li><i></i>4 · Visa details</li><li><i></i>5 · Photo and documents</li><li><i></i>6 · Review and pay</li></ol>
+ <div class="two">
+  <form class="main" id="tripform" novalidate style="display:flex;flex-direction:column;gap:32px;max-width:680px">
+   <div><div class="muted" style="font-size:14px;font-weight:600;margin-bottom:6px">Step 1 of 6</div><h1 style="font-size:36px">Your trip</h1><p class="lead" style="font-size:17px">Your visa type decides its length and what you may do in India, so we ask for it first. Fields marked * are required.</p></div>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px 24px">
+    <div><label class="lbl" for="nat">Nationality or region *</label><select id="nat" class="field"><option value="">Select your nationality</option><option>Example country</option></select></div>
+    <div><label class="lbl" for="port">Airport of arrival in India *</label><select id="port" class="field"><option value="">Select an airport</option><option>Delhi (DEL)</option><option>Mumbai (BOM)</option><option>Bengaluru (BLR)</option></select></div>
+    <div><label class="lbl" for="arr">Expected date of arrival *</label><input id="arr" class="field" inputmode="numeric" placeholder="DD / MM / YYYY"><div class="hint">Type it, no calendar needed.</div></div>
+    <div></div>
+    <div><label class="lbl" for="em">Email address *</label><input id="em" type="email" class="field" placeholder="name@example.com"><div class="hint">We send your travel authorization and resume link here.</div></div>
+    <div><label class="lbl" for="em2">Confirm email address *</label><input id="em2" type="email" class="field" aria-describedby="em2e"><div class="err" id="em2e" role="alert"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>These two email addresses don't match. Check both and try again.</span></div></div>
+   </div>
+   <fieldset style="border:0;margin:0;padding:0"><legend style="font-weight:700;font-size:20px;margin-bottom:4px">What is the purpose of your visit? *</legend>
+    <p class="muted" style="font-size:15px;margin-bottom:14px">Choose one. The panel shows what each option means.</p>
+    <div style="display:flex;flex-direction:column;gap:12px" id="vt">
+     <label class="opt"><input type="radio" name="vt" value="tourist" checked><span><b>e-Tourist visa</b><span>Sightseeing, visiting friends or relatives, a short yoga programme or short-term medical treatment.</span></span></label>
+     <label class="opt"><input type="radio" name="vt" value="business"><span><b>e-Business visa</b><span>Meetings, trade, exhibitions and other business activity.</span></span></label>
+     <label class="opt"><input type="radio" name="vt" value="medical"><span><b>e-Medical visa</b><span>Medical treatment in India. A companion applies for an e-Medical Attendant visa.</span></span></label>
+    </div></fieldset>
+   <fieldset id="durs" style="border:0;margin:0;padding:0"><legend style="font-weight:700;font-size:18px;margin-bottom:12px">How long should the visa be valid?</legend>
+    <div style="display:flex;flex-direction:column;gap:12px">
+     <label class="opt"><input type="radio" name="dur" value="30 days"><span><b>30 days</b><span>Multiple entries. Cannot be extended or converted.</span></span></label>
+     <label class="opt"><input type="radio" name="dur" value="1 year" checked><span><b>1 year</b><span>365 days from the date of grant. Multiple entries.</span></span></label>
+     <label class="opt"><input type="radio" name="dur" value="5 years"><span><b>5 years</b><span>From the date of grant. Multiple entries.</span></span></label>
+    </div></fieldset>
+   <div class="grey" style="display:flex;gap:14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D3F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><div><b>Coming up next: one health-screening question</b><br><span class="muted" style="font-size:15px">After this step we ask whether you have recently visited certain countries. It is a legal requirement for this application.</span></div></div>
+   <label style="display:flex;gap:12px;align-items:flex-start;line-height:1.5"><input type="checkbox" id="ack" style="width:22px;height:22px;margin-top:2px;accent-color:#1D3F8F;flex:none"><span>I have read the instructions and have my documents ready: a passport scan in PDF format and a photograph in JPEG format.</span></label>
+   <div class="err" id="formerr" role="alert"><span>Please fix the items above before you continue.</span></div>
+   <div style="display:flex;flex-wrap:wrap;gap:16px"><button type="submit" class="btn btn-p">Save and continue →</button><a class="btn btn-s" href="#resume">Save and exit</a></div>
+  </form>
+  <aside class="side" aria-live="polite">
+   <div class="card" style="padding:0">
+    <div style="padding:20px 22px;border-bottom:1px solid #D5D9E0"><div class="eyebrow">Your choice</div><h2 id="ct" style="font-size:21px;margin-top:6px"></h2></div>
+    <dl class="sp" style="padding:4px 22px 14px"><dt>Validity</dt><dd id="cv"></dd><dt>Entries</dt><dd>Multiple entry</dd><dt>Changes</dt><dd id="cc"></dd><dt>Fee</dt><dd>[Fee to be verified]</dd><dt style="border:0">You need</dt><dd style="border:0">Passport scan and photo</dd></dl>
+    <p class="note" style="padding:0 22px 18px">Validity and entry rules come from the current portal's category pop-up. Confirm against official sources before publishing.</p>
+   </div>
+   <div class="grey" style="margin-top:20px;padding:20px"><div style="display:flex;gap:8px;align-items:center;font-weight:600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B6E3B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Draft saved as you go</div>
+    <div class="note" style="margin-top:10px">Application ID</div><div style="font:600 18px ui-monospace,monospace">A1B2-C3D4-E5F6</div>
+    <p class="note" style="margin-top:8px">Proposed: once you enter your email, we also send a resume link. You would not need to write the ID down.</p></div>
+  </aside>
+ </div>
+</main>
+
+<!-- 4 DOCS -->
+<main class="wrap" data-screen="docs" hidden>
+ <div class="muted" style="font-size:14px;margin-bottom:12px">e-Tourist Visa application</div>
+ <ol class="prog" aria-label="Application progress"><li class="done"><i></i>1 · Your trip</li><li class="done"><i></i>2 · About you</li><li class="done"><i></i>3 · Passport</li><li class="done"><i></i>4 · Visa details</li><li class="cur" aria-current="step"><i></i>5 · Photo and documents</li><li><i></i>6 · Review and pay</li></ol>
+ <div style="max-width:720px;margin-bottom:36px"><div class="muted" style="font-size:14px;font-weight:600;margin-bottom:8px">Step 5 of 6</div><h1 style="font-size:36px">Photo and documents</h1><p class="lead" style="font-size:17px">Check the requirements first, then upload. We check each file as soon as you choose it, so you can fix a problem straight away.</p></div>
+ <div class="two">
+  <section style="flex:1 1 340px;max-width:440px;display:flex;flex-direction:column;gap:20px" aria-labelledby="req">
+   <h2 id="req" style="font-size:22px">Photograph requirements</h2>
+   <ul class="list" style="font-size:16px">
+    <li>✓ <span><b>Format:</b> JPEG</span></li>
+    <li>✓ <span><b>File size:</b> between 10 KB and 1 MB</span></li>
+    <li>✓ <span><b>Size in pixels:</b> at least 350 wide × 350 high</span></li>
+    <li>✓ <span><b>Content:</b> a recent, clear, front-facing photo with a white or light background</span></li>
+    <li>✓ <span><b>Do not</b> crop the photo out of your passport. Use a new photo.</span></li>
+   </ul>
+   <div class="adv" style="padding:16px 18px;font-size:15px">Your application may be rejected if the photograph is unclear or does not meet these requirements.</div>
+  </section>
+  <div style="flex:1.4 1 440px;min-width:0;display:flex;flex-direction:column;gap:32px">
+   <section style="display:flex;flex-direction:column;gap:16px" aria-labelledby="up">
+    <h2 id="up" style="font-size:22px">Upload your photograph</h2>
+    <div style="border:2px dashed #5F6877;border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:10px">
+     <label class="lbl" for="photo" style="margin:0">Choose a photo file</label>
+     <input id="photo" type="file" accept="image/*" style="font:15px 'Public Sans',sans-serif">
+     <div class="hint" style="margin:0">JPEG · 10 KB to 1 MB · at least 350 × 350 px. Your file is checked in your browser and is not uploaded anywhere.</div>
+    </div>
+    <div class="checks" aria-live="polite"><div id="chead" style="font-weight:600;font-size:15px">Checks appear here after you choose a file</div><ul id="clist"></ul>
+     <button type="button" id="demo" class="btn btn-s" style="align-self:flex-start;min-height:40px;font-size:14px">No file handy? See an example result</button></div>
+   </section>
+   <section aria-labelledby="pp"><h2 id="pp" style="font-size:22px;margin-bottom:12px">Passport details page</h2>
+    <div class="grey" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px"><div style="flex:1 1 260px;font-size:15px" class="muted">PDF scan of the page with your photo and details.<br>[File size and resolution requirements: verify]</div><button type="button" class="btn btn-s" style="min-height:44px;font-size:15px">Choose PDF</button></div></section>
+   <div style="display:flex;flex-wrap:wrap;gap:16px;padding-top:24px;border-top:1px solid #D5D9E0"><a class="btn btn-p" href="#resume">Save and continue →</a><a class="btn btn-s" href="#resume">Not ready? Save and finish later</a></div>
+   <p class="note">Your Application ID is A1B2-C3D4-E5F6. You can upload your documents later using Resume application.</p>
+   <p class="note">Steps 2 to 4 (about you, passport, visit details) are not part of this prototype.</p>
+  </div>
+ </div>
+</main>
+
+<!-- 5 RESUME -->
+<main class="wrap" data-screen="resume" hidden>
+ <h1>Resume or check your application</h1>
+ <p class="lead">Pick up where you left off, or see what has happened to an application you have already sent.</p>
+ <div class="tabs" role="tablist" aria-label="Choose a task"><button role="tab" id="t-resume" aria-selected="true" type="button" data-t="resume">Resume an application</button><button role="tab" id="t-status" aria-selected="false" type="button" data-t="status">Check visa status</button></div>
+ <div id="p-resume">
+  <div class="two" style="gap:40px">
+   <section class="card" style="flex:1 1 360px;display:flex;flex-direction:column;gap:20px"><h2 style="font-size:22px">I have my Application ID</h2>
+    <div><label class="lbl" for="aid">Application ID</label><input id="aid" class="field" placeholder="For example, A1B2-C3D4-E5F6"><div class="hint">You can paste it from your email or notes.</div></div>
+    <div class="grey" style="padding:16px;font-size:14px"><b>Security check</b><br>[Placeholder: keep the official captcha here.]</div>
+    <button type="button" class="btn btn-p" id="found1" style="align-self:flex-start">Resume application →</button></section>
+   <section class="card" style="flex:1 1 360px;display:flex;flex-direction:column;gap:20px"><div><h2 style="font-size:22px">I don't have my ID</h2><p class="muted" style="margin-top:4px">Find your application with your passport details.</p></div>
+    <div><label class="lbl" for="pn">Passport number</label><input id="pn" class="field"></div>
+    <div><label class="lbl" for="cn">Nationality or region</label><select id="cn" class="field"><option>Select your nationality</option><option>Example country</option></select></div>
+    <div><label class="lbl" for="nm">Name as in passport</label><input id="nm" class="field"></div>
+    <button type="button" class="btn btn-s" id="found2" style="align-self:flex-start">Find my application</button></section>
+  </div>
+  <section id="found" class="card" hidden style="margin-top:32px;border:2px solid #1D3F8F" aria-live="polite"><div style="display:flex;gap:10px;align-items:center;font-weight:600;font-size:20px;color:#1B6E3B">✓ We found your application</div>
+   <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:16px"><div><div class="note">Application ID</div><div style="font:600 20px ui-monospace,monospace">A1B2-C3D4-E5F6</div></div><button type="button" class="btn btn-s" style="min-height:40px;font-size:14px">Copy ID</button><button type="button" class="btn btn-s" style="min-height:40px;font-size:14px">Email it to me</button></div>
+   <p class="muted" style="margin-top:12px">Saved at step 5 of 6, Photo and documents. Continue from there, or review what you have entered.</p>
+   <a class="btn btn-p" href="#docs" style="margin-top:16px">Continue at step 5 →</a></section>
+  <div class="grey" style="display:flex;gap:14px;margin-top:32px"><div><b>Proposed change:</b> emailing a resume link when someone saves needs back-end support. Until then, the ID and the passport lookup are the recovery paths.</div></div>
+ </div>
+ <div id="p-status" hidden>
+  <section class="card" style="max-width:640px"><h2 style="font-size:22px">Where your application stands</h2>
+   <div style="margin:20px 0 6px"><label class="lbl" for="sid">Application ID</label><input id="sid" class="field" value="A1B2-C3D4-E5F6"></div>
+   <ol class="stat" style="margin-top:28px"><li class="d"><i></i>Submitted</li><li class="d"><i></i>Payment verified</li><li class="c" aria-current="step"><i></i>Under review</li><li><i></i>Decision sent by email</li></ol>
+   <p class="note" style="margin-top:16px">Status names are illustrative. Confirm the real stages with the Bureau of Immigration. If a document needs re-uploading, the status shows a clear next step.</p></section>
+ </div>
+</main>
+
+<footer class="foot"><div class="wrap">Concept redesign for a UX case study. This is not an official Government of India page.</div></footer>
+</div>
+</div>
+
+<script>
+(function(){
+ var app=document.getElementById('app');
+ var screens=[].slice.call(document.querySelectorAll('[data-screen]'));
+ var jump=[].slice.call(document.querySelectorAll('[data-go]'));
+ var names=screens.map(function(s){return s.dataset.screen});
+ var wantTab=null;
+ function show(){
+  var h=(location.hash||'#home').slice(1);
+  if(names.indexOf(h)<0)h='home';
+  screens.forEach(function(s){s.hidden=s.dataset.screen!==h});
+  jump.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.go===h?'true':'false')});
+  document.getElementById('n-home').toggleAttribute('aria-current',h==='home'||h==='evisa'||h==='trip'||h==='docs');
+  document.getElementById('n-resume').toggleAttribute('aria-current',h==='resume');
+  if(h==='resume'&&wantTab){tab(wantTab);wantTab=null}
+  window.scrollTo(0,0);
+ }
+ window.addEventListener('hashchange',show);
+ jump.forEach(function(b){b.addEventListener('click',function(){location.hash=b.dataset.go})});
+ document.querySelectorAll('[data-tab]').forEach(function(a){a.addEventListener('click',function(){wantTab=a.dataset.tab;if(location.hash==='#resume')tab(wantTab)})});
+ document.querySelectorAll('a[href="#help"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();location.hash='evisa';setTimeout(function(){var el=document.getElementById('help');if(el)el.scrollIntoView()},60)})});
+ // viewport
+ var d=document.getElementById('vdesk'),p=document.getElementById('vphone');
+ function vp(ph){app.classList.toggle('phone',ph);d.setAttribute('aria-pressed',String(!ph));p.setAttribute('aria-pressed',String(ph))}
+ d.onclick=function(){vp(false)};p.onclick=function(){vp(true)};
+ // home guide
+ var st={why:'tourism',stay:'short'};
+ function group(id,key){document.getElementById(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;st[key]=b.dataset.v;[].forEach.call(this.children,function(c){c.setAttribute('aria-pressed',String(c===b))});rec()})}
+ group('why','why');group('stay','stay');
+ function rec(){
+  var long=st.why==='long'||st.stay==='long';
+  document.getElementById('rt').textContent=long?'Regular visa, through an Indian Mission or Post':'e-Visa, applied for online';
+  document.getElementById('rr').textContent=long?'Longer stays, work and study are handled by the Indian Mission or Post nearest you. You will submit your passport and biometrics in person.':'Short visits for tourism, business or medical treatment can be applied for online, if your nationality is eligible. The Bureau of Immigration processes it.';
+  var c=document.getElementById('rc');c.textContent=long?'Continue to regular visa':'Continue with e-Visa →';c.setAttribute('href',long?'#home':'#evisa');
+ }
+ rec();
+ document.querySelector('[data-pick="long"]').addEventListener('click',function(e){st.why='long';[].forEach.call(document.getElementById('why').children,function(c){c.setAttribute('aria-pressed',String(c.dataset.v==='long'))});rec()});
+ // trip
+ var info={
+  tourist:{t:'e-Tourist visa',c:'Not extendable and not convertible'},
+  business:{t:'e-Business visa',c:'Rules to verify with the Bureau of Immigration'},
+  medical:{t:'e-Medical visa',c:'Rules to verify with the Bureau of Immigration'}};
+ function side(){
+  var v=document.querySelector('input[name=vt]:checked').value,du=document.querySelector('input[name=dur]:checked').value;
+  document.getElementById('ct').textContent=info[v].t+', '+du;
+  document.getElementById('cv').textContent=du;
+  document.getElementById('cc').textContent=info[v].c;
+  document.getElementById('durs').style.display=v==='tourist'?'':'none';
+ }
+ document.getElementById('tripform').addEventListener('change',side);side();
+ var em=document.getElementById('em'),em2=document.getElementById('em2'),eerr=document.getElementById('em2e');
+ function mm(){var bad=em2.value&&em.value&&em2.value!==em.value;eerr.classList.toggle('on',!!bad);em2.setAttribute('aria-invalid',bad?'true':'false');return !bad}
+ em2.addEventListener('input',mm);em.addEventListener('input',mm);
+ document.getElementById('tripform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=mm()&&document.getElementById('ack').checked&&em.value&&document.getElementById('nat').value;
+  document.getElementById('formerr').classList.toggle('on',!ok);
+  if(ok)location.hash='docs';
+ });
+ // photo checks
+ var X='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px">';
+ var OKI=X.replace('currentColor','#1B6E3B')+'<polyline points="20 6 9 17 4 12"/></svg>';
+ var BADI=X+'<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+ function render(name,rs){
+  document.getElementById('chead').textContent='Checks on '+name;
+  document.getElementById('clist').innerHTML=rs.map(function(r){return '<li class="'+(r[0]?'ok':'bad')+'">'+(r[0]?OKI:BADI)+'<span><b>'+(r[0]?'Passed:':'Needs fixing:')+'</b> '+r[1]+'</span></li>'}).join('');
+ }
+ document.getElementById('photo').addEventListener('change',function(){
+  var f=this.files[0];if(!f)return;
+  var kb=f.size/1024,rs=[];
+  rs.push([/jpe?g$/i.test(f.type)||/\.jpe?g$/i.test(f.name),/jpe?g/i.test(f.type)||/\.jpe?g$/i.test(f.name)?'format is JPEG':'this is not a JPEG file. Save the photo as JPEG and choose it again.']);
+  rs.push([kb>=10&&kb<=1024,kb>=10&&kb<=1024?'file size '+Math.round(kb)+' KB':'file size is '+Math.round(kb)+' KB. It must be between 10 KB and 1 MB.']);
+  var img=new Image(),u=URL.createObjectURL(f);
+  img.onload=function(){var ok=img.width>=350&&img.height>=350;rs.push([ok,ok?'size '+img.width+' × '+img.height+' px':'the photo is '+img.width+' × '+img.height+' px. The minimum is 350 × 350 px. Choose a larger photo.']);URL.revokeObjectURL(u);render(f.name,rs)};
+  img.onerror=function(){rs.push([false,'we could not read this file as an image.']);render(f.name,rs)};
+  img.src=u;
+ });
+ document.getElementById('demo').onclick=function(){render('photo-example.jpg (illustrative result)',[[true,'format is JPEG'],[true,'file size 412 KB'],[false,'the photo is 320 × 320 px. The minimum is 350 × 350 px. Choose a larger photo.']])};
+ // resume
+ function tab(t){['resume','status'].forEach(function(k){document.getElementById('t-'+k).setAttribute('aria-selected',String(k===t));document.getElementById('p-'+k).hidden=k!==t})}
+ document.querySelectorAll('[data-t]').forEach(function(b){b.onclick=function(){tab(b.dataset.t)}});
+ function found(){document.getElementById('found').hidden=false}
+ document.getElementById('found1').onclick=found;document.getElementById('found2').onclick=found;
+ show();
+})();
+</script>
+</body>
+</html>
