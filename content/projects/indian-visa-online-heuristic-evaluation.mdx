@@ -1,55 +1,203 @@
 ---
 title: "From Visa Maze to Clear Path"
-subtitle: "Reframing a complex government service through information architecture & interaction design."
-whatIf: "a government visa process felt as clear and trustworthy as a well-designed product?"
+subtitle: "The first website a foreigner meets on the way to India is Indian Visa Online. I audited it, followed a tourist through it, and redesigned where it loses people."
+whatIf: "the first thing a visitor sees of India felt as clear and welcoming as the country they are travelling to?"
+year: "2026"
 category: UX Research
 duration: 3 months
 tools:
-  - Usability evaluation
+  - UX audit
+  - Heuristic evaluation
   - Information architecture
   - Interaction design
-  - Design systems
-cover: "/images/projects/indian-visa-online-heuristic-evaluation/cover.svg"
+cover: "/images/projects/indian-visa-online-heuristic-evaluation/cover.jpg"
 order: 2
+layout: wide
 ---
 
-## Problem
+<Section title="Chapter 1 · The first welcome">
 
-[CONTENT NEEDED] Why did this site need evaluating, and what was at stake for
-users?
+<Lead>Before a foreigner sees India, they see indianvisaonline.gov.in.</Lead>
 
-## Context
+For most visitors, the first channel into India is not an airport or a hotel. It is this website. The first site foreigners meet on their way to India is Indian Visa Online, so I decided to audit it: if this is the front door of the country, how does it feel to walk through it?
 
-[CONTENT NEEDED] Scope of the evaluation, heuristics used, criteria.
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { "src": "/images/projects/indian-visa-online-heuristic-evaluation/home-audit.jpg", "alt": "The Indian Visa Online home page, with the four Apply entry points highlighted", "caption": "The home page as a visitor first sees it: four \"Apply here\" doors side by side." }
+  ]}
+/>
 
-## Research
+</Section>
 
-Evaluated usability gaps using Nielsen's 10 Usability Heuristics, identifying
-issues in navigation, feedback, consistency, and information clarity.
+<Section title="Chapter 2 · How I looked">
 
-## Insights
+<Lead>Nine layers, from the search that brings someone here to the language they can read.</Lead>
 
-[CONTENT NEEDED] Severity-ranked findings — navigation, feedback, error
-recovery, language clarity.
+To review the portal properly, I evaluated the experience layer by layer across nine touchpoints.
 
-## Process
+<Facts
+  cols={3}
+  items={[
+    { "title": "1 · Entry Points", "text": "How real people arrive: search queries (\"indian visa online\"), embassy links, agent referrals, or official QR codes." },
+    { "title": "2 · Information Architecture", "text": "Navigation labels and internal terminology vs. mental models (\"e-Visa\" vs. \"online visa\", Mission/BoI split)." },
+    { "title": "3 · Decision Support", "text": "Enabling uncertain users to determine which visa or category they need directly on-site." },
+    { "title": "4 · Application Funnel", "text": "Field requirements, white-space constraints (photo/signature specs), and memory recall demands." },
+    { "title": "5 · Status & Recovery", "text": "Locating saved applications, correcting entries, and resubmitting following rejections." },
+    { "title": "6 · Trust Moments", "text": "Gateway transitions, personal data collection transparency, and fee refund behavior clarity." },
+    { "title": "7 · Help & Content", "text": "Accessibility of FAQs, explicit fee structures, processing timelines, and support channels." },
+    { "title": "8 · Responsive & Accessibility", "text": "Mobile usability, contrast ratios, legible font sizes, and standard touch target labels." },
+    { "title": "9 · Localization", "text": "Identifying global user groups excluded by English-only interface constraints." }
+  ]}
+/>
 
-[CONTENT NEEDED] How findings were organised and prioritised.
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { "src": "/images/projects/indian-visa-online-heuristic-evaluation/framework-layers.jpg", "alt": "The nine structural audit layers", "caption": "The audit framework: nine structural layers." }
+  ]}
+/>
 
-## Iterations
+</Section>
 
-[CONTENT NEEDED] If you produced redesign proposals: what changed and why.
+<Section title="Chapter 3 · Who walks in">
 
-## Solution
+<Lead>A tourist on a two-week trip, an anxious relative, and an agent they should not trust.</Lead>
 
-Redesigned the experience by simplifying user flows and information
-hierarchy, and developed a consistent, scalable design system.
+The same door serves very different people. I grouped them into primary applicants and the people who act on their behalf.
 
-## Outcome
+<Facts
+  cols={2}
+  items={[
+    { "title": "Primary users · Applicants", "bullets": [
+      "**Tourists / Leisure:** the largest group, 1–2 week visits.",
+      "**Business Travellers:** meetings, trade, conferences.",
+      "**Medical Visitors & Attendants:** urgent treatment visas.",
+      "**OCI / PIO Cardholders:** seeking e-Arrival cards.",
+      "**Afghan Nationals:** a dedicated, specialized funnel."
+    ] },
+    { "title": "Secondary / acting users", "bullets": [
+      "**Family Members:** assisting elderly or non-tech-savvy relatives.",
+      "**Institutions:** employers, universities, and hospitals in India.",
+      "**Travel Intermediaries:** unofficial agents (advisories exist warning against these)."
+    ] }
+  ]}
+/>
 
-[CONTENT NEEDED] What happened in the end — verifiable facts only.
+</Section>
 
-## Reflection
+<Section title="Chapter 4 · Four doors, one choice">
 
-[CONTENT NEEDED] Lessons learned about evaluating government-grade
-interfaces.
+<Lead>The home page asks people to pick a door before it tells them what the doors are.</Lead>
+
+The home page offers four entry points, each handled by a different processing authority. Visitors are expected to know which one is theirs.
+
+<Facts
+  cols={2}
+  items={[
+    { "title": "Regular / Paper visa", "text": "Processed directly by physical Indian Missions or Embassies abroad. They require physical passport submission and biometrics, and are used for long-term stays, employment, or for citizens not eligible for online visas. (Different processing authorities.)" },
+    { "title": "e-Visa, Bureau of Immigration", "text": "Processed digitally by the Bureau of Immigration. A fast-track, 100% online system designed for short-term tourism, business, and medical visits for citizens of over 160 eligible countries." },
+    { "title": "Visa on Arrival", "text": "Processed digitally by the Bureau of Immigration. Available under exclusive diplomatic agreements." },
+    { "title": "Afghan Visa", "text": "A dedicated, specialized processing pathway accommodating unique documentation checks, security vetting, and criteria required for nationals applying from Afghanistan under distinct geopolitical guidelines. (Geopolitical and security exceptions.)" }
+  ]}
+/>
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { "src": "/images/projects/indian-visa-online-heuristic-evaluation/entry-points.jpg", "alt": "The four entry points and their processing authorities", "caption": "The entry points and who processes each one." }
+  ]}
+/>
+
+</Section>
+
+<Section title="Chapter 5 · Taking the tourist's trip">
+
+<Lead>I pretended to be a tourist planning two weeks in India and clicked through as far as I could.</Lead>
+
+The task: pretend you are a tourist who needs a visa for a 2-week India trip. Click through the e-Visa application as far as you can go without paying or uploading real documents, and screenshot every form step.
+
+<Facts
+  cols={2}
+  items={[
+    { "title": "Step 1 · The homepage", "text": "The homepage has multiple \"Apply here\" CTAs, and you must know the difference between Regular Visa, e-Visa and Visa on Arrival to pick." },
+    { "title": "What it costs the user", "text": "A wrong pick means the wrong funnel: wasted effort or a denied application. Unsure users may pick wrongly or leave." },
+    { "title": "Opportunity", "text": "A guided entry: \"Why are you coming? How long?\" leading to a recommended path." }
+  ]}
+/>
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { "src": "/images/projects/indian-visa-online-heuristic-evaluation/step1-home.jpg", "alt": "Step 1: the e-Visa entry point highlighted on the home page", "caption": "Step 1: the tourist has to guess which \"Apply here\" is theirs." }
+  ]}
+/>
+
+</Section>
+
+<Section title="Chapter 6 · First redesign: ask before you send">
+
+<Lead>Help people choose a route before they have to guess.</Lead>
+
+The home page is too cluttered for a visitor to know where to go. Instead of navigating through multiple funnels, the website directly asks users what they need and guides them to where to go next: a guided entry that asks why you are coming and for how long, then recommends a path.
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { "src": "/images/projects/indian-visa-online-heuristic-evaluation/home-before-after.jpg", "alt": "Before: the audited page. After: a guided entry concept", "caption": "Before: the audited page. After: the guided entry concept." }
+  ]}
+/>
+
+The CTA is clearer, while the signs, emblem, and the information explaining what the portal is and what it is for have been kept unchanged.
+
+<Spread
+  cols={2}
+  ratio="1fr 1fr"
+  fit="natural"
+  images={[
+    { "src": "/images/projects/indian-visa-online-heuristic-evaluation/home-redesign.jpg", "alt": "Redesigned home page with two questions, a suggested route and a list of routes", "caption": "The redesigned home: two questions, a suggested route, then the routes to choose yourself, with the official advisory kept visible. Eligibility rules and advisory wording are concept placeholders, to be verified against official sources." }
+  ]}
+/>
+
+</Section>
+
+<Section title="Chapter 7 · The second wall">
+
+<Lead>Even after choosing right, the "Apply" button leads to a page of rules.</Lead>
+
+Step 2 of the same trip: clicking the e-Tourist Visa CTA opens an instruction page, not the form. You have to scroll to find the actual application.
+
+<Facts
+  cols={2}
+  items={[
+    { "title": "Step 2 · e-tourist visa CTA bait", "text": "The Apply CTA opens an instruction page, not the form; you have to scroll to find the actual application." },
+    { "title": "What it costs the user", "text": "The user thinks they clicked \"apply\" but gets hit with dense rules they are not ready to read. That is friction." },
+    { "title": "Severity (guess)", "text": "Medium" },
+    { "title": "Opportunity", "text": "Unclutter the information architecture." }
+  ]}
+/>
+
+<Spread
+  cols={1}
+  fit="natural"
+  images={[
+    { "src": "/images/projects/indian-visa-online-heuristic-evaluation/step2-evisa.jpg", "alt": "The e-Visa instruction page with the CTA and e-Tourist Visa highlighted", "caption": "Step 2: the e-Tourist Visa choice opens a wall of rules instead of the form." }
+  ]}
+/>
+
+It is mandatory for the user to know the instructions before applying for a tourist visa. But users usually scan rather than read, so by default they click the blue e-Tourist Visa button. That is an expectation mismatch, and the information architecture of this screen can be better.
+
+</Section>
+
+<Section title="Chapter 8 · What comes next">
+
+<Lead>Declutter and structure the e-Visa screen the way the home page was.</Lead>
+
+The same principle that reshaped the home page applies here: show the next decision first, and keep the rules close but out of the way. The redesign of the e-Visa screen is the next step in this case study.
+
+</Section>
