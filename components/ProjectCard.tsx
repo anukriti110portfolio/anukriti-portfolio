@@ -6,15 +6,17 @@ import styles from "./ProjectCard.module.css";
 type ProjectCardProps = {
   project: ContentFile<ProjectFrontmatter>;
   index: number;
+  /** URL prefix for the card link. Defaults to the case studies route. */
+  basePath?: string;
 };
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project, index, basePath = "/work" }: ProjectCardProps) {
   const plateNumber = String(index + 1).padStart(2, "0");
   const fm = project.frontmatter;
 
   return (
     <li>
-      <Link href={`/work/${project.slug}`} className={styles.link}>
+      <Link href={`${basePath}/${project.slug}`} className={styles.link}>
         <article className={styles.strip}>
           <div className={styles.cover}>
             {fm.cover ? (

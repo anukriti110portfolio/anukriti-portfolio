@@ -11,6 +11,7 @@ import styles from "./Header.module.css";
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Case Studies" },
+  { href: "/research-exploration", label: "Research Exploration" },
   { href: "/field-notes", label: "Blogs" },
   { href: "/playground", label: "Playground" },
   { href: "/connect", label: "Connect" },

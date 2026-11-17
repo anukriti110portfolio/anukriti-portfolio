@@ -57,6 +57,18 @@ export function getProject(
   return getProjects().find((file) => file.slug === slug);
 }
 
+export function getResearchItems(): ContentFile<ProjectFrontmatter>[] {
+  return readCollection<ProjectFrontmatter>("research").sort(
+    (a, b) => (a.frontmatter.order ?? 99) - (b.frontmatter.order ?? 99)
+  );
+}
+
+export function getResearchItem(
+  slug: string
+): ContentFile<ProjectFrontmatter> | undefined {
+  return getResearchItems().find((file) => file.slug === slug);
+}
+
 export type PlaygroundFrontmatter = {
   title: string;
   category: string;
