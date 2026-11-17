@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
-import { getNotes, getPlaygroundItems, getProjects } from "@/lib/content";
+import { getNotes, getPlaygroundItems, getProjects, getResearchItems } from "@/lib/content";
 import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/work",
+    "/research-exploration",
     "/playground",
     "/field-notes",
     "/connect",
@@ -18,6 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const projectRoutes = getProjects().map((file) => ({
     url: new URL(`/work/${file.slug}`, siteUrl).toString(),
+    lastModified: new Date(),
+    changeFrequency: "yearly" as const,
+    priority: 0.7,
+  }));
+
+  const researchRoutes = getResearchItems().map((file) => ({
+    url: new URL(`/research-exploration/${file.slug}`, siteUrl).toString(),
     lastModified: new Date(),
     changeFrequency: "yearly" as const,
     priority: 0.7,
@@ -37,5 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...projectRoutes, ...playgroundRoutes, ...noteRoutes];
+  return [...staticRoutes, ...projectRoutes, ...researchRoutes, ...playgroundRoutes, ...noteRoutes];
 }
