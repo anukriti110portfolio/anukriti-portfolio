@@ -31,11 +31,6 @@ export default function ProjectCard({ project, index, basePath = "/work" }: Proj
                 PLATE {plateNumber}
               </span>
             )}
-            {fm.category ? (
-              <span className={styles.categoryTab} aria-hidden="true">
-                {fm.category}
-              </span>
-            ) : null}
           </div>
 
           <div className={styles.content}>
