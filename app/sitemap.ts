@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const researchRoutes = getResearchItems().map((file) => ({
-    url: new URL(`/research-exploration/${file.slug}`, siteUrl).toString(),
+    url: new URL(`/work/${file.slug}`, siteUrl).toString(),
     lastModified: new Date(),
     changeFrequency: "yearly" as const,
     priority: 0.7,

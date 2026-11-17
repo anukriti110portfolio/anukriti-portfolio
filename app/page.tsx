@@ -6,7 +6,12 @@ import ProjectCard from "@/components/ProjectCard";
 import Tag from "@/components/Tag";
 import ContactCTA from "@/components/ContactCTA";
 import PlaygroundCard from "@/components/PlaygroundCard";
-import { getNotes, getPlaygroundItems, getProjects } from "@/lib/content";
+import {
+  getNotes,
+  getPlaygroundItems,
+  getProjects,
+  getResearchItems,
+} from "@/lib/content";
 import styles from "./page.module.css";
 
 const PLAYGROUND_CATEGORIES = ["3D", "Physical Design"];
@@ -15,6 +20,7 @@ const BLOG_TOPICS = ["3D printing", "Product teardown", "AI agents"];
 
 export default function Home() {
   const projects = getProjects();
+  const researchItems = getResearchItems();
   const latestNote = getNotes()[0];
   const playgroundTeasers = getPlaygroundItems()
     .slice(0, 2)
@@ -51,11 +57,40 @@ export default function Home() {
       </Reveal>
 
       <Reveal>
+        <section aria-labelledby="research-exploration" className={styles.section}>
+          <SectionHeader
+            id="research-exploration"
+            kicker="02 · Research"
+            title="Research Exploration"
+          />
+          <div className={styles.sectionBody}>
+            <ProjectGrid>
+              {researchItems.map((item, index) => (
+                <ProjectCard
+                  key={item.slug}
+                  project={item}
+                  index={index}
+                  basePath="/work"
+                />
+              ))}
+            </ProjectGrid>
+            <p className={styles.sectionNote}>
+              Exploratory studies that look for the real problem behind a
+              simple brief.
+            </p>
+            <a href="/research-exploration" className="text-link">
+              All research
+            </a>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
         <div className={styles.spread}>
         <section aria-labelledby="playground-preview">
           <SectionHeader
             id="playground-preview"
-            kicker="02 · Experiments"
+            kicker="03 · Experiments"
             title="Playground"
           />
           <p>
@@ -83,7 +118,7 @@ export default function Home() {
         <section aria-labelledby="field-notes-preview">
           <SectionHeader
             id="field-notes-preview"
-            kicker="03 · Writing"
+            kicker="04 · Writing"
             title="Blog"
           />
           <p>
