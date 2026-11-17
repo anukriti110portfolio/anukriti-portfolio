@@ -33,7 +33,7 @@ export default function ResearchExplorationPage() {
             key={item.slug}
             project={item}
             index={index}
-            basePath="/research-exploration"
+            basePath="/work"
           />
         ))}
       </ProjectGrid>

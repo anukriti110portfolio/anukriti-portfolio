@@ -6,14 +6,22 @@ import MdxContent from "@/components/MdxContent";
 import MetaList from "@/components/MetaList";
 import Tag from "@/components/Tag";
 import Button from "@/components/Button";
-import { getProject, getProjectNeighbors, getProjects } from "@/lib/content";
+import {
+  getProject,
+  getProjectNeighbors,
+  getProjects,
+  getResearchItem,
+  getResearchItems,
+} from "@/lib/content";
 import { buildPageMetadata } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getProjects().map((file) => ({ slug: file.slug }));
+  return [...getProjects(), ...getResearchItems()].map((file) => ({
+    slug: file.slug,
+  }));
 }
 
 type CaseStudyPageProps = {
@@ -24,7 +32,7 @@ export async function generateMetadata({
   params,
 }: CaseStudyPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = getProject(slug) ?? getResearchItem(slug);
   if (!project) return {};
 
   const { title, subtitle } = project.frontmatter;
@@ -37,11 +45,23 @@ export async function generateMetadata({
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const caseStudy = getProject(slug);
+  const research = caseStudy ? undefined : getResearchItem(slug);
+  const project = caseStudy ?? research;
   if (!project) notFound();
 
+  const isResearch = Boolean(research);
   const fm = project.frontmatter;
-  const { prev, next } = getProjectNeighbors(slug);
+  let prev;
+  let next;
+  if (isResearch) {
+    const items = getResearchItems();
+    const index = items.findIndex((file) => file.slug === slug);
+    prev = items[index - 1];
+    next = items[index + 1];
+  } else {
+    ({ prev, next } = getProjectNeighbors(slug));
+  }
 
   const metaEntries = (
     [
@@ -54,12 +74,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   return (
     <main className="wrap page">
-      <Link href="/work" className="text-link">
-        All work
+      <Link
+        href={isResearch ? "/research-exploration" : "/work"}
+        className="text-link"
+      >
+        {isResearch ? "All research" : "All work"}
       </Link>
 
       <header className={styles.header}>
-        <p className={styles.kicker}>{fm.category ?? "Case study"}</p>
+        <p className={styles.kicker}>{fm.category ?? (isResearch ? "Research exploration" : "Case study")}</p>
         <h1 className={styles.title}>{fm.title}</h1>
         {fm.subtitle ? <p className={styles.subtitle}>{fm.subtitle}</p> : null}
       </header>
@@ -114,6 +137,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           ) : null}
         </div>
       )}
+
+      {isResearch && fm.prototypeUrl ? (
+        <iframe
+          src={fm.prototypeUrl}
+          title={`${fm.title} — full case study`}
+          className={styles.embed}
+          loading="lazy"
+        />
+      ) : null}
 
       <MdxContent source={project.body} wide={fm.layout === "wide"} />
 
